@@ -30,10 +30,10 @@ export function scoreLive(vm) {
     + `<div class="balance">${barHTML({ c: vm.left, v: vm.shareL }, { c: vm.right, v: vm.shareR })}`
     + `<p class="barcap"><span>% dos votos válidos apurados · linha = 50%</span><span>${lead && diff != null ? `Diferença: <b>${n(diff)}</b> votos a favor de <b>${esc(lead.nome)}</b>` : diff === 0 ? 'Empate' : NA}</span></p></div>`
     + '<dl class="kpis">'
-    + `<div class="kpi"><dt>Seções totalizadas</dt><dd>${p(vm.pct)}</dd><div class="track" role="img" aria-label="${p(vm.pct)} das seções"><i style="width:${finito(vm.pct) ? vm.pct : 0}%"></i></div><p class="cap">${secCap}</p></div>`
-    + `<div class="kpi"><dt>Votos válidos apurados</dt><dd>${mi(vm.valid)}</dd><p class="cap">${n(vm.valid)} votos</p></div>`
-    + `<div class="kpi"><dt>Eleitorado totalizado</dt><dd>${p(vm.pctEleitorado, 1)}</dd><p class="cap">eleitores das seções já totalizadas</p></div>`
-    + `<div class="kpi"><dt>Arquivo do TSE</dt><dd>${esc(vm.hg ?? NA)}</dd><p class="cap">${esc(coletado)}</p></div></dl>`;
+    + `<div class="kpi"><dt>Seções totalizadas</dt><dd>${p(vm.pct)}</dd><dd class="trackw"><div class="track" role="img" aria-label="${p(vm.pct)} das seções"><i style="width:${finito(vm.pct) ? vm.pct : 0}%"></i></div></dd><dd class="cap">${secCap}</dd></div>`
+    + `<div class="kpi"><dt>Votos válidos apurados</dt><dd>${mi(vm.valid)}</dd><dd class="cap">${n(vm.valid)} votos</dd></div>`
+    + `<div class="kpi"><dt>Eleitorado totalizado</dt><dd>${p(vm.pctEleitorado, 1)}</dd><dd class="cap">eleitores das seções já totalizadas</dd></div>`
+    + `<div class="kpi"><dt>Arquivo do TSE</dt><dd>${esc(vm.hg ?? NA)}</dd><dd class="cap">${esc(coletado)}</dd></div></dl>`;
 }
 
 /** Placar do 1º turno (dado real; três partes porque havia outros candidatos). */
@@ -46,17 +46,17 @@ export function score1T(r, kpis = '') {
 
 export function kpis1TPresidente(r) {
   const brancosPct = (r.brancos / (r.valid + r.brancos + r.nulos)) * 100;
-  return `<dl class="kpis"><div class="kpi"><dt>Seções totalizadas</dt><dd>100,00%</dd><p class="cap">${n(r.ts)} seções</p></div>`
-    + `<div class="kpi"><dt>Comparecimento</dt><dd>${esc(r.comp)}%</dd><p class="cap">de ${n(r.te)} eleitores</p></div>`
-    + `<div class="kpi"><dt>Votos brancos</dt><dd>${n(r.brancos)}</dd><p class="cap">${p(brancosPct)} dos votos</p></div>`
-    + `<div class="kpi"><dt>Votos nulos</dt><dd>${n(r.nulos)}</dd><p class="cap">brancos e nulos não entram nos válidos</p></div></dl>`;
+  return `<dl class="kpis"><div class="kpi"><dt>Seções totalizadas</dt><dd>100,00%</dd><dd class="cap">${n(r.ts)} seções</dd></div>`
+    + `<div class="kpi"><dt>Comparecimento</dt><dd>${esc(r.comp)}%</dd><dd class="cap">de ${n(r.te)} eleitores</dd></div>`
+    + `<div class="kpi"><dt>Votos brancos</dt><dd>${n(r.brancos)}</dd><dd class="cap">${p(brancosPct)} dos votos</dd></div>`
+    + `<div class="kpi"><dt>Votos nulos</dt><dd>${n(r.nulos)}</dd><dd class="cap">brancos e nulos não entram nos válidos</dd></div></dl>`;
 }
 
 export function kpis1TGov(r) {
-  return `<dl class="kpis"><div class="kpi"><dt>Votos válidos</dt><dd>${n(r.valid)}</dd><p class="cap">no 1º turno</p></div>`
-    + `<div class="kpi"><dt>Eleitorado</dt><dd>${n(r.te)}</dd><p class="cap">eleitores aptos</p></div>`
-    + `<div class="kpi"><dt>Seções</dt><dd>${n(r.ts)}</dd><p class="cap">totalizadas: 100%</p></div>`
-    + `<div class="kpi"><dt>Outros candidatos</dt><dd>${p(r.other)}</dd><p class="cap">somados, no 1º turno</p></div></dl>`;
+  return `<dl class="kpis"><div class="kpi"><dt>Votos válidos</dt><dd>${n(r.valid)}</dd><dd class="cap">no 1º turno</dd></div>`
+    + `<div class="kpi"><dt>Eleitorado</dt><dd>${n(r.te)}</dd><dd class="cap">eleitores aptos</dd></div>`
+    + `<div class="kpi"><dt>Seções</dt><dd>${n(r.ts)}</dd><dd class="cap">totalizadas: 100%</dd></div>`
+    + `<div class="kpi"><dt>Outros candidatos</dt><dd>${p(r.other)}</dd><dd class="cap">somados, no 1º turno</dd></div></dl>`;
 }
 
 export function conflevel(c) {
@@ -194,8 +194,9 @@ export function erroMedio(race) {
 
 export function precisaoHTML(vm) {
   const e = vm?.erro;
-  if (!e) return '';
-  return `<p class="precisao">Neste ponto da apuração, a projeção erra em média ±${num(e.proj, 1)} ponto; a parcial, ±${num(e.parcial, 1)}.</p>`;
+  const nota = vm?.semCorrecao ? '<p class="precisao nota">Projeção sem a correção das urnas tardias</p>' : '';
+  if (!e) return nota;
+  return `<p class="precisao">Neste ponto da apuração, a projeção errou em média ±${num(e.proj, 1)} ponto nos testes; a parcial, ±${num(e.parcial, 1)}. <a href="/metodologia/#faixa-de-erro" title="Os testes são as eleições de 2022 e o 1º turno de 2026">O que são os testes?</a></p>${nota}`;
 }
 
 const ESTADO_PROJ = { def: 'Vitória matematicamente definida', proj: 'Tendência de vitória', indef: 'Disputa indefinida' };
@@ -286,8 +287,8 @@ export function situacao(vm) {
 export function raceRow(vm) {
   if (vm.vazio || vm.t1) {
     const r = vm.t1;
-    return `<li><div class="nm"><a href="${esc(vm.href)}">${esc(vm.nome)}</a></div><div class="cols"><div class="col"><h4>Apurado agora</h4><p class="ln muted">A apuração começa às 17h.</p></div>`
-      + `<div class="col"><h4>No 1º turno (resultado oficial)</h4>${[[r.left, r.shareL, r.L], [r.right, r.shareR, r.R]].map((x) => linhaCand(x[0], x[1], n(x[2]))).join('')}</div></div>`
+    return `<li><div class="nm"><a href="${esc(vm.href)}">${esc(vm.nome)}</a></div><div class="cols"><div class="col"><h3>Apurado agora</h3><p class="ln muted">A apuração começa às 17h.</p></div>`
+      + `<div class="col"><h3>No 1º turno (resultado oficial)</h3>${[[r.left, r.shareL, r.L], [r.right, r.shareR, r.R]].map((x) => linhaCand(x[0], x[1], n(x[2]))).join('')}</div></div>`
       + `<div class="sit">${chip('Aguardando as 17h')}</div></li>`;
   }
   const f = vm.fc;
@@ -296,6 +297,6 @@ export function raceRow(vm) {
     ? [[vm.left, f.L, f.lo, f.hi], [vm.right, f.R, f.hi == null ? null : 100 - f.hi, f.lo == null ? null : 100 - f.lo]].map((x) => linhaCand(x[0], x[1], `${num(x[2], 1)} a ${p(x[3], 1)}`, 1)).join('')
     : '<p class="ln muted">Critérios mínimos ainda não atendidos.</p>';
   return `<li><div class="nm"><a href="${esc(vm.href)}">${esc(vm.nome)}</a><span class="muted" style="font-weight:400;font-size:var(--fs-b)">${p(vm.pct, 1)} das seções</span></div>`
-    + `<div class="cols"><div class="col"><h4>Apurado agora: % e votos válidos</h4>${ap}</div><div class="col"><h4>Projeção do resultado final${f.avail ? ' · faixa de erro' : ''}</h4>${pj}</div></div>`
+    + `<div class="cols"><div class="col"><h3>Apurado agora: % e votos válidos</h3>${ap}</div><div class="col"><h3>Projeção do resultado final${f.avail ? ' · faixa de erro' : ''}</h3>${pj}</div></div>`
     + `<div class="sit">${situacao(vm)}</div></li>`;
 }

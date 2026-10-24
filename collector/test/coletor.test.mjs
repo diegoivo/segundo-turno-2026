@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { gzipSync, gunzipSync } from 'node:zlib';
 import { test } from 'node:test';
-import { GOV_UFS, UFS } from '../src/config.mjs';
+import { CALIBRACAO_SHA256, GOV_UFS, UFS } from '../src/config.mjs';
 import { canonicalize, sha256Hex } from '../src/canonical.mjs';
 import { criarForecaster } from '../src/forecast-adapter.mjs';
 import { verificarCadeia } from '../../tools/verificar-cadeia.mjs';
@@ -128,7 +128,11 @@ test('forecast do modelo entra no snapshot, na serie e no latest (faixa, confian
   assert.equal(typeof entradas[0].agora, 'number');
   assert.equal(entradas[0].stale.sp, false);
   const snap = lerObj(amb.bucket, historyKeys(amb.bucket, '6258')[0]);
-  assert.deepEqual(snap.modelo, { nome: 'stub', versao: 'teste-1', calibracao: 'c1', sha_codigo: 'abc' });
+  assert.equal(entradas[0].cfg.metodoPresidente, 'com_correcao');
+  assert.deepEqual(snap.modelo, {
+    nome: 'stub', versao: 'teste-1', calibracao: 'c1', calibracao_sha256: CALIBRACAO_SHA256, sha_codigo: 'abc',
+    metodo: 'x', metodo_presidente: 'com_correcao',
+  });
   assert.equal(snap.forecast.projecao[13], 51.5);
   assert.equal(snap.analise.definido_matematicamente.n, '13');
   assert.deepEqual(lerObj(amb.bucket, 'live/series.json').presidente[0].f, { p: { 13: 51.5, 22: 48.5 }, m: 2.5, c: 'media' });
@@ -381,14 +385,15 @@ test('ambiente do bucket diverge do Worker: aborta sem escrever', async () => {
   await assert.rejects(rodar({ env: { ENV: 'staging' }, tse: prod.tse }), /binding R2/);
 });
 
-test('lock ocupado: cadeia nao avanca e o resumo registra', async () => {
+test('lock ocupado: cadeia nao avanca e o resumo registra (locks sao por cadeia)', async () => {
   const amb = novoAmbiente();
   apurar(amb, 10);
-  await amb.bucket.put('locks/coletor.lock', JSON.stringify({ dono: 'outro', expira_em: Date.parse('2099-01-01') }));
+  await amb.bucket.put('locks/6258.lock', JSON.stringify({ dono: 'outro', expira_em: Date.parse('2099-01-01') }));
   const r = await rodar(amb);
-  assert.equal(r.commits.length, 0);
-  assert.ok(r.pulados.length >= 1);
-  assert.equal(amb.bucket.texto('live/manifest.json'), null);
+  assert.deepEqual(r.commits.map((c) => c.eleicao), ['6260'], 'a outra cadeia nao e bloqueada');
+  assert.deepEqual(r.pulados, ['6258: lock ocupado']);
+  assert.equal(amb.bucket.texto('live/manifest-6258.json'), null);
+  assert.equal(lerObj(amb.bucket, 'live/manifest.json').cadeias['6260'].seq, 0);
 });
 
 test('commit falha: erro registrado no resumo e lock liberado', async () => {
@@ -399,7 +404,8 @@ test('commit falha: erro registrado no resumo e lock liberado', async () => {
   const r = await rodar(amb);
   assert.ok(r.erros.some((e) => e.includes('r2 fora')));
   assert.equal(r.commits.filter((c) => c.eleicao === '6260').length, 1);
-  assert.equal(amb.bucket.texto('locks/coletor.lock'), null);
+  assert.equal(amb.bucket.texto('locks/6258.lock'), null);
+  assert.equal(amb.bucket.texto('locks/6260.lock'), null);
 });
 
 test('reaproveita raw identico entre fontes (dedupe) e usa data de Brasilia na pasta', async () => {
@@ -413,4 +419,18 @@ test('reaproveita raw identico entre fontes (dedupe) e usa data de Brasilia na p
   amb.tse.definir(urlTse('6258', 'br', 1), base);
   await rodar(amb);
   assert.match(historyKeys(amb.bucket, '6258')[0], /history\/6258\/2026-10-25\//);
+});
+
+test('MODELO_METODO_PRESIDENTE: padrao com_correcao, sem_correcao repassado ao modelo, valor invalido aborta', async () => {
+  const vistos = [];
+  const forecaster = criarForecaster({ VERSAO: 'x', forecast: (e) => { vistos.push(e.cfg?.metodoPresidente); return { forecast: null, criterios_nao_atendidos: ['a'] }; } });
+  const a = novoAmbiente('staging', { MODELO_METODO_PRESIDENTE: 'sem_correcao' });
+  apurar(a, 30);
+  await rodar(a, { forecaster });
+  assert.deepEqual(vistos, ['sem_correcao', undefined, undefined, undefined, undefined, undefined, undefined]);
+  const snap = lerObj(a.bucket, historyKeys(a.bucket, '6258')[0]);
+  assert.equal(snap.modelo.metodo, 'presidente_sem_correcao');
+  assert.equal(snap.modelo.metodo_presidente, 'sem_correcao');
+  const b = novoAmbiente('staging', { MODELO_METODO_PRESIDENTE: 'talvez' });
+  await assert.rejects(rodar(b), /MODELO_METODO_PRESIDENTE invalido/);
 });

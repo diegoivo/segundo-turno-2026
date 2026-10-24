@@ -93,6 +93,7 @@ export function corridaVM({ tipo, uf = null, race, left, right, extra = null, se
       seq: race.seq,
     },
     erro: erroMedio(race),
+    semCorrecao: (race?.forecast?.metodo ?? race?.metodo) === 'presidente_sem_correcao',
     def,
     winner,
     verdict,

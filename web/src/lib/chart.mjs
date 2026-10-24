@@ -54,7 +54,7 @@ export function histSVG(cfg, W0 = 640, H0 = 330) {
     g += `<line x1="${L}" x2="${L + pw}" y1="${f1(Y(i))}" y2="${f1(Y(i))}" stroke="var(--grid)"${i === 50 ? '' : ' stroke-dasharray="3 3"'}/>`
       + `<text x="${L - 6}" y="${f1(Y(i) + 4)}" text-anchor="end">${i}%</text>`;
   }
-  const step = small && tEnd > 150 ? 60 : 30;
+  const step = [30, 60, 120, 180].find((st) => (st / tEnd) * pw >= 58) ?? 180;
   for (let i = 0; i <= tEnd; i += step) {
     let lbl = hhmm(i);
     if (lbl.slice(3) === '00') lbl = `${lbl.slice(0, 2)}h`;

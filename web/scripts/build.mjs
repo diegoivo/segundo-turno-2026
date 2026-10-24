@@ -48,6 +48,7 @@ const js = await build({
 const css = await build({ ...comum, entryPoints: { app: `${RAIZ}src/css/app.css` } });
 const saida = (r, ext) => Object.keys(r.metafile.outputs).find((k) => k.endsWith(ext)).replace(/^.*?dist\//, '').replace(/^.*?assets\//, 'assets/');
 const assets = { js: `/${saida(js, '.js')}`, css: `/${saida(css, '.css')}` };
+assets.cssTexto = readFileSync(`${DIST}${assets.css}`, 'utf8'); // CSS inline no <head>: não bloqueia a renderização
 
 // 3. páginas pré-renderizadas
 const base = { assets, site: SITE, dadosOrigem, verificador: VERIFICADOR, evidencia: EVIDENCIA };
@@ -68,7 +69,7 @@ escrever('auditoria/index.html', paginaAuditoria(base));
 escrever('404.html', pagina404(base));
 
 // 4. estáticos, OG, robots, sitemap, cabeçalhos
-for (const f of ['favicon.svg', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'manifest.webmanifest']) cpSync(`${RAIZ}src/assets/${f}`, `${DIST}/${f}`);
+for (const f of ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'manifest.webmanifest']) cpSync(`${RAIZ}src/assets/${f}`, `${DIST}/${f}`);
 escrever('og.png', renderOg());
 escrever('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 const urls = ['/', ...GOV_UFS.map((u) => `/governador/${u}/`), '/metodologia/', '/auditoria/'];

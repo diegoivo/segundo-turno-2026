@@ -40,16 +40,32 @@ export function tabela(pts, bordas = BORDAS) {
 // Justificativa: a unica medida fora da amostra da transferencia entre eleicoes (curva 1T 2022 -> 1T 2026) mostra vies
 // residual de ate ~0,3 p.p.; somamos esse vies ao maior erro para admitir que a transferencia 2T 2022 -> 2T 2026 erre
 // igual em qualquer sentido. Sem o holdout (conjunto vazio), fica so o maximo.
-export function faixaPosCorrecao({ conjuntos, holdout, bordas = BORDAS }) {
+// v3.1 (revisao estatistica independente, docs/REVISAO-ESTATISTICA-V3.md §2): alem disso, a meia-largura nunca fica
+// abaixo de `fracaoCurva` x max|curva de deriva| dentro da faixa, para tolerar que a deriva do 2T 2026 fique entre
+// (1 - fracaoCurva) e (1 + fracaoCurva) da de 2022 (so ha UM par de transferencia observado, e de outro tipo de turno).
+export const FRACAO_CURVA = 0.75;
+export function faixaPosCorrecao({ conjuntos, holdout, curva = null, fracaoCurva = FRACAO_CURVA, bordas = BORDAS }) {
   const tabs = conjuntos.map((pts) => tabela(pts, bordas));
   const th = holdout ? tabela(holdout, bordas) : null;
   return bordas.slice(0, -1).map((_, i) => {
     const maximos = tabs.map((t) => t[i].max).filter((x) => x != null);
     const maior = maximos.length ? Math.max(...maximos) : null;
     const vies = th?.[i]?.vies == null ? 0 : Math.abs(th[i].vies);
-    return { faixa: rotulo(i, bordas), ate: bordas[i + 1], n: tabs.reduce((s, t) => s + t[i].n, 0), max: r(maior), vies_holdout: r(vies), meia: maior == null ? null : r(maior + vies) };
+    const naFaixa = (curva ?? []).filter((p) => p.x >= bordas[i] && p.x < bordas[i + 1]).map((p) => Math.abs(p.y));
+    const pisoCurva = naFaixa.length ? fracaoCurva * Math.max(...naFaixa) : 0;
+    const regra = maior == null ? null : maior + vies;
+    return { faixa: rotulo(i, bordas), ate: bordas[i + 1], n: tabs.reduce((s, t) => s + t[i].n, 0), max: r(maior), vies_holdout: r(vies), regra_v3: r(regra), piso_curva: r(pisoCurva), meia: regra == null && !naFaixa.length ? null : r(Math.max(regra ?? 0, pisoCurva)) };
   });
 }
+
+// Erro medio exibido = max(MAE observado, meia-largura/2): mantem a razao faixa/MAE ~ 2 (revisao §5).
+export function maeExibido(maeBins, faixaBins) {
+  return maeBins.map((b, i) => ({ ...b, mae_observado: b.mae, mae: b.mae == null ? null : r(Math.max(b.mae, (faixaBins[i]?.meia ?? 0) / 2)) }));
+}
+
+// Serie do erro da PARCIAL bruta (sem modelo), para o MAE comparativo "parcial ±Y".
+export const serieBruto = (corrida, pctMin = 10) =>
+  corrida.serie.filter((s) => s.bruto != null && s.pctEl >= pctMin).map((s) => ({ p: s.pctEl, e: s.bruto }));
 
 export function monotona(bins) {
   const out = bins.map((b) => ({ ...b }));

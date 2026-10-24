@@ -11,6 +11,7 @@ function inline(src) {
   return s.replace(/\u0000(\d+)\u0000/g, (m, i) => `<code>${cods[+i]}</code>`);
 }
 
+const slug = (t) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 const celulas = (linha) => linha.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim());
 const ehSeparador = (l) => /^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$/.test(l);
 
@@ -22,7 +23,7 @@ export function mdParaHtml(md) {
     const l = linhas[i];
     if (!l.trim()) { i += 1; continue; }
     const h = /^(#{1,4})\s+(.*)$/.exec(l);
-    if (h) { out.push(`<h${h[1].length}>${inline(h[2])}</h${h[1].length}>`); i += 1; continue; }
+    if (h) { out.push(`<h${h[1].length} id="${slug(h[2])}">${inline(h[2])}</h${h[1].length}>`); i += 1; continue; }
     if (l.includes('|') && i + 1 < linhas.length && ehSeparador(linhas[i + 1])) {
       const cab = celulas(l);
       i += 2;

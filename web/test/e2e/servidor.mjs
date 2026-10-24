@@ -5,7 +5,7 @@ import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { montarEstado, montarEstadoAtrasado } from '../fixtures/gerar.mjs';
 
-const DIST = fileURLToPath(new URL('../../dist/', import.meta.url));
+const DIST = process.env.DIST_DIR ? `${process.env.DIST_DIR.replace(/\/+$/, '')}/` : fileURLToPath(new URL('../../dist/', import.meta.url));
 const TIPOS = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webmanifest': 'application/manifest+json', '.txt': 'text/plain', '.xml': 'application/xml' };
 
 export function iniciarServidor({ porta = 0 } = {}) {

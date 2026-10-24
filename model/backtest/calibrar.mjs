@@ -12,7 +12,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BORDAS, r, media, binDe, rotulo, serie, curvaDeriva, corrigir, tabela, faixaPosCorrecao, monotona, maePorFaixa, cobertura, quantil } from './analise.mjs';
+import { BORDAS, r, media, binDe, rotulo, serie, serieBruto, curvaDeriva, corrigir, tabela, faixaPosCorrecao, monotona, maePorFaixa, maeExibido, cobertura, quantil, FRACAO_CURVA } from './analise.mjs';
 
 const [entrada, saida, flag] = process.argv.slice(2);
 const dados = JSON.parse(readFileSync(entrada, 'utf8'));
@@ -75,17 +75,27 @@ const tabHoldout = HA ? {
 
 // faixas pos-correcao (producao: curva do 2T 2022 aplicada ao 2T 2026)
 const faixas = {
-  presidente: monotona(faixaPosCorrecao({ conjuntos: [corrigir(A2t, curvas.A_2t2022), corrigir(A1t, curvas.A_1t2022), ...(HAc ? [HAc] : [])], holdout: HAc })),
+  // v3.1: regra v3 (max |erro corrigido| + |vies de transferencia|) com piso de 0,75 x |curva 2T 2022| na faixa
+  presidente: monotona(faixaPosCorrecao({ conjuntos: [corrigir(A2t, curvas.A_2t2022), corrigir(A1t, curvas.A_1t2022), ...(HAc ? [HAc] : [])], holdout: HAc, curva: curvas.A_2t2022 })),
   presidente_sem_correcao: monotona(mesclarMax(faixaPooled([C.presidente_2t], V, 'max'), faixaPooled([C.presidente_1t], 'M0_1T', 'max'))),
   presidente_mun: B2t ? monotona(faixaPosCorrecao({ conjuntos: [corrigir(B2t, curvas.B_2t2022), ...(HBc ? [HBc] : [])], holdout: HBc })) : null,
   governador: monotona(faixaPooled(gov, V, 'q90')),
   governador_zonas: monotona(mesclarMax(faixaPooled(porTipo('governador_zonas'), V, 'max'), faixaPooled(porTipo('governador_zonas_1t'), 'M0_1T', 'max'))),
   governador_uf: monotona(faixaPooled(porTipo('governador_uf'), 'M0_1T', 'max')),
 };
+// MAE exibido = max(MAE observado, meia/2) (revisao v3 §5). MAE da parcial bruta por faixa, para a UI comparar.
 const mae = {
-  presidente: HAc ? maePorFaixa(HAc) : maePorFaixa(corrigir(A2t, curvas.A_2t2022)),
-  presidente_mun: HBc ? maePorFaixa(HBc) : B2t ? maePorFaixa(corrigir(B2t, curvas.B_2t2022)) : null,
-  governador: maePooled(gov, V), governador_zonas: maePooled(porTipo('governador_zonas'), V), governador_uf: maePooled(porTipo('governador_uf'), 'M0_1T'),
+  presidente: maeExibido(HAc ? maePorFaixa(HAc) : maePorFaixa(corrigir(A2t, curvas.A_2t2022)), faixas.presidente),
+  presidente_sem_correcao: maeExibido(maePorFaixa([...A2t, ...A1t, ...(HA ?? [])]), faixas.presidente_sem_correcao),
+  presidente_mun: HBc ? maeExibido(maePorFaixa(HBc), faixas.presidente_mun) : B2t ? maeExibido(maePorFaixa(corrigir(B2t, curvas.B_2t2022)), faixas.presidente_mun) : null,
+  governador: maeExibido(maePooled(gov, V), faixas.governador), governador_zonas: maeExibido(maePooled(porTipo('governador_zonas'), V), faixas.governador_zonas),
+  governador_uf: maeExibido(maePooled(porTipo('governador_uf'), 'M0_1T'), faixas.governador_uf),
+};
+const brutoPres = [serieBruto(C.presidente_2t), serieBruto(C.presidente_1t), ...(C.holdout_1t2026_uf ? [serieBruto(C.holdout_1t2026_uf)] : [])].flat();
+const maeParcial = {
+  presidente: maePorFaixa(brutoPres), presidente_sem_correcao: maePorFaixa(brutoPres), presidente_mun: maePorFaixa(brutoPres),
+  governador: maePorFaixa(gov.flatMap((c) => serieBruto(c))), governador_zonas: maePorFaixa(porTipo('governador_zonas').flatMap((c) => serieBruto(c))),
+  governador_uf: maePorFaixa(porTipo('governador_uf').flatMap((c) => serieBruto(c))),
 };
 // faixas so com 2022 (sem o holdout) para medir cobertura fora da amostra no holdout
 const faixaPres2022 = monotona(faixaPosCorrecao({ conjuntos: [corrigir(A2t, curvas.A_2t2022), corrigir(A1t, curvas.A_1t2022)], holdout: null }));
@@ -101,7 +111,7 @@ const relatorio = {
     cobertura_faixa_so2022: { A_mais_C: cobertura(HAc, faixaPres2022, holdoutFinal), B_mais_C: HBc ? cobertura(HBc, faixaPresMun2022, holdoutFinal) : null },
   },
   em_amostra_2022: { A_2t_corrigido: tabela(corrigir(A2t, curvas.A_2t2022)), A_1t_corrigido: tabela(corrigir(A1t, curvas.A_1t2022)), B_2t: B2t ? tabela(B2t) : null, B_2t_corrigido: B2t ? tabela(corrigir(B2t, curvas.B_2t2022)) : null, A_2t: tabela(A2t), A_1t: tabela(A1t) },
-  faixas, mae,
+  faixas, mae, mae_parcial: maeParcial, fracao_curva: FRACAO_CURVA,
   cobertura: {
     governador: coberturaCorridas(gov, V, faixas.governador), governador_zonas: coberturaCorridas(porTipo('governador_zonas'), V, faixas.governador_zonas),
     governador_uf: coberturaCorridas(porTipo('governador_uf'), 'M0_1T', faixas.governador_uf), governador_1t_M0: coberturaCorridas(porTipo('governador_1t'), 'M0_1T', faixas.governador),
@@ -117,10 +127,14 @@ if (flag === '--escrever-calibracao') {
   const limparMae = (bins) => bins.map((b) => ({ ate: b.ate, mae: r(b.mae) }));
   const texto = [
     '// GERADO por model/backtest/calibrar.mjs a partir do replay dos boletins de urna de 2022 e do holdout 1T 2026. Nao editar a mao.',
-    `// Variante: ${V} (estratos) + correcao de deriva (presidente). Faixas = meia-largura (p.p.) por % do eleitorado apurado (< ate).`,
-    `// mae = erro medio esperado (p.p.) por faixa. Detalhes: docs/BACKTEST.md e model/backtest/relatorio.json (${relatorio.gerado_em}).`,
+    '// CONGELADO para a apuracao de 25/10/2026 (revisao estatistica independente, docs/REVISAO-ESTATISTICA-V3.md): nao reajustar',
+    '// durante a apuracao; o hash deste arquivo esta registrado em docs/METODOLOGIA.md.',
+    `// Variante: ${V} (estratos) + correcao de deriva (presidente). Faixas = meia-largura (p.p.) por % do eleitorado apurado (< ate);`,
+    `// presidente: max(regra v3, ${FRACAO_CURVA} x |curva 2T 2022|). mae = erro medio esperado exibido (max(MAE observado, meia/2));`,
+    `// mae_parcial = MAE da parcial bruta na mesma faixa. Detalhes: docs/BACKTEST.md e model/backtest/relatorio.json (${relatorio.gerado_em}).`,
     'export const CALIBRACAO = Object.freeze({',
-    `  versao: 'bt2022h26-${relatorio.gerado_em.slice(0, 10)}',`,
+    `  versao: 'bt2022h26-v31-${relatorio.gerado_em.slice(0, 10)}',`,
+    `  fracaoCurva: ${FRACAO_CURVA},`,
     `  cfg: ${JSON.stringify(dados.variantes[V])},`,
     `  cfgMunicipal: ${JSON.stringify(dados.variantes_b?.[VB] ?? { usarBaseline: true, encolhimento: 0, pendenteBaseline: false, kSwing: null })},`,
     '  // curva de deriva (x = % eleitorado apurado, y = erro medio do modelo no candidato 13 em 2022, mesmo tipo de turno)',
@@ -133,6 +147,9 @@ if (flag === '--escrever-calibracao') {
     '  },',
     '  mae: {',
     ...Object.entries(mae).filter(([, b]) => b).map(([k, bins]) => `    ${k}: ${JSON.stringify(limparMae(bins))},`),
+    '  },',
+    '  mae_parcial: {',
+    ...Object.entries(maeParcial).filter(([, b]) => b).map(([k, bins]) => `    ${k}: ${JSON.stringify(limparMae(bins))},`),
     '  },',
     '});',
     '',

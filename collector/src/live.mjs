@@ -40,7 +40,11 @@ function resumoSnapshot(snap, sha, id) {
     confianca: m.forecast?.confianca ?? null,
     definido_matematicamente: m.analise?.definido_matematicamente ?? null,
     criterios_nao_atendidos: m.criterios,
+    metodo: m.forecast?.metodo ?? null,
+    erro_medio_esperado: m.forecast?.erro_medio_esperado ?? null,
+    correcao_pp: m.forecast?.correcao_pp ?? null,
     modelo_versao: snap.modelo?.versao ?? null,
+    modelo_calibracao: snap.modelo?.calibracao ?? null,
   };
 }
 
@@ -82,6 +86,9 @@ export function construirGov({ ambiente, uf, head, stale, estratosUf }) {
     apurado: m.analise?.apurado ?? null,
     parcial_modelo: m.analise?.parcial ?? null,
     estratificacao: m.analise?.estratificacao ?? null,
+    metodo: m.forecast?.metodo ?? null,
+    erro_medio_esperado: m.forecast?.erro_medio_esperado ?? null,
+    correcao_pp: m.forecast?.correcao_pp ?? null,
     criterios_nao_atendidos: m.criterios,
     modelo: snapshot.modelo,
   };

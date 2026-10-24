@@ -102,7 +102,7 @@ details[open] > summary .chev { transform: rotate(180deg); }
 .btn.ico { width: 40px; padding: 0; }
 .nav { overflow-x: auto; scrollbar-width: none; }
 .nav::-webkit-scrollbar { display: none; }
-.nav ul { display: flex; gap: 4px; padding: 4px 0 8px; width: max-content; }
+.nav ul { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px 0 8px; }
 .nav a { display: block; padding: 6px 12px; border-radius: var(--r-pill); font-size: var(--fs-b); color: var(--muted); text-decoration: none; white-space: nowrap; min-height: 32px; }
 .nav a:hover, .nav a[aria-current] { background: var(--active); color: var(--text); }
 
@@ -173,6 +173,7 @@ main > section:first-child { margin-top: 0; }
 .kpi dt { font-size: var(--fs-b); color: var(--muted); }
 .kpi dd { font-size: var(--fs-h); font-weight: 600; line-height: 1.25; margin-top: 2px; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
 .kpi dd small, .unit { font-size: var(--fs-b); font-weight: 400; color: var(--muted); letter-spacing: 0; }
+.kpi dd.cap { color: var(--muted); font-size: var(--fs-s); font-weight: 400; letter-spacing: 0; line-height: 1.4; }
 .kpi .cap { font-size: var(--fs-s); color: var(--muted); margin-top: 2px; }
 @media (min-width: 960px) {
   .kpis { grid-template-columns: repeat(4, 1fr); }
@@ -308,7 +309,7 @@ summary::-webkit-details-marker { display: none; }
 .vf li:first-child { margin-top: 0; }
 .vf .nm { font-weight: 700; font-size: var(--fs-m); display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
 .vf .nm a { text-underline-offset: 4px; }
-.vf .col h4 { font-size: var(--fs-s); font-weight: 400; color: var(--muted); margin: 0 0 4px; }
+.vf .col h3 { font-size: var(--fs-s); font-weight: 400; color: var(--muted); margin: 0 0 4px; }
 .ln { display: flex; align-items: center; gap: 8px; font-size: var(--fs-b); font-variant-numeric: tabular-nums; line-height: 1.7; }
 .ln b { font-weight: 600; }
 .ln .v { color: var(--muted); margin-left: auto; text-align: right; }
@@ -392,7 +393,8 @@ a.ufa:focus-visible path, g.ufa:focus-visible path, .ufa:focus-visible .uf { str
 .tb td small { display: block; font-weight: 400; color: var(--muted); font-size: var(--fs-s); }
 
 /* página de texto (metodologia) */
-.doc { max-width: 76ch; padding-bottom: 24px; }
+.doc { max-width: 76ch; padding-bottom: 24px; overflow-wrap: anywhere; min-width: 0; }
+.doc pre { overflow-x: auto; }
 .doc h1 { font-size: var(--fs-h); line-height: 1.2; margin: 16px 0 12px; letter-spacing: -.015em; }
 .doc h2 { font-size: 20px; margin: 32px 0 8px; letter-spacing: -.01em; }
 .doc h3 { font-size: var(--fs-m); margin: 20px 0 6px; }
@@ -420,6 +422,7 @@ a.ufa:focus-visible path, g.ufa:focus-visible path, .ufa:focus-visible .uf { str
 .proj-v .sw { align-self: center; }
 .proj-v .sep { color: var(--muted); font-size: 24px; }
 .proj-s { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-size: var(--fs-b); }
+.precisao.nota { color: var(--muted); font-size: var(--fs-s); }
 .precisao { margin-top: 6px; font-size: var(--fs-b); max-width: 62ch; }
 .apoio { margin-top: 6px; font-size: var(--fs-b); color: var(--muted); max-width: 62ch; }
 .apoio b { color: var(--text); font-weight: 600; }

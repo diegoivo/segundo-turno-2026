@@ -1,17 +1,17 @@
 // Orquestracao: busca no TSE -> valida -> (se mudou) commit encadeado no R2.
 import {
-  CHAVE_LATEST, CHAVE_MANIFEST, CHAVE_SERIES, chaveGov, chaveHistory, chaveRaw,
-  gravarImutavel, gravarLive, JSON_UTF8, lerJson,
+  atualizarComCas, CHAVE_LATEST, CHAVE_MANIFEST, CHAVE_SERIES, chaveGov, chaveHistory, chaveManifestCadeia, chaveRaw,
+  emParalelo, gravarImutavel, gravarLive, JSON_UTF8, lerJson,
 } from './armazenamento.mjs';
 import {
   canonicalize, dataBrasilia, gzipBytes, parseDgHg, sha256Hex,
 } from './canonical.mjs';
 import {
-  cadeias, CHAVE_ESTRATOS, CICLOS, DATA_INICIO_PADRAO, ESTRATOS_POR_CICLO, estratosDoConfig, GOV_CFG_URL, GOV_UFS,
+  cadeias, CHAVE_ESTRATOS, CICLOS, DATA_INICIO_PADRAO, ESTRATOS_POR_CICLO, RAW_PARALELO, METODO_PRESIDENTE_PADRAO, METODOS_PRESIDENTE, estratosDoConfig, govCfgUrl, GOV_UFS, resolverTseBase,
   INTERVALO_CICLO_MS, PRAZO_INVOCACAO_MS, SERIE_INICIO_PADRAO, SUBREQUEST_ORCAMENTO,
 } from './config.mjs';
 import { criarForecaster } from './forecast-adapter.mjs';
-import { adquirirLock, conferirLock, liberarLock } from './lock.mjs';
+import { adquirirLock, conferirLock, liberarLock, renovarLock } from './lock.mjs';
 import { anexarSerie, construirGov, construirLatest } from './live.mjs';
 import { buscarArquivo, executarPaced } from './tse-fetch.mjs';
 import { compactar, validarArquivo } from './validate.mjs';
@@ -41,11 +41,18 @@ export async function executarInvocacao(env, deps = {}) {
     intervaloMs: INTERVALO_CICLO_MS,
     ...deps,
   };
+  const metodoPresidente = env.MODELO_METODO_PRESIDENTE || METODO_PRESIDENTE_PADRAO;
+  if (!METODOS_PRESIDENTE.includes(metodoPresidente)) {
+    throw new Error(`MODELO_METODO_PRESIDENTE invalido: ${metodoPresidente} (use ${METODOS_PRESIDENTE.join('|')})`);
+  }
+  const tseBase = resolverTseBase(env);
   const fetchBase = d.fetchFn;
   const ctx = {
     env, d, bucket: env.DATA, ambiente: env.ENV,
     dataInicio: env.START_DATE || DATA_INICIO_PADRAO,
-    cadeias: cadeias(),
+    tseBase,
+    cadeias: cadeias(tseBase),
+    metodoPresidente,
     usados: 0, // fetches ao TSE nesta invocacao (orcamento de subrequests)
     orcamento: Number(env.SUBREQUEST_ORCAMENTO) || SUBREQUEST_ORCAMENTO,
     serieInicioMs: Date.parse(env.SERIE_INICIO || SERIE_INICIO_PADRAO),
@@ -81,17 +88,29 @@ export async function executarInvocacao(env, deps = {}) {
 }
 
 async function carregarEstadoInicial(ctx) {
-  const { valor: manifest } = await lerJson(ctx.bucket, CHAVE_MANIFEST);
-  if (manifest && manifest.ambiente !== ctx.ambiente) {
-    throw new Error(`bucket pertence a '${manifest.ambiente}', Worker e '${ctx.ambiente}': abortando`);
+  const { valor: indice } = await lerJson(ctx.bucket, CHAVE_MANIFEST);
+  if (indice && indice.ambiente !== ctx.ambiente) {
+    throw new Error(`bucket pertence a '${indice.ambiente}', Worker e '${ctx.ambiente}': abortando`);
   }
-  for (const c of ctx.cadeias) await carregarHead(ctx, c.eleicao, manifest);
+  for (const c of ctx.cadeias) await headFresco(ctx, c.eleicao);
 }
 
-// Carrega (ou reaproveita do cache da invocacao) o snapshot que o manifest aponta como cabeca da cadeia.
-async function carregarHead(ctx, eleicao, manifest) {
-  const ref = manifest?.cadeias?.[eleicao];
-  if (!ref) {
+// Referencia da cabeca de uma cadeia, lida do R2 AGORA: manifest proprio da cadeia (fonte da verdade) ou, em buckets
+// anteriores a essa separacao, a entrada do indice composto. `etag` null = o manifest da cadeia ainda nao existe.
+async function lerRefCadeia(ctx, eleicao) {
+  const { valor, etag } = await lerJson(ctx.bucket, chaveManifestCadeia(eleicao));
+  if (valor) {
+    if (valor.ambiente && valor.ambiente !== ctx.ambiente) throw new Error('ambiente do bucket diverge do Worker');
+    return { ref: valor, etag };
+  }
+  const { valor: indice } = await lerJson(ctx.bucket, CHAVE_MANIFEST);
+  if (indice && indice.ambiente !== ctx.ambiente) throw new Error('ambiente do bucket diverge do Worker');
+  return { ref: indice?.cadeias?.[eleicao] ?? null, etag: null };
+}
+
+// Carrega (ou reaproveita, se o sha nao mudou) o snapshot da cabeca da cadeia.
+async function carregarHead(ctx, eleicao, ref) {
+  if (!ref?.sha256) {
     delete ctx.heads[eleicao];
     return null;
   }
@@ -100,6 +119,17 @@ async function carregarHead(ctx, eleicao, manifest) {
   if (!valor) throw new Error(`cabeca da cadeia ${eleicao} ausente: ${ref.chave}`);
   ctx.heads[eleicao] = { snapshot: valor, sha: ref.sha256, chave: ref.chave };
   return ctx.heads[eleicao];
+}
+
+const headFresco = async (ctx, eleicao) => carregarHead(ctx, eleicao, (await lerRefCadeia(ctx, eleicao)).ref);
+
+async function headsFrescos(ctx) {
+  const out = {};
+  for (const c of ctx.cadeias) {
+    const h = await headFresco(ctx, c.eleicao);
+    if (h) out[c.eleicao] = h;
+  }
+  return out;
 }
 
 const chaveFonte = (c, f) => `${c.eleicao}:${f.id}`;
@@ -155,11 +185,11 @@ async function garantirEstratos(ctx) {
     ctx.estratos = valor.estratos;
     return;
   }
-  const resp = await buscarArquivo(GOV_CFG_URL, null, ctx.d);
+  const resp = await buscarArquivo(govCfgUrl(ctx.tseBase), null, ctx.d);
   let lista = [];
   if (resp.status === 200) {
     try {
-      lista = estratosDoConfig(JSON.parse(new TextDecoder().decode(resp.body)));
+      lista = estratosDoConfig(JSON.parse(new TextDecoder().decode(resp.body)), ctx.tseBase);
     } catch {
       lista = [];
     }
@@ -169,7 +199,7 @@ async function garantirEstratos(ctx) {
     ctx.resumo.avisos.push('lista de estratos dos governadores indisponivel (modo UF)');
     return;
   }
-  await ctx.bucket.put(CHAVE_ESTRATOS, JSON.stringify({ schema: 1, fonte: GOV_CFG_URL, estratos: lista }), {
+  await ctx.bucket.put(CHAVE_ESTRATOS, JSON.stringify({ schema: 1, fonte: govCfgUrl(ctx.tseBase), estratos: lista }), {
     httpMetadata: { contentType: JSON_UTF8, cacheControl: 'no-store' },
     onlyIf: { etagDoesNotMatch: '*' },
   });
@@ -229,7 +259,7 @@ async function processarResposta(ctx, c, f, cond, resp) {
     erros.push(...validarArquivo(json, {
       ele: c.eleicao, cd: c.cd, tpabr: f.tpabr, cdabr: f.cdabr ?? f.regiao, nCandidatos: nCandidatos(),
     }));
-    if (ctx.ambiente === 'production' && json._sintetico) erros.push('arquivo sintetico em producao');
+    if (ctx.ambiente === 'production' && Object.keys(json).some((k) => k.startsWith('_sintetico'))) erros.push('arquivo sintetico em producao');
   }
   const anterior = ctx.memo.get(k)?.bom ?? cond?.bom ?? null;
   if (erros.length) {
@@ -269,7 +299,7 @@ async function tentarCommit(ctx, c) {
     if (faltando.length > 0 || !passaGate(ctx, c)) return; // cadeia ainda nao pode comecar
   }
 
-  const lock = await adquirirLock(ctx.bucket, { agora: ctx.d.agora, sleep: ctx.d.sleep });
+  const lock = await adquirirLock(ctx.bucket, { nome: c.eleicao, agora: ctx.d.agora, sleep: ctx.d.sleep });
   if (!lock) {
     ctx.resumo.pulados.push(`${c.eleicao}: lock ocupado`);
     return;
@@ -281,10 +311,12 @@ async function tentarCommit(ctx, c) {
   }
 }
 
+// Ordem estrita (sob o lock da cadeia): raws -> snapshot -> CAS do manifest DA CADEIA -> (so entao) series, gov,
+// latest e indice. Se o CAS falhar, nada e publicado e o proximo ciclo retoma a partir do R2.
 async function commitSobLock(ctx, c, lock) {
-  const { valor: manifest, etag: manifestEtag } = await lerJson(ctx.bucket, CHAVE_MANIFEST);
-  if (manifest && manifest.ambiente !== ctx.ambiente) throw new Error('ambiente do bucket diverge do Worker');
-  const head = await carregarHead(ctx, c.eleicao, manifest);
+  const inicio = ctx.d.agora();
+  const { ref, etag: refEtag } = await lerRefCadeia(ctx, c.eleicao);
+  const head = await carregarHead(ctx, c.eleicao, ref);
 
   // Reconfere sob o lock: outro cron pode ja ter gravado exatamente estes dados.
   const novos = fontesAtivas(ctx, c).filter((f) => {
@@ -338,37 +370,45 @@ async function commitSobLock(ctx, c, lock) {
 
   if (!(await conferirLock(ctx.bucket, lock))) throw new Error('lock perdido antes de gravar');
 
-  for (const f of novos) {
+  // raws novos (ja deduplicados por sha) em paralelo limitado; o lock e renovado a cada raw
+  let fila = Promise.resolve(true); // renovacoes em serie (cada uma troca o etag do lock)
+  let ultimaRenovacao = ctx.d.agora();
+  const renovar = () => {
+    fila = fila.then(async (ok) => {
+      if (!ok || ctx.d.agora() - ultimaRenovacao < lock.ttlMs / 3) return ok; // so renova quando passou 1/3 do TTL
+      ultimaRenovacao = ctx.d.agora();
+      return renovarLock(ctx.bucket, lock, ctx.d.agora);
+    });
+    return fila;
+  };
+  await emParalelo(novos, RAW_PARALELO, async (f) => {
     const bom = ctx.memo.get(chaveFonte(c, f)).bom;
     await gravarImutavel(ctx.bucket, chaveRaw(bom.sha), await gzipBytes(bom.bytes), 'application/gzip');
-  }
+    if (!(await renovar())) throw new Error('lock perdido durante a gravacao dos raw');
+  });
+  if (!(await renovarLock(ctx.bucket, lock, ctx.d.agora))) throw new Error('lock perdido antes do snapshot');
   if (!(await gravarImutavel(ctx.bucket, chave, canonico, JSON_UTF8))) {
     throw new Error(`snapshot ja existe: ${chave}`);
   }
-  ctx.heads[c.eleicao] = { snapshot, sha, chave };
 
-  const staleChaves = staleAtual(ctx);
-  await publicarLive(ctx, c, snapshot, novos.map((f) => f.id), calc, resumoStale(ctx, staleChaves));
-  const novoManifest = {
-    schema: 1,
-    ambiente: ctx.ambiente,
-    atualizado_em: agoraDate.toISOString(),
-    stale: staleChaves.length > 0,
-    stale_total: staleChaves.length,
-    stale_fontes: staleChaves.slice(0, LIMITE_STALE_MANIFEST),
-    cadeias: {
-      ...(manifest?.cadeias ?? {}),
-      [c.eleicao]: { seq, sha256: sha, chave, coletado_em: snapshot.coletado_em },
-    },
+  // CAS do manifest da cadeia: ponto de commit. Falhou => nada publicado (snapshot fica sem referencia).
+  const duracao = ctx.d.agora() - inicio;
+  const novoRef = {
+    schema: 1, ambiente: ctx.ambiente, eleicao: c.eleicao, seq, sha256: sha, chave,
+    coletado_em: snapshot.coletado_em, duracao_commit_ms: duracao,
   };
-  await gravarManifest(ctx, novoManifest, manifestEtag);
-  ctx.resumo.commits.push({ eleicao: c.eleicao, seq, sha256: sha, fontes_novas: novos.map((f) => f.id) });
-}
+  const casOk = await gravarLive(ctx.bucket, chaveManifestCadeia(c.eleicao), novoRef, refEtag ? { etagMatches: refEtag } : { etagDoesNotMatch: '*' });
+  if (!casOk) throw new Error(`manifest da cadeia ${c.eleicao} alterado por outro escritor (CAS falhou): nada publicado`);
+  ctx.heads[c.eleicao] = { snapshot, sha, chave };
+  ctx.resumo.commits.push({ eleicao: c.eleicao, seq, sha256: sha, fontes_novas: novos.map((f) => f.id), duracao_ms: duracao });
+  console.log(`commit ${c.eleicao} seq ${seq}: ${novos.length} raw novos, ${duracao} ms`);
 
-async function gravarManifest(ctx, manifest, etagAnterior) {
-  const onlyIf = etagAnterior ? { etagMatches: etagAnterior } : { etagDoesNotMatch: '*' };
-  const r = await gravarLive(ctx.bucket, CHAVE_MANIFEST, manifest, onlyIf);
-  if (!r) throw new Error('manifest alterado por outro escritor (CAS falhou)');
+  try {
+    await publicarLive(ctx, c, snapshot, novos.map((f) => f.id), calc);
+  } catch (e) {
+    console.error('publicacao live falhou (snapshot ja commitado):', e);
+    ctx.resumo.erros.push(`${c.eleicao} live: ${e.message}`);
+  }
 }
 
 // Modelo: presidente recebe as UFs; governador recebe o arquivo da UF e, se TODOS os estratos da UF ja foram
@@ -380,8 +420,11 @@ async function calcularForecasts(ctx, c, parcial) {
   const agora = ctx.d.agora();
   if (c.cargo === 'presidente') {
     const { br, ...ufs } = parcial;
-    const r = await calc({ cargo: 'presidente', br, ufs, stale: staleMap(Object.keys(ufs)), agora });
-    return { ...r, criterios: r.criterios_nao_atendidos };
+    const r = await calc({
+      cargo: 'presidente', br, ufs, stale: staleMap(Object.keys(ufs)), agora, cfg: { metodoPresidente: ctx.metodoPresidente },
+    });
+    const metodo = r.forecast?.metodo ?? (ctx.metodoPresidente === 'sem_correcao' ? 'presidente_sem_correcao' : 'presidente');
+    return { ...r, modelo: { ...r.modelo, metodo, metodo_presidente: ctx.metodoPresidente }, criterios: r.criterios_nao_atendidos };
   }
   const forecast = {};
   const criterios = {};
@@ -410,22 +453,28 @@ async function calcularForecasts(ctx, c, parcial) {
   };
 }
 
-async function publicarLive(ctx, c, snapshot, idsNovos, calc, stale) {
-  const { valor: serieAtual } = await lerJson(ctx.bucket, CHAVE_SERIES);
+// Tudo aqui acontece DEPOIS do CAS da cadeia e com CAS proprio: cada arquivo e reconstruido a partir do R2
+// (cabecas relidas), entao um escritor atrasado nunca faz o placar regredir.
+async function publicarLive(ctx, c, snapshot, idsNovos, calc) {
   const forecastPorId = c.cargo === 'presidente' ? { br: calc.forecast } : (calc.forecast ?? {});
   const analisePorId = c.cargo === 'presidente' ? { br: calc.analise } : (calc.analise ?? {});
-  await gravarLive(ctx.bucket, CHAVE_SERIES, anexarSerie(serieAtual, snapshot, { forecastPorId, analisePorId, inicioMs: ctx.serieInicioMs }));
+  await atualizarComCas(ctx.bucket, CHAVE_SERIES, (atual) => anexarSerie(atual, snapshot, { forecastPorId, analisePorId, inicioMs: ctx.serieInicioMs }));
   if (c.cargo === 'governador') {
     // regrava o gov-<uf> de toda UF que teve arquivo novo (da UF ou de algum estrato dela)
     const ufsAfetadas = new Set(idsNovos.map((id) => (GOV_UFS.includes(id) ? id : id.slice(0, 2))));
-    for (const uf of ufsAfetadas) await gravarGov(ctx, uf, stale);
+    for (const uf of ufsAfetadas) await gravarGov(ctx, uf);
   }
-  await gravarLatest(ctx, stale);
+  await gravarLatest(ctx);
+  await atualizarIndice(ctx);
 }
 
-function gravarGov(ctx, uf, stale) {
-  const estratosUf = (ctx.estratos ?? []).filter((e) => e.uf === uf && ctx.heads['6260'].snapshot.parcial[e.id]).length;
-  return gravarLive(ctx.bucket, chaveGov(uf), construirGov({ ambiente: ctx.ambiente, uf, head: ctx.heads['6260'], stale, estratosUf }));
+function gravarGov(ctx, uf) {
+  return atualizarComCas(ctx.bucket, chaveGov(uf), async () => {
+    const head = await headFresco(ctx, '6260');
+    if (!head) return undefined;
+    const estratosUf = (ctx.estratos ?? []).filter((e) => e.uf === uf && head.snapshot.parcial[e.id]).length;
+    return construirGov({ ambiente: ctx.ambiente, uf, head, stale: resumoStale(ctx, staleAtual(ctx)), estratosUf });
+  });
 }
 
 // Resumo de stale para os arquivos publicos: fontes UF/BR por nome; estratos so contados (limite de tamanho).
@@ -443,38 +492,52 @@ function resumoStale(ctx, chaves) {
   return { fontes, estratos, estratosPorUf };
 }
 
-async function gravarLatest(ctx, stale) {
-  await gravarLive(ctx.bucket, CHAVE_LATEST, construirLatest({
+function gravarLatest(ctx) {
+  return atualizarComCas(ctx.bucket, CHAVE_LATEST, async () => construirLatest({
     ambiente: ctx.ambiente,
     agora: new Date(ctx.d.agora()).toISOString(),
-    stale,
-    heads: ctx.heads,
+    stale: resumoStale(ctx, staleAtual(ctx)),
+    heads: await headsFrescos(ctx),
   }));
 }
 
-// Se o conjunto de fontes `stale` mudou desde o manifest, republica manifest + latest + gov (so nas transicoes).
+// Indice composto live/manifest.json (o que o front le): reconstruido dos manifests das cadeias, com CAS.
+function atualizarIndice(ctx) {
+  return atualizarComCas(ctx.bucket, CHAVE_MANIFEST, async (atual) => {
+    if (atual && atual.ambiente !== ctx.ambiente) throw new Error('ambiente do bucket diverge do Worker');
+    const chaves = staleAtual(ctx);
+    const cadeiasRef = { ...(atual?.cadeias ?? {}) };
+    for (const c of ctx.cadeias) {
+      const { ref } = await lerRefCadeia(ctx, c.eleicao);
+      if (ref) {
+        cadeiasRef[c.eleicao] = { seq: ref.seq, sha256: ref.sha256, chave: ref.chave, coletado_em: ref.coletado_em };
+      }
+    }
+    return {
+      schema: 1,
+      ambiente: ctx.ambiente,
+      atualizado_em: new Date(ctx.d.agora()).toISOString(),
+      stale: chaves.length > 0,
+      stale_total: chaves.length,
+      stale_fontes: chaves.slice(0, LIMITE_STALE_MANIFEST),
+      cadeias: cadeiasRef,
+    };
+  });
+}
+
+// Se o conjunto de fontes `stale` mudou desde o indice, republica indice + latest + gov (so nas transicoes).
 async function reconciliarStale(ctx) {
   const chaves = staleAtual(ctx);
-  const { valor: manifest } = await lerJson(ctx.bucket, CHAVE_MANIFEST);
-  if (!manifest || Object.keys(manifest.cadeias ?? {}).length === 0) return; // nenhuma cadeia comecou: nada a marcar (preserva stubs)
-  if (JSON.stringify(manifest.stale_fontes ?? []) === JSON.stringify(chaves.slice(0, LIMITE_STALE_MANIFEST))
-    && (manifest.stale_total ?? 0) === chaves.length) return;
-  const lock = await adquirirLock(ctx.bucket, { agora: ctx.d.agora, sleep: ctx.d.sleep });
-  if (!lock) return;
+  const { valor: indice } = await lerJson(ctx.bucket, CHAVE_MANIFEST);
+  if (!indice || Object.keys(indice.cadeias ?? {}).length === 0) return; // nenhuma cadeia comecou: preserva os stubs
+  if (JSON.stringify(indice.stale_fontes ?? []) === JSON.stringify(chaves.slice(0, LIMITE_STALE_MANIFEST))
+    && (indice.stale_total ?? 0) === chaves.length) return;
   try {
-    const { valor: atual, etag } = await lerJson(ctx.bucket, CHAVE_MANIFEST);
-    for (const c of ctx.cadeias) await carregarHead(ctx, c.eleicao, atual);
-    await gravarManifest(ctx, {
-      ...atual, stale: chaves.length > 0, stale_total: chaves.length, stale_fontes: chaves.slice(0, LIMITE_STALE_MANIFEST),
-      atualizado_em: new Date(ctx.d.agora()).toISOString(),
-    }, etag);
-    const stale = resumoStale(ctx, chaves);
-    if (ctx.heads['6260']) for (const uf of GOV_UFS) await gravarGov(ctx, uf, stale);
-    await gravarLatest(ctx, stale);
+    await atualizarIndice(ctx);
+    if (ctx.heads['6260']) for (const uf of GOV_UFS) await gravarGov(ctx, uf);
+    await gravarLatest(ctx);
   } catch (e) {
     console.error('reconciliar stale falhou:', e);
     ctx.resumo.erros.push(`stale: ${e.message}`);
-  } finally {
-    await liberarLock(ctx.bucket, lock);
   }
 }

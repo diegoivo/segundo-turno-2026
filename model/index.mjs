@@ -12,8 +12,16 @@
 //                                                               //   '<uf><cd5>-c0001-e006258-u.json' (~5.700); com eles o metodo
 //                                                               //   vira 'presidente_mun' (baseline municipal do 1T 2026 embutida)
 //   v3: a projecao do presidente recebe a CORRECAO DE DERIVA das urnas tardias (curva do 2T 2022, model/correcao.mjs);
-//   `forecast.sem_correcao` traz o valor bruto, `forecast.correcao_pp` o deslocamento, `forecast.erro_medio_esperado_pp`
-//   o MAE calibrado para a faixa de apuracao atual (UI: "hoje a projecao erra em media ±X p.p.").
+//   `forecast.sem_correcao` traz o valor bruto, `forecast.correcao_pp` o deslocamento.
+//   v3.1 (campos novos, nomes exatos):
+//     forecast.metodo: 'presidente' (A+C, padrao) | 'presidente_sem_correcao' | 'presidente_mun' | 'governador' |
+//                      'governador_zonas' | 'governador_uf'
+//     forecast.erro_medio_esperado: { projecao: <p.p.>, parcial: <p.p.> }  // MAE calibrado por faixa de apuracao:
+//        projecao = max(MAE observado nos testes, meia-largura/2); parcial = MAE da parcial bruta na mesma faixa.
+//        Para latest.json, mapear direto: erro_medio_esperado = forecast.erro_medio_esperado.
+//     forecast.erro_medio_esperado_pp (= .erro_medio_esperado.projecao) e forecast.erro_medio_parcial_pp (= .parcial)
+//     cfg.metodoPresidente: 'com_correcao' (padrao) | 'sem_correcao' -> interruptor operacional; o coletor deve ler de
+//        uma variavel de ambiente (ex.: MODELO_METODO_PRESIDENTE) e passar em entrada.cfg. Sem redeploy de codigo.
 //     br?: TseJson | Compacto,                                  // opcional, nao entra na projecao
 //     // governador: passe TAMBEM ufs[uf] (arquivo da UF 6260): e a referencia de relogio (frescor) e os municipais
 //     // sao medidos contra o dg/hg dele (tolerancia 300 s). Estrato com 100% das secoes totalizadas e isento.
@@ -35,7 +43,8 @@ import { aplicarCorrecao } from './correcao.mjs';
 import { CALIBRACAO } from './calibracao.mjs';
 import { BASELINES } from './baselines/index.mjs';
 
-export const VERSAO = '3.0.0';
+export const VERSAO = '3.1.0';
+export const METODOS_PRESIDENTE = Object.freeze(['com_correcao', 'sem_correcao']);
 export const MODELO = Object.freeze({ nome: 'estratificado-2t', versao: VERSAO, calibracao: CALIBRACAO.versao });
 export const ELEICOES = Object.freeze({ presidente: '6258', governador: '6260' });
 // Configuracao de producao: definida pelo backtest (ver docs/BACKTEST.md e model/calibracao.mjs).
@@ -74,8 +83,13 @@ function fontesDe(entrada) {
 }
 
 // Tipo de estratificacao -> tabela de faixa/MAE/correcao e limiares de criterios.
+// Interruptor operacional (coletor le de variavel de ambiente): cfg.metodoPresidente = 'com_correcao' (padrao) |
+// 'sem_correcao' -> presidente por UF sem correcao de deriva, com a faixa v2 ('presidente_sem_correcao').
 function tipoFaixa(entrada, baseline) {
-  if (entrada.cargo === 'presidente') return temEstratos(entrada) ? 'presidente_mun' : 'presidente';
+  if (entrada.cargo === 'presidente') {
+    if (temEstratos(entrada)) return 'presidente_mun';
+    return entrada.cfg?.metodoPresidente === 'sem_correcao' ? 'presidente_sem_correcao' : 'presidente';
+  }
   if (!temEstratos(entrada)) return 'governador_uf';
   return baseline?.corrida?.estratificacao === 'zona' ? 'governador_zonas' : 'governador';
 }
@@ -147,8 +161,8 @@ function parcialDe(proj, finalistas) {
   };
 }
 
-function maeEsperado(tipo, pctApurado, calibracao) {
-  const tabela = calibracao.mae?.[tipo];
+function maeEsperado(tipo, pctApurado, calibracao, chave = 'mae') {
+  const tabela = calibracao[chave]?.[tipo];
   if (!tabela?.length) return null;
   const bin = tabela.find((b) => pctApurado < b.ate) ?? tabela[tabela.length - 1];
   return bin.mae;
@@ -178,6 +192,8 @@ function forecastDe({ proj, finalistas, tipo, cfg, calibracao }) {
     sem_correcao: { [c1.n]: r(bruto[c1.n]), [c2.n]: r(bruto[c2.n]) },
     correcao_pp: { candidato: calibracao.correcao?.[tipo]?.candidato ?? null, delta: delta === 0 ? 0 : r(-delta) },
     erro_medio_esperado_pp: maeEsperado(tipo, apurado, calibracao),
+    erro_medio_parcial_pp: maeEsperado(tipo, apurado, calibracao, 'mae_parcial'),
+    erro_medio_esperado: { projecao: maeEsperado(tipo, apurado, calibracao), parcial: maeEsperado(tipo, apurado, calibracao, 'mae_parcial') },
     faixa: { [c1.n]: [r(pctA - meia), r(pctA + meia)], [c2.n]: [r(pctB - meia), r(pctB + meia)] },
     meia_largura_pp: r(meia), margem_pp: r(t.margem), faixa_margem_pp: r(t.faixaMargem),
     tendencia: lider ? { n: lider.n, nmu: lider.nmu } : null,

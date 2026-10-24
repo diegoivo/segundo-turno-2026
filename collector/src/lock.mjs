@@ -10,15 +10,17 @@
 // vencido no meio do commit nao deixa dois escritores avancarem o mesmo seq.
 import { LOCK_TTL_MS } from './config.mjs';
 
-const CHAVE = 'locks/coletor.lock';
+export const chaveLock = (nome) => `locks/${nome}.lock`;
 
-export async function adquirirLock(bucket, { agora = () => Date.now(), ttlMs = LOCK_TTL_MS, tentativas = 5, esperaMs = 200, sleep } = {}) {
+// Um lock por cadeia (nome = eleicao): o commit lento de 6260 nao bloqueia o de 6258.
+export async function adquirirLock(bucket, { nome = 'coletor', agora = () => Date.now(), ttlMs = LOCK_TTL_MS, tentativas = 5, esperaMs = 200, sleep } = {}) {
+  const CHAVE = chaveLock(nome);
   const dono = crypto.randomUUID();
   const corpo = () => JSON.stringify({ dono, expira_em: agora() + ttlMs });
   const meta = { httpMetadata: { contentType: 'application/json', cacheControl: 'no-store' } };
   for (let i = 0; i < tentativas; i++) {
     const criado = await bucket.put(CHAVE, corpo(), { ...meta, onlyIf: { etagDoesNotMatch: '*' } });
-    if (criado) return { dono, chave: CHAVE };
+    if (criado) return { dono, chave: CHAVE, etag: criado.etag, ttlMs };
     const atual = await bucket.head(CHAVE);
     if (atual) {
       const obj = await bucket.get(CHAVE);
@@ -30,7 +32,7 @@ export async function adquirirLock(bucket, { agora = () => Date.now(), ttlMs = L
       }
       if (expiraEm < agora()) {
         const tomado = await bucket.put(CHAVE, corpo(), { ...meta, onlyIf: { etagMatches: obj.etag } });
-        if (tomado) return { dono, chave: CHAVE };
+        if (tomado) return { dono, chave: CHAVE, etag: tomado.etag, ttlMs };
       }
     }
     if (sleep) await sleep(esperaMs);
@@ -50,4 +52,15 @@ export async function conferirLock(bucket, lock) {
 
 export async function liberarLock(bucket, lock) {
   if (await conferirLock(bucket, lock)) await bucket.delete(lock.chave);
+}
+
+/** Estende o TTL (put condicionado ao nosso etag). Retorna false se o lock foi perdido. */
+export async function renovarLock(bucket, lock, agora = () => Date.now()) {
+  const r = await bucket.put(lock.chave, JSON.stringify({ dono: lock.dono, expira_em: agora() + lock.ttlMs }), {
+    httpMetadata: { contentType: 'application/json', cacheControl: 'no-store' },
+    onlyIf: { etagMatches: lock.etag },
+  });
+  if (!r) return false;
+  lock.etag = r.etag;
+  return true;
 }

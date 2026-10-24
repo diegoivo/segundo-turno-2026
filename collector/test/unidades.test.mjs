@@ -221,3 +221,37 @@ test('estratosDoConfig: municipios por UF, zonas no DF, ignora UF sem 2o turno',
   assert.deepEqual(estratosDoConfig({ abr: [{ cd: 'sp', mu: [{ cd: '1' }] }] }), []);
   assert.deepEqual(estratosDoConfig(null), []);
 });
+
+test('TSE_BASE configuravel: padrao = TSE oficial; var troca as URLs; valida o formato', async () => {
+  const { TSE_BASE, cadeias, govCfgUrl, resolverTseBase } = await import('../src/config.mjs');
+  assert.equal(resolverTseBase({}), TSE_BASE);
+  assert.equal(resolverTseBase(undefined), TSE_BASE);
+  assert.equal(resolverTseBase({ TSE_BASE: '' }), TSE_BASE);
+  assert.equal(resolverTseBase({ TSE_BASE: 'https://falso.exemplo.dev/oficial/ele2026/' }), 'https://falso.exemplo.dev/oficial/ele2026');
+  assert.throws(() => resolverTseBase({ TSE_BASE: 'ftp://x' }), /TSE_BASE invalida/);
+  // production: so o TSE oficial (ou ausente); staging aceita base falsa
+  assert.equal(resolverTseBase({ ENV: 'production' }), TSE_BASE);
+  assert.equal(resolverTseBase({ ENV: 'production', TSE_BASE: `${TSE_BASE}/` }), TSE_BASE);
+  assert.throws(() => resolverTseBase({ ENV: 'production', TSE_BASE: 'https://falso.exemplo.dev/oficial/ele2026' }), /exatamente/);
+  assert.equal(resolverTseBase({ ENV: 'staging', TSE_BASE: 'https://falso.exemplo.dev/x' }), 'https://falso.exemplo.dev/x');
+  assert.equal(cadeias()[0].fontes[0].url, `${TSE_BASE}/6258/dados/br/br-c0001-e006258-u.json`);
+  const falso = cadeias('https://f.dev/o');
+  assert.equal(falso[0].fontes[0].url, 'https://f.dev/o/6258/dados/br/br-c0001-e006258-u.json');
+  assert.equal(falso[1].fontes[0].url, 'https://f.dev/o/6260/dados/ac/ac-c0003-e006260-u.json');
+  assert.equal(govCfgUrl('https://f.dev/o'), 'https://f.dev/o/6260/config/mun-e006260-cm.json');
+  const cfg = { abr: [{ cd: 'ac', mu: [{ cd: '01392' }] }] };
+  assert.equal(estratosDoConfig(cfg, 'https://f.dev/o')[0].url, 'https://f.dev/o/6260/dados/ac/ac01392-c0003-e006260-u.json');
+  assert.equal(estratosDoConfig(cfg)[0].url, `${TSE_BASE}/6260/dados/ac/ac01392-c0003-e006260-u.json`);
+});
+
+test('production com TSE_BASE falsa aborta antes de qualquer fetch ou escrita', async () => {
+  const { executarInvocacao } = await import('../src/collect.mjs');
+  const b = new MockR2();
+  let fetches = 0;
+  await assert.rejects(
+    executarInvocacao({ ENV: 'production', DATA: b, TSE_BASE: 'https://falso.exemplo.dev/oficial/ele2026' }, { fetchFn: async () => { fetches++; return new Response('', { status: 404 }); }, sleep: semEspera, ciclos: 1 }),
+    /TSE_BASE em production/,
+  );
+  assert.equal(fetches, 0);
+  assert.equal(b.log.length, 0);
+});

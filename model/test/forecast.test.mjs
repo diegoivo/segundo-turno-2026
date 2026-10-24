@@ -289,6 +289,31 @@ test('presidente com estratos municipais (modelo B): metodo presidente_mun, base
   assert.ok(g.forecast.erro_medio_esperado_pp > 0);
 });
 
+test('v3.1: interruptor metodoPresidente, erro_medio_esperado {projecao, parcial} e faixa >= 0,75 x curva', () => {
+  const ufs = parcialDeBaseline(baselinePresidente, { frac: 0.3 });
+  const com = forecast({ cargo: 'presidente', ufs });
+  const sem = forecast({ cargo: 'presidente', ufs, cfg: { metodoPresidente: 'sem_correcao' } });
+  assert.equal(com.forecast.metodo, 'presidente');
+  assert.equal(sem.forecast.metodo, 'presidente_sem_correcao');
+  assert.equal(sem.forecast.correcao_pp.delta, 0);
+  assert.deepEqual(sem.forecast.projecao, sem.forecast.sem_correcao);
+  assert.deepEqual(sem.forecast.sem_correcao, com.forecast.sem_correcao);
+  assert.ok(sem.forecast.meia_largura_pp > com.forecast.meia_largura_pp); // faixa v2 e mais larga
+  for (const f of [com.forecast, sem.forecast]) {
+    assert.equal(f.erro_medio_esperado.projecao, f.erro_medio_esperado_pp);
+    assert.equal(f.erro_medio_esperado.parcial, f.erro_medio_parcial_pp);
+    assert.ok(f.erro_medio_esperado.parcial > f.erro_medio_esperado.projecao); // a parcial erra mais que a projecao
+    assert.ok(f.erro_medio_esperado.projecao >= f.meia_largura_pp / 2 - 0.001); // MAE exibido >= meia/2
+  }
+  // faixa do presidente a 10-40% = 0,75 x |curva 2T 2022| (revisao v3 §2): 0,752
+  assert.ok(Math.abs(com.forecast.meia_largura_pp - 0.75) < 0.01, `meia = ${com.forecast.meia_largura_pp}`);
+  assert.ok(Math.abs(com.forecast.erro_medio_esperado.projecao - 0.38) < 0.01);
+  const alto = forecast({ cargo: 'presidente', ufs: parcialDeBaseline(baselinePresidente, { frac: 0.92 }) });
+  assert.ok(alto.forecast.meia_largura_pp < 0.25 && alto.forecast.meia_largura_pp > 0.15);
+  // cfg invalido cai no padrao
+  assert.equal(forecast({ cargo: 'presidente', ufs, cfg: { metodoPresidente: 'x' } }).forecast.metodo, 'presidente');
+});
+
 test('entrada nao e mutada', () => {
   const ufs = parcial60();
   const antes = JSON.stringify(ufs);

@@ -34,16 +34,17 @@ ${noindex ? '<meta name="robots" content="noindex">' : ''}<link rel="canonical" 
 <meta name="twitter:description" content="${esc(descricao)}">
 <meta name="twitter:image" content="${esc(site)}/og.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 ${dadosOrigem ? `<link rel="preconnect" href="${esc(dadosOrigem)}" crossorigin>` : ''}
-<link rel="stylesheet" href="${assets.css}">
+<style>${assets.cssTexto}</style>
 <script>${BOOT_TEMA}</script>
 </head>`;
 
 const HEADER = (nav, live = true) => `<header class="top">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="${NOME_SITE}, início"><svg class="mark" width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-marca"/></svg><span>Apuração 2º turno <small>2026</small></span></a>
+    <a class="brand" href="/" aria-label="Apuração 2º turno 2026, início"><svg class="mark" width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-marca"/></svg><span>Apuração 2º turno <small>2026</small></span></a>
     <button class="btn" id="tema" type="button" aria-pressed="false"><svg class="ic" aria-hidden="true" focusable="false"><use id="tema-ic" href="#i-dark-mode"/></svg><span id="tema-t">Tema escuro</span></button>
     ${live ? '<div class="livebox"><p class="live" id="upd" aria-live="polite">@@upd@@</p><button class="btn ico" id="atualizar" type="button" aria-label="Atualizar agora" title="Atualizar agora"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-refresh"/></svg></button></div>' : ''}
     <nav class="nav" aria-label="Seções da página"><ul>${nav}</ul></nav>

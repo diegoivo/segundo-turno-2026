@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Lighthouse mobile (padrão) em páginas servidas por dist/ + dados de exemplo. Uso: npm run lighthouse -- [estado=3]
 // Requer Google Chrome (CHROME_PATH) e rede para o npx baixar o lighthouse.
-import { execFileSync } from 'node:child_process';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { mkdtempSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { iniciarServidor } from '../test/e2e/servidor.mjs';
@@ -13,9 +14,10 @@ const s = await iniciarServidor();
 s.estado.dados = montarEstado(estado);
 const dir = mkdtempSync(`${tmpdir()}/lh-`);
 let falhou = false;
+const execFileAsync = promisify(execFile); // assíncrono: o servidor de teste roda neste mesmo processo
 for (const caminho of ['/', '/governador/df/', '/metodologia/', '/auditoria/']) {
   const out = `${dir}/r.json`;
-  execFileSync('npx', ['-y', 'lighthouse@12', s.url + caminho, '--quiet', '--chrome-flags=--headless=new --no-sandbox', '--output=json', `--output-path=${out}`, '--only-categories=performance,accessibility,best-practices,seo'], { env: { ...process.env, CHROME_PATH: chrome }, stdio: ['ignore', 'ignore', 'inherit'] });
+  await execFileAsync('npx', ['-y', 'lighthouse@12', s.url + caminho, '--quiet', '--chrome-flags=--headless=new --no-sandbox', '--output=json', `--output-path=${out}`, '--only-categories=performance,accessibility,best-practices,seo'], { env: { ...process.env, CHROME_PATH: chrome } });
   const r = JSON.parse(readFileSync(out, 'utf8'));
   const n = Object.fromEntries(Object.entries(r.categories).map(([k, v]) => [k, Math.round(v.score * 100)]));
   console.log(caminho, `estado ${estado}`, JSON.stringify(n), `LCP ${r.audits['largest-contentful-paint'].displayValue} CLS ${r.audits['cumulative-layout-shift'].displayValue} TBT ${r.audits['total-blocking-time'].displayValue}`);

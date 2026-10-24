@@ -111,7 +111,7 @@ Modelos avaliados (todos com o mesmo código, `model/estratos.mjs` + `model/corr
 - **C** = correção aditiva da deriva: curva do erro médio do modelo por % do eleitorado apurado (bins de 5%, interpolação linear), estimada no **mesmo tipo de turno de 2022**, subtraída da projeção. Produção (2T 2026) usa a curva do 2T 2022. Validação fora da amostra: curva do 1T 2022 aplicada ao 1T 2026.
 - **B+C**: C sobre B. Para o holdout só existe a curva de B no 2T 2022 (não há baseline anterior ao 1T 2022), então o teste do B+C é **cruzado** (turno diferente) e mais fraco.
 
-### 9.1 Holdout 1T 2026 — erro de Lula (proj − final, p.p. da participação entre os dois), por % do eleitorado apurado
+### 8.1 Holdout 1T 2026 — erro de Lula (proj − final, p.p. da participação entre os dois), por % do eleitorado apurado
 
 | Faixa | A: viés / MAE | B: viés / MAE | **A+C: viés / MAE** | B+C (curva cruzada): viés / MAE |
 |---|---|---|---|---|
@@ -131,34 +131,36 @@ Leitura: a correção pela curva do mesmo tipo de turno (A+C) remove ~90% do vi�
 
 Em amostra (2022, para referência): B no 2T 2022 com baseline do 1T 2022 teve MAE 0,06 (10-20) / 0,31 / 0,42 / 0,43 / 0,41 / 0,32 / 0,20 / 0,10 / 0,05 — viés sempre negativo; A corrigido pela própria curva fica com dispersão residual ≤ 0,1-0,2 p.p.
 
-### 9.2 Faixa de erro pós-correção e MAE esperado (produção)
+### 8.2 Faixa de erro pós-correção e MAE esperado (produção, v3.1 após a revisão estatística independente)
 
-Regra: por faixa, **maior |erro corrigido| observado** (holdout 1T 2026 com curva 1T 2022; 2T 2022 e 1T 2022 corrigidos em amostra) **+ |viés de transferência| do holdout**. Justificativa: a única medida fora da amostra de "quanto a curva de uma eleição erra na seguinte" é o holdout (até 0,34 p.p. de erro, 0,28 de viés); somamos o viés ao máximo para admitir que a transferência 2T 2022 → 2T 2026 erre tanto quanto, em qualquer sentido. Faixas só com os resíduos de 2022 (sem o holdout) seriam de 0,1-0,2 p.p. e **cobriram 0% dos instantes** do holdout em quase todas as faixas: a dispersão em torno da própria curva não mede a incerteza da transferência. Isso é a razão da regra.
+Regra v3 (por faixa): **maior |erro corrigido| observado** (holdout 1T 2026 com curva 1T 2022; 2T 2022 e 1T 2022 corrigidos em amostra) **+ |viés de transferência| do holdout**. Justificativa: a única medida fora da amostra de "quanto a curva de uma eleição erra na seguinte" é o holdout (até 0,34 p.p. de erro, 0,28 de viés). Faixas só com os resíduos de 2022 (sem o holdout) seriam de 0,1-0,2 p.p. e **cobriram 69% do holdout (0% entre 20% e 90% apurado)**: a dispersão em torno da própria curva não mede a incerteza da transferência.
 
-| % eleitorado apurado | A+C (`presidente`): meia-largura / MAE esperado | B+C (`presidente_mun`): meia-largura / MAE | v2 sem correção (`presidente_sem_correcao`) |
-|---|---|---|---|
-| 10-20 | **0,61 / 0,12** | 0,99 / 0,36 | 2,29 |
-| 20-30 | **0,61 / 0,26** | 0,75 / 0,29 | 2,28 |
-| 30-40 | **0,58 / 0,28** | 0,35 / 0,13 | 2,07 |
-| 40-50 | **0,54 / 0,26** | 0,31 / 0,11 | 1,73 |
-| 50-60 | **0,47 / 0,23** | 0,16 / 0,07 | 1,41 |
-| 60-70 | **0,38 / 0,18** | 0,14 / 0,05 | 1,19 |
-| 70-80 | **0,37 / 0,17** | 0,14 / 0,05 | 0,94 |
-| 80-90 | **0,37 / 0,17** | 0,14 / 0,06 | 0,77 |
-| 90-95 | **0,21 / 0,09** | 0,14 / 0,07 | 0,51 |
-| 95-98 | **0,09 / 0,05** | 0,13 / 0,06 | 0,32 |
-| 98-99,5 | **0,06 / 0,05** | 0,08 / 0,05 | 0,17 |
+**Correção v3.1** (`docs/REVISAO-ESTATISTICA-V3.md` §2, obrigatória): a regra v3 ficou **sem nenhum teste independente** depois de incorporar o holdout (n efetivo por faixa 2-4, autocorrelação 0,44-0,94), e para 2º turno → 2º turno não existe par de validação. Faixa final = `max(regra v3, 0,75 × max|curva 2T 2022| na faixa)`, monotônica, piso 0,05 — gerada por `faixaPosCorrecao` em `model/backtest/analise.mjs`, não editada à mão. Tolera deriva do 2T 2026 entre 25% e 175% da de 2022 (o único par observado, 1T 2022 → 1T 2026, ficou em 80-104%). MAE exibido = `max(MAE observado, meia/2)` (razão faixa/MAE ≈ 2). `presidente_mun` e `presidente_sem_correcao` inalterados.
 
-Cobertura no holdout com a faixa final: A+C 100% em todas as faixas (590 instantes; em amostra para a faixa, não para a curva), 547 chamadas de tendência a partir de 10,05% apurado, **0 erradas** (margem final do 1T 2026 entre os dois: −2,0 p.p.). A faixa v2 sem correção cobriu 95,6% (21,7% na faixa 10-20). O MAE esperado exportado (`erro_medio_esperado_pp`) é o MAE corrigido do holdout por faixa (fora da amostra para a curva); para governador, o MAE pooled das 38 corridas de 2022 (0,97 em 10-20 … 0,11 em 90-95).
+| % eleitorado apurado | **A+C v3.1 (`presidente`): meia-largura / MAE exibido** | regra v3 (antes da revisão) | B+C (`presidente_mun`, desligado): meia / MAE | v2 (`presidente_sem_correcao`) | MAE da parcial bruta |
+|---|---|---|---|---|---|
+| 10-20 | **0,752 / 0,38** | 0,61 / 0,12 | 0,99 / 0,50 | 2,29 | 4,45 |
+| 20-30 | **0,752 / 0,38** | 0,61 / 0,26 | 0,75 / 0,38 | 2,28 | 3,94 |
+| 30-40 | **0,752 / 0,38** | 0,58 / 0,28 | 0,35 / 0,17 | 2,07 | 3,48 |
+| 40-50 | **0,702 / 0,35** | 0,54 / 0,26 | 0,31 / 0,15 | 1,73 | 3,19 |
+| 50-60 | **0,604 / 0,30** | 0,47 / 0,23 | 0,16 / 0,08 | 1,41 | 2,81 |
+| 60-70 | **0,513 / 0,26** | 0,38 / 0,18 | 0,14 / 0,07 | 1,19 | 2,33 |
+| 70-80 | **0,431 / 0,22** | 0,37 / 0,17 | 0,14 / 0,07 | 0,94 | 1,86 |
+| 80-90 | **0,368 / 0,18** | 0,37 / 0,17 | 0,14 / 0,07 | 0,77 | 1,42 |
+| 90-95 | **0,213 / 0,11** | 0,21 / 0,09 | 0,14 / 0,07 | 0,51 | 0,87 |
+| 95-98 | **0,089 / 0,05** | 0,09 / 0,05 | 0,13 / 0,06 | 0,32 | 0,46 |
+| 98-99,5 | **0,058 / 0,05** | 0,06 / 0,05 | 0,08 / 0,05 | 0,17 | 0,15 |
+
+Cobertura: a faixa foi **dimensionada com o holdout (em amostra)**; não há medida fora da amostra. No holdout, com a faixa v3.1: 100% dos 590 instantes, 530/547 chamadas de tendência a partir de 10% apurado, **0 erradas** (margem final do 1T 2026 entre os dois: −2,0 p.p.). Comportamento a conhecer: com A+C, o 2T 2022 (margem +1,8) teria tendência chamada desde 10,3% apurado (em amostra); com a v2, só a partir de 90,3%. Cenários não cobertos (revisão §4.2-4.3): deriva ausente (λ = 0) ou dobrada (λ ≥ 2) entre 10% e 70% — por isso o interruptor operacional `cfg.metodoPresidente = 'sem_correcao'` (faixa v2) existe, para ser acionado se até ~40% apurado a parcial bruta de Lula **não** estiver subindo com a apuração (em 2022 subiu ~1 p.p. entre 25% e 55%). `erro_medio_esperado = {projecao, parcial}` é exportado por faixa; para governador, MAE pooled das 38 corridas de 2022 com o mesmo `max(·, meia/2)` (1,05 em 10-20 … 0,13 em 90-95; parcial 2,72 … 0,30). **Calibração congelada** para 25/10: `model/calibracao.mjs` SHA-256 `09472377c7a0d3cc5abd2c6058f35b6a03ab45e2419c618007c4c446209b2593`; depois do resultado final, medir a cobertura real com o `history/` do coletor e registrar aqui.
 
 Verificação extra no holdout (governadores 1T 2026, 6 UFs, sem prior, dois primeiros, faixa `governador`): cobertura AC 100%, AM 81%, DF 94% (zonas), ES 100%, RN 96% (margem final 1,07 p.p.), TO 100% (margem 1,77); 0 chamadas erradas.
 
-### 9.3 Decisão e viabilidade de B
+### 8.3 Decisão e viabilidade de B
 
 - **Produção (v3.0.0): A+C** como projeção publicada do presidente — exige só o que o coletor já busca (28 arquivos de UF). `forecast.sem_correcao` e `forecast.correcao_pp` expõem o bruto e o deslocamento aplicado; `erro_medio_esperado_pp` o MAE esperado.
 - **B+C fica implementado e calibrado** (`metodo: 'presidente_mun'`, baseline municipal do 1T 2026 embutida a partir dos BUs oficiais, 5.716 municípios, soma idêntica aos totais do TSE) e liga automaticamente se o coletor passar `entrada.estratos` com os ~5.700 arquivos `<uf><cd5>-c0001-e006258-u.json`. Viabilidade da coleta: cada passada são ~5.700 GET (304 com `If-None-Match` ainda conta como requisição); no ritmo atual do coletor (4 req/s) uma passada leva ~24 min; para passadas a cada 5 min seriam ~19 req/s (o TSE anuncia `x-ratelimit-limit: 5000/s`, folga grande), e cada invocação do Worker precisa respeitar o limite de subrequests do plano (o valor publicado que conheço para o Workers Paid é 1.000 por invocação; o coordenador citou 10.000 — confirmar na conta antes de decidir), o que obriga a fatiar as passadas em várias invocações ou coletar só municípios com seções pendentes (a lista cai rápido depois de 70%). Dado o prazo (~36 h) e que o ganho de B+C sobre A+C no holdout aparece só de 30% em diante (e com curva cruzada), **recomendo não mudar a coleta agora**; se o coletor municipal for ligado em staging e validado, a troca é só de entrada.
 - Governadores: sem mudança (não há curva por UF de 2022 para o mesmo tipo de disputa); faixas e MAE de 2022 mantidos.
-- Risco residual declarado: a curva do 2T 2026 pode diferir da do 2T 2022 mais do que o 1T 2026 diferiu do 1T 2022 (candidato diferente). A faixa admite erro de transferência de ~0,3-0,6 p.p.; se a deriva mudar mais que isso, o ponto central ficará deslocado, e a "tendência" só é chamada quando a margem supera a faixa dobrada.
+- Risco residual declarado: a curva do 2T 2026 pode diferir da do 2T 2022 mais do que o 1T 2026 diferiu do 1T 2022 (candidato diferente). A faixa v3.1 (±0,75 até 40% apurado) admite deriva entre 25% e 175% da de 2022; fora disso o ponto central fica deslocado, e a "tendência" só é chamada quando a margem supera a faixa dobrada. Contingência: `cfg.metodoPresidente = 'sem_correcao'` (§8.2).
 
 ## 9. Reprodução
 

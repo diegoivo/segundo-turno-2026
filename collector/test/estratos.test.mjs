@@ -1,8 +1,10 @@
 // Estratos (municipios/zonas) dos governadores: round-robin, orcamento, prazo, e integracao REAL com model/index.mjs.
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { test } from 'node:test';
-import { GOV_UFS, UFS, estratosDoConfig } from '../src/config.mjs';
+import { CALIBRACAO_SHA256, GOV_UFS, UFS, estratosDoConfig } from '../src/config.mjs';
 import { criarForecaster } from '../src/forecast-adapter.mjs';
 import { verificarCadeia } from '../../tools/verificar-cadeia.mjs';
 import { definirRelogio, lerObj, novoAmbiente, rodar, apurar, avancar } from './helpers/comum.mjs';
@@ -185,6 +187,10 @@ test('integracao real com model/index.mjs: presidente e 6 governadores projetam,
   const heads = Object.fromEntries(['6258', '6260'].map((e) => [e, lerObj(amb.bucket, lerObj(amb.bucket, 'live/manifest.json').cadeias[e].chave)]));
   assert.equal(heads['6258'].modelo.versao, modelo.VERSAO);
   assert.ok(heads['6258'].forecast, `presidente sem forecast: ${heads['6258'].criterios_nao_atendidos}`);
+  assert.equal(heads['6258'].modelo.calibracao_sha256, CALIBRACAO_SHA256);
+  assert.equal(heads['6258'].modelo.metodo, 'presidente');
+  assert.equal(heads['6258'].forecast.metodo, 'presidente');
+  assert.ok(heads['6258'].forecast.erro_medio_esperado.projecao > 0 && heads['6258'].forecast.erro_medio_esperado.parcial > 0);
   assert.ok(Math.abs(Object.values(heads['6258'].forecast.projecao).reduce((a, b) => a + b, 0) - 100) < 0.05);
   assert.ok(heads['6258'].forecast.meia_largura_pp > 0 && heads['6258'].forecast.confianca);
   assert.deepEqual(Object.keys(heads['6260'].forecast).sort(), [...GOV_UFS].sort(), JSON.stringify(heads['6260'].criterios_nao_atendidos));
@@ -200,7 +206,17 @@ test('integracao real com model/index.mjs: presidente e 6 governadores projetam,
     assert.ok(latest.governadores[uf].forecast, uf);
     assert.equal(latest.governadores[uf].confianca, latest.governadores[uf].forecast.confianca);
   }
+  const lp = latest.presidente;
+  assert.equal(lp.metodo, 'presidente');
+  assert.deepEqual(Object.keys(lp.erro_medio_esperado).sort(), ['parcial', 'projecao']);
+  assert.ok(lp.correcao_pp && 'delta' in lp.correcao_pp);
+  assert.equal(lp.modelo_calibracao, modelo.MODELO.calibracao);
+  for (const uf of GOV_UFS) {
+    assert.ok(latest.governadores[uf].erro_medio_esperado.projecao > 0, uf);
+    assert.match(latest.governadores[uf].metodo, /^governador/);
+  }
   const g = lerObj(amb.bucket, 'live/gov-rn.json');
+  assert.ok(g.erro_medio_esperado.parcial > 0 && g.metodo.startsWith('governador') && g.modelo.calibracao_sha256 === CALIBRACAO_SHA256);
   assert.ok(g.forecast.candidatos.length === 2 && g.apurado.eleitorado_pct > 0 && g.estratos_coletados === 167);
   const serie = lerObj(amb.bucket, 'live/series.json');
   assert.ok(serie.presidente.at(-1).f.m > 0 && serie.governadores.to.at(-1).f.p);
@@ -252,4 +268,9 @@ test('frescor medido contra a UF: municipio velho 100% totalizado nao derruba; U
   assert.equal(headB.forecast.ac, undefined);
   assert.ok(headB.criterios_nao_atendidos.ac.length > 0, 'criterio de frescor/dispersao citado');
   assert.ok(headB.forecast.am && headB.forecast.rn);
+});
+
+test('CALIBRACAO_SHA256 do coletor bate com o hash real de model/calibracao.mjs (falha se a calibracao mudar)', () => {
+  const hash = createHash('sha256').update(readFileSync(new URL('../../model/calibracao.mjs', import.meta.url))).digest('hex');
+  assert.equal(hash, CALIBRACAO_SHA256);
 });

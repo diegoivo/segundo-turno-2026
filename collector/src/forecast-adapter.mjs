@@ -6,6 +6,8 @@
 //   analise = { apurado, parcial, estratificacao, definido_matematicamente } (sem a lista pesada de estratos).
 // Se o modulo nao existir ou lancar erro: forecast=null + criterio explicando.
 
+import { CALIBRACAO_SHA256 } from './config.mjs';
+
 let cache = null;
 
 async function carregarModelo() {
@@ -19,7 +21,7 @@ async function carregarModelo() {
 }
 
 const vazio = (versao, nome, criterio) => ({
-  versao, modelo: { nome, versao, calibracao: null, sha_codigo: null }, forecast: null, criterios_nao_atendidos: [criterio], analise: null,
+  versao, modelo: { nome, versao, calibracao: null, calibracao_sha256: null, sha_codigo: null }, forecast: null, criterios_nao_atendidos: [criterio], analise: null,
 });
 
 export function criarForecaster(modeloFixo) {
@@ -35,7 +37,7 @@ export function criarForecaster(modeloFixo) {
       const forecast = r.forecast ?? null;
       return {
         versao,
-        modelo: { nome, versao, calibracao: mod.MODELO?.calibracao ?? r.modelo?.calibracao ?? null, sha_codigo: mod.SHA_CODIGO ?? mod.sha_codigo ?? null },
+        modelo: { nome, versao, calibracao: mod.MODELO?.calibracao ?? r.modelo?.calibracao ?? null, calibracao_sha256: CALIBRACAO_SHA256, sha_codigo: mod.SHA_CODIGO ?? mod.sha_codigo ?? null },
         forecast,
         criterios_nao_atendidos: forecast ? [] : (r.criterios_nao_atendidos ?? ['criterios_nao_informados']),
         analise: r.parcial || r.apurado

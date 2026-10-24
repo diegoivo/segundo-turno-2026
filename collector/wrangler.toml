@@ -13,6 +13,8 @@ workers_dev = true   # endpoint HTTP de coleta manual (protegido por token)
 
 [env.staging.vars]
 ENV = "staging"
+# Metodo do presidente: "com_correcao" (padrao) | "sem_correcao". Trocar = so redeploy/dashboard.
+MODELO_METODO_PRESIDENTE = "com_correcao"
 
 [env.staging.triggers]
 crons = ["* * * * *"]
@@ -31,6 +33,7 @@ workers_dev = false  # sem rota publica: o Worker responde 404 a qualquer HTTP
 
 [env.production.vars]
 ENV = "production"
+MODELO_METODO_PRESIDENTE = "com_correcao"  # ou "sem_correcao" (interruptor operacional)
 # A cadeia so comeca com dado do TSE gerado nesta data ou depois, com secoes totalizadas > 0.
 START_DATE = "2026-10-25"
 
@@ -40,3 +43,23 @@ crons = ["* * * * *"]
 [[env.production.r2_buckets]]
 binding = "DATA"
 bucket_name = "segundo-turno-prod"
+
+# ---------- ensaio geral (TSE falso + bucket proprio; ENV=staging: production exige o TSE oficial e barra dados sinteticos) ----------
+[env.ensaio]
+name = "segundo-turno-coletor-ensaio"
+workers_dev = false  # sem HTTP publico
+
+[env.ensaio.vars]
+ENV = "staging"
+MODELO_METODO_PRESIDENTE = "com_correcao"
+START_DATE = "2026-10-25"
+# Base do TSE falso do ensaio (Worker segundo-turno-tse-ensaio); sem esta var o coletor usa o TSE oficial.
+TSE_BASE = "https://segundo-turno-tse-ensaio.hosts5924.workers.dev/oficial/ele2026"
+
+[env.ensaio.triggers]
+# Cron desligado: o worker do ensaio liga (["* * * * *"]) ao iniciar o ensaio.
+crons = []
+
+[[env.ensaio.r2_buckets]]
+binding = "DATA"
+bucket_name = "segundo-turno-ensaio2"

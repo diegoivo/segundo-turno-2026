@@ -14,7 +14,7 @@ const bloco = (caminho, cache, extra = {}) => `${caminho}\n${Object.entries({ 'C
 
 export function gerarHeaders() {
   const html = ['/', '/index.html', '/governador/*', '/metodologia/*', '/metodologia', '/auditoria/*', '/auditoria', '/404.html'];
-  const estaticos = ['/favicon.svg', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png', '/og.png', '/manifest.webmanifest', '/robots.txt', '/sitemap.xml'];
+  const estaticos = ['/favicon.svg', '/favicon.ico', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png', '/og.png', '/manifest.webmanifest', '/robots.txt', '/sitemap.xml'];
   return [
     ...html.map((c) => bloco(c, CACHE_HTML)),
     bloco('/assets/*', CACHE_IMUTAVEL),

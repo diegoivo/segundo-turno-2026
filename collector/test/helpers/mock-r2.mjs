@@ -8,6 +8,8 @@ export class MockR2 {
     this.objetos = new Map();
     this.log = []; // { op, chave }
     this.latencia = latencia;
+    this.aoPut = null; // hook async (chave, n) para simular lentidao/intercalar invocacoes
+    this.nPuts = 0;
     this.bloqueados = []; // prefixos com Bucket Lock: put sobre chave existente => 409
   }
 
@@ -29,6 +31,7 @@ export class MockR2 {
 
   async put(chave, valor, opts = {}) {
     await this.#tick();
+    if (this.aoPut) await this.aoPut(chave, ++this.nPuts);
     const atual = this.objetos.get(chave);
     if (atual && this.bloqueados.some((p) => chave.startsWith(p))) {
       throw Object.assign(new Error(`409 Conflict: ${chave} protegido por Bucket Lock`), { status: 409 });

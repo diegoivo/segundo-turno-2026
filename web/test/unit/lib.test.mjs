@@ -156,10 +156,12 @@ test('manchete: projeção como proposta, critérios faltando e precisão só se
   assert.match(h3, /entre 49,6% e 51,2%/);
   assert.match(h3, /Disputa indefinida/);
   assert.match(h3, /Confiança alta/);
-  assert.doesNotMatch(h3, /erra em média/); // sem erro_medio_esperado: oculto
+  assert.doesNotMatch(h3, /errou em média/); // sem erro_medio_esperado: oculto
   const l = latestDe(3);
   l.presidente.forecast.erro_medio_esperado = { projecao: 0.6, parcial: 2.1 };
-  assert.match(C.headlineHTML(V.presidenteVM(l), 'presidente'), /a projeção erra em média ±0,6 ponto; a parcial, ±2,1/);
+  assert.match(C.headlineHTML(V.presidenteVM(l), 'presidente'), /a projeção errou em média ±0,6 ponto nos testes; a parcial, ±2,1\./);
+  assert.match(C.precisaoHTML({ erro: null, semCorrecao: true }), /Projeção sem a correção das urnas tardias/);
+  assert.doesNotMatch(C.precisaoHTML({ erro: null, semCorrecao: false }), /correção/);
   assert.equal(C.erroMedio({ forecast: { erro_medio_esperado: { projecao: 1 } } }), null);
   assert.match(C.headlineHTML(V.presidenteVM(latestDe(4)), 'presidente'), /Vitória matematicamente definida: Lula/);
 });
@@ -253,7 +255,7 @@ test('1º turno embutido bate com o total oficial (TSE 6257)', () => {
 
 test('markdown mínimo e cabeçalhos HTTP do build', () => {
   const h = mdParaHtml('# T\n\ntexto **b** `c` [l](https://x.y) <script>\n\n- a\n- b\n\n1. um\n\n| A | B |\n|---|---|\n| 1 | 2 |\n\n> cit');
-  assert.match(h, /<h1>T<\/h1>/);
+  assert.match(h, /<h1 id="t">T<\/h1>/);
   assert.match(h, /<strong>b<\/strong>/);
   assert.match(h, /&lt;script&gt;/);
   assert.match(h, /<ul><li>a<\/li><li>b<\/li><\/ul>/);

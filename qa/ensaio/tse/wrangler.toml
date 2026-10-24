@@ -1,0 +1,16 @@
+# TSE falso do ensaio geral (recurso proprio; nao toca producao/staging).
+name = "segundo-turno-tse-ensaio"
+main = "src/worker.mjs"
+account_id = "7da0ed9efd4c11dde93580a34322e913"
+compatibility_date = "2025-10-01"
+workers_dev = true
+
+[assets]
+directory = "./assets"
+binding = "ASSETS"
+run_worker_first = true
+
+[vars]
+ENSAIO_INSTANTES = "1700,1711,1716,1724,1733,1740,1745,1750,1755,1800,1812,1817,1822,1828,1834,1841,1847,1857,1903,1909,1914,1920,1931,2005,2035,2050,2055,2105,2140,0300"
+# ENSAIO_INICIO (epoch ms) e passado no deploy: --var ENSAIO_INICIO:<ms>
+ENSAIO_INICIO = "0"
