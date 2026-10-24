@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+*.log
+.DS_Store
+# replay reconstruído (~600 MB): regenerável por backfill/1t2026/scripts
+backfill/1t2026/replay/
+qa/**/node_modules/
+test-results/
+playwright-report/

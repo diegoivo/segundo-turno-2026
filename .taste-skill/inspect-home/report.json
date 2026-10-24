@@ -1,0 +1,2404 @@
+{
+ "url": "design/index.html",
+ "at": "2026-10-24T01:52:31.852Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.54,
+    0.68,
+    0.69,
+    0.7,
+    0.75
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4405,
+     "screens": 4.9,
+     "words": 1139,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Apuração do 2º turno",
+     "words": 4,
+     "chars": 20,
+     "lines": 1,
+     "size": 24,
+     "vw": 1.7,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 165,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Apuração do 2º turno",
+     "words": 4,
+     "lines": 1,
+     "size": 24,
+     "font": "system-ui"
+    },
+    "headings": [
+     {
+      "text": "49,24%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.36,
+      "top": 455,
+      "tag": "p",
+      "kind": "heading"
+     },
+     {
+      "text": "50,76%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "right",
+      "position": "right",
+      "widthRatio": 0.11,
+      "top": 455,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "50,4%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 869,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "49,6%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 869,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Apuração do 2º turno",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 96,
+      "vw": 6.7,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 4166,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 5,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "system-ui",
+       "share": 0.98,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.02,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      14,
+      16,
+      17,
+      18,
+      20,
+      22,
+      24,
+      26,
+      32,
+      44,
+      96
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "system-ui",
+      "size": 14,
+      "leading": 1.35,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 18
+     },
+     "measureChars": 101,
+     "max": {
+      "size": 96,
+      "vw": 6.7,
+      "font": "system-ui",
+      "text": "Apuração do 2º turno"
+     },
+     "monoShare": 0.02,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.01,
+     "smallText": 43
+    },
+    "eyebrows": [
+     {
+      "text": "Nº 13 · PTvice Geraldo Alckmin",
+      "above": "49,24%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 411
+     },
+     {
+      "text": "Nº 22 · PLvice Alfredo Gaspar",
+      "above": "50,76%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 411
+     },
+     {
+      "text": "Lula",
+      "above": "50,4%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 848
+     },
+     {
+      "text": "Flávio Bolsonaro",
+      "above": "49,6%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 848
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f2f4f7",
+     "bodyBgHsl": {
+      "h": 216,
+      "s": 0.24,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 294,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#565d6b",
+       "share": 0.52
+      },
+      {
+       "color": "#111418",
+       "share": 0.38
+      },
+      {
+       "color": "#1d5fbf",
+       "share": 0.03
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      },
+      {
+       "color": "#c0212b",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#111418"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 5,
+     "radius": 6,
+     "height": 32,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "1 · Antes das 17h",
+      "2 · Sem projeção",
+      "3 · Com projeção",
+      "4 · Resultado definido",
+      "Tema escuro"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 34,
+     "hairlineSamples": [
+      "dl.kpis 1118px",
+      "div 418px",
+      "div 418px",
+      "div 418px",
+      "li 682px"
+     ],
+     "outlinedBoxes": 15,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 8,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 6,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 2530
+      },
+      {
+       "count": 7,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 3228
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 7,
+     "fixed": false,
+     "height": 62,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 4405,
+    "margins": {
+     "left": 160,
+     "right": 181
+    },
+    "sections": [
+     {
+      "sel": "section#placar",
+      "tag": "section",
+      "top": 294,
+      "height": 444,
+      "words": 94,
+      "media": 0,
+      "middle": 6,
+      "heading": {
+       "text": "49,24%",
+       "size": 44,
+       "tag": "p"
+      },
+      "left": 181,
+      "right": 181,
+      "textLeft": 181,
+      "textRight": 181,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#projecao.grid.g-fc",
+      "tag": "section",
+      "top": 770,
+      "height": 592,
+      "words": 180,
+      "media": 1,
+      "middle": 45,
+      "heading": {
+       "text": "50,4%",
+       "size": 32,
+       "tag": "p"
+      },
+      "left": 168,
+      "right": 181,
+      "textLeft": 168,
+      "textRight": 187,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#comparacao",
+      "tag": "section",
+      "top": 1394,
+      "height": 364,
+      "words": 80,
+      "media": 1,
+      "middle": 16,
+      "heading": {
+       "text": "Comparação com 2022",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 160,
+      "right": 162,
+      "textLeft": 160,
+      "textRight": 162,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#estados",
+      "tag": "section",
+      "top": 1790,
+      "height": 580,
+      "words": 145,
+      "media": 0,
+      "middle": 72,
+      "heading": {
+       "text": "Panorama por região e UF",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 160,
+      "right": 181,
+      "textLeft": 160,
+      "textRight": 181,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#auditoria",
+      "tag": "section",
+      "top": 2402,
+      "height": 739,
+      "words": 228,
+      "media": 0,
+      "middle": 64,
+      "heading": {
+       "text": "Auditoria",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 160,
+      "right": 160,
+      "textLeft": 160,
+      "textRight": 160,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#votos-forecast",
+      "tag": "section",
+      "top": 3173,
+      "height": 905,
+      "words": 363,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Votos apurados × forecast",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 160,
+      "right": 166,
+      "textLeft": 160,
+      "textRight": 166,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.end",
+      "tag": "footer",
+      "top": 4134,
+      "height": 271,
+      "words": 47,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Apuração do 2º turno",
+       "size": 96,
+       "tag": "p"
+      },
+      "left": 160,
+      "right": 433,
+      "textLeft": 160,
+      "textRight": 433,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Apuração do 2º turno",
+      "size": 24,
+      "top": 165,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 657,
+      "n": 7
+     },
+     {
+      "x": 160,
+      "n": 6
+     },
+     {
+      "x": 181,
+      "n": 6
+     },
+     {
+      "x": 249,
+      "n": 1
+     },
+     {
+      "x": 577,
+      "n": 1
+     },
+     {
+      "x": 747,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 22,
+    "bodySize": 14,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.1,
+    "voidBox": {
+     "x": 1260,
+     "y": 180,
+     "w": 180,
+     "h": 720
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#f2f4f7",
+    "sidebar": null,
+    "topbar": {
+     "h": 48
+    },
+    "canvas": {
+     "left": 160,
+     "right": 181
+    },
+    "hero": {
+     "text": "Apuração do 2º turno",
+     "words": 4,
+     "chars": 20,
+     "lines": 1,
+     "size": 24,
+     "vw": 1.7,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 165,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 5,
+    "layout": {
+     "panels": 15,
+     "firstScreen": 3,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 29,
+     "radii": [
+      [
+       0,
+       21
+      ],
+      [
+       8,
+       8
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 54,
+     "tabularShare": 0.94,
+     "kpiMax": 44
+    },
+    "rows": null,
+    "chartHues": 2,
+    "placeholders": [],
+    "type": {
+     "under13": 0.26,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      14,
+      16,
+      17,
+      18,
+      20,
+      22,
+      24,
+      26,
+      32,
+      44,
+      96
+     ]
+    },
+    "title": {
+     "text": "Apuração do 2º turno",
+     "size": 24,
+     "top": 165
+    },
+    "colourShare": 0.031
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 7,
+   "filled": [
+    0.74,
+    0.92,
+    0.76,
+    0.91,
+    0.85,
+    0.92,
+    0.92
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 6672,
+     "screens": 6.5,
+     "words": 1139,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Apuração do 2º turno",
+     "words": 4,
+     "chars": 20,
+     "lines": 1,
+     "size": 24,
+     "vw": 3.1,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 214,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Apuração do 2º turno",
+     "words": 4,
+     "lines": 1,
+     "size": 24,
+     "font": "system-ui"
+    },
+    "headings": [
+     {
+      "text": "13",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.07,
+      "top": 436,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "22",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "right",
+      "position": "right",
+      "widthRatio": 0.07,
+      "top": 436,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "49,24%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 44,
+      "vw": 5.7,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 504,
+      "tag": "p",
+      "kind": "heading"
+     },
+     {
+      "text": "50,76%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 44,
+      "vw": 5.7,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "right",
+      "position": "right",
+      "widthRatio": 0.21,
+      "top": 504,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "50,4%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 1020,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "49,6%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.43,
+      "top": 1020,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Apuração do 2º turno",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 9,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 6459,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "system-ui",
+       "share": 0.98,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.02,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      14,
+      16,
+      17,
+      18,
+      20,
+      22,
+      24,
+      26,
+      32,
+      44,
+      69
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "system-ui",
+      "size": 14,
+      "leading": 1.35,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 18
+     },
+     "measureChars": 101,
+     "max": {
+      "size": 69.1,
+      "vw": 9,
+      "font": "system-ui",
+      "text": "Apuração do 2º turno"
+     },
+     "monoShare": 0.02,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.01,
+     "smallText": 43
+    },
+    "eyebrows": [
+     {
+      "text": "Nº 13 · PTvice Geraldo Alckmin",
+      "above": "49,24%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 460
+     },
+     {
+      "text": "Nº 22 · PLvice Alfredo Gaspar",
+      "above": "50,76%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 460
+     },
+     {
+      "text": "Lula",
+      "above": "50,4%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 999
+     },
+     {
+      "text": "Flávio Bolsonaro",
+      "above": "49,6%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 999
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f2f4f7",
+     "bodyBgHsl": {
+      "h": 216,
+      "s": 0.24,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 343,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#565d6b",
+       "share": 0.52
+      },
+      {
+       "color": "#111418",
+       "share": 0.38
+      },
+      {
+       "color": "#1d5fbf",
+       "share": 0.03
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      },
+      {
+       "color": "#c0212b",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#111418"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 5,
+     "radius": 6,
+     "height": 32,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "1 · Antes das 17h",
+      "2 · Sem projeção",
+      "3 · Com projeção",
+      "4 · Resultado definido",
+      "Tema escuro"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 36,
+     "hairlineSamples": [
+      "dl.kpis 718px",
+      "div.kpi 359px",
+      "div.kpi 359px",
+      "div 678px",
+      "div 678px"
+     ],
+     "outlinedBoxes": 15,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 8,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 6,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 4337
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 111,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 6672,
+    "margins": {
+     "left": 24,
+     "right": 45
+    },
+    "sections": [
+     {
+      "sel": "section#placar",
+      "tag": "section",
+      "top": 343,
+      "height": 546,
+      "words": 94,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "49,24%",
+       "size": 44,
+       "tag": "p"
+      },
+      "left": 45,
+      "right": 45,
+      "textLeft": 45,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#projecao.grid.g-fc",
+      "tag": "section",
+      "top": 921,
+      "height": 1135,
+      "words": 180,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "50,4%",
+       "size": 32,
+       "tag": "p"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#comparacao",
+      "tag": "section",
+      "top": 2087,
+      "height": 588,
+      "words": 80,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Comparação com 2022",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 45,
+      "textLeft": 24,
+      "textRight": 75,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#estados",
+      "tag": "section",
+      "top": 2707,
+      "height": 1173,
+      "words": 140,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Panorama por região e UF",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 45,
+      "textLeft": 24,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#auditoria",
+      "tag": "section",
+      "top": 3912,
+      "height": 1036,
+      "words": 254,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Auditoria",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 24,
+      "textLeft": 24,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#votos-forecast",
+      "tag": "section",
+      "top": 4980,
+      "height": 1390,
+      "words": 363,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Votos apurados × forecast",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 28,
+      "textLeft": 24,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.end",
+      "tag": "footer",
+      "top": 6427,
+      "height": 246,
+      "words": 47,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Apuração do 2º turno",
+       "size": 69,
+       "tag": "p"
+      },
+      "left": 24,
+      "right": 47,
+      "textLeft": 24,
+      "textRight": 47,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Apuração do 2º turno",
+      "size": 24,
+      "top": 214,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 45,
+      "n": 11
+     },
+     {
+      "x": 24,
+      "n": 9
+     },
+     {
+      "x": 113,
+      "n": 1
+     },
+     {
+      "x": 211,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 22,
+    "bodySize": 14,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#f2f4f7",
+    "sidebar": null,
+    "topbar": {
+     "h": 48
+    },
+    "canvas": {
+     "left": 24,
+     "right": 45
+    },
+    "hero": {
+     "text": "Apuração do 2º turno",
+     "words": 4,
+     "chars": 20,
+     "lines": 1,
+     "size": 24,
+     "vw": 3.1,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 214,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 5,
+    "layout": {
+     "panels": 15,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 31,
+     "radii": [
+      [
+       0,
+       23
+      ],
+      [
+       8,
+       8
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 54,
+     "tabularShare": 0.94,
+     "kpiMax": 44
+    },
+    "rows": null,
+    "chartHues": 2,
+    "placeholders": [],
+    "type": {
+     "under13": 0.26,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      14,
+      16,
+      17,
+      18,
+      20,
+      22,
+      24,
+      26,
+      32,
+      44,
+      69
+     ]
+    },
+    "title": {
+     "text": "Apuração do 2º turno",
+     "size": 24,
+     "top": 214
+    },
+    "colourShare": 0.036
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 10,
+   "filled": [
+    0.63,
+    0.86,
+    0.89,
+    0.86,
+    0.92,
+    0.81,
+    0.86,
+    0.92,
+    0.86,
+    0.91
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 8002,
+     "screens": 9.5,
+     "words": 1139,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 1,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Apuração do 2º turno",
+     "words": 4,
+     "chars": 20,
+     "lines": 1,
+     "size": 24,
+     "vw": 6.2,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 333,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Apuração do 2º turno",
+     "words": 4,
+     "lines": 1,
+     "size": 24,
+     "font": "system-ui"
+    },
+    "headings": [
+     {
+      "text": "Apuração do 2º turno",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.015,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 333,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "49,24%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 34,
+      "vw": 8.7,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 675,
+      "tag": "p",
+      "kind": "heading"
+     },
+     {
+      "text": "50,76%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 34,
+      "vw": 8.7,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 697,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "78,78%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 600,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 925,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "90,87 mi",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 600,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 946,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "18:39:12",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 600,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 1055,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "24,38 mi",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 600,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 1076,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "50,4%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.4,
+      "top": 1305,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "49,6%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 1305,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Apuração do 2º turno",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 35.1,
+      "vw": 9,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 7778,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 8,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "system-ui",
+       "share": 0.98,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.02,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      14,
+      16,
+      17,
+      18,
+      19,
+      20,
+      24,
+      32,
+      34,
+      35
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "system-ui",
+      "size": 14,
+      "leading": 1.35,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 18
+     },
+     "measureChars": 51,
+     "max": {
+      "size": 35.1,
+      "vw": 9,
+      "font": "system-ui",
+      "text": "Apuração do 2º turno"
+     },
+     "monoShare": 0.02,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.01,
+     "smallText": 43
+    },
+    "eyebrows": [
+     {
+      "text": "Nº 13 · PTvice Geraldo Alckmin",
+      "above": "49,24%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 615
+     },
+     {
+      "text": "Nº 22 · PLvice Alfredo Gaspar",
+      "above": "50,76%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 637
+     },
+     {
+      "text": "Lula",
+      "above": "50,4%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 1284
+     },
+     {
+      "text": "Flávio Bolsonaro",
+      "above": "49,6%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 1284
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f2f4f7",
+     "bodyBgHsl": {
+      "h": 216,
+      "s": 0.24,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 485,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#565d6b",
+       "share": 0.52
+      },
+      {
+       "color": "#111418",
+       "share": 0.38
+      },
+      {
+       "color": "#1d5fbf",
+       "share": 0.03
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      },
+      {
+       "color": "#c0212b",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#111418"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 5,
+     "radius": 6,
+     "height": 32,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "1 · Antes das 17h",
+      "2 · Sem projeção",
+      "3 · Com projeção",
+      "4 · Resultado definido",
+      "Tema escuro"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 34,
+     "hairlineSamples": [
+      "dl.kpis 356px",
+      "div 324px",
+      "div 324px",
+      "div 324px",
+      "li 324px"
+     ],
+     "outlinedBoxes": 15,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 8,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 6,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 4931
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 136,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 8002,
+    "margins": {
+     "left": 16,
+     "right": 33
+    },
+    "sections": [
+     {
+      "sel": "header.top",
+      "tag": "header",
+      "top": 181,
+      "height": 136,
+      "words": 18,
+      "media": 0,
+      "middle": 42,
+      "heading": null,
+      "left": 28,
+      "right": 0,
+      "textLeft": 28,
+      "textRight": -148,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.head",
+      "tag": "div",
+      "top": 317,
+      "height": 137,
+      "words": 21,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Apuração do 2º turno",
+       "size": 24,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#placar",
+      "tag": "section",
+      "top": 485,
+      "height": 654,
+      "words": 94,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "49,24%",
+       "size": 34,
+       "tag": "p"
+      },
+      "left": 33,
+      "right": 40,
+      "textLeft": 33,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#projecao.grid.g-fc",
+      "tag": "section",
+      "top": 1171,
+      "height": 1242,
+      "words": 180,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "50,4%",
+       "size": 32,
+       "tag": "p"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#comparacao",
+      "tag": "section",
+      "top": 2445,
+      "height": 663,
+      "words": 80,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Comparação com 2022",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 31,
+      "textLeft": 16,
+      "textRight": 31,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#estados",
+      "tag": "section",
+      "top": 3141,
+      "height": 1112,
+      "words": 140,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Panorama por região e UF",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 23,
+      "textLeft": 16,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#auditoria",
+      "tag": "section",
+      "top": 4285,
+      "height": 1253,
+      "words": 254,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Auditoria",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 34,
+      "textLeft": 16,
+      "textRight": 34,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#votos-forecast",
+      "tag": "section",
+      "top": 5570,
+      "height": 2120,
+      "words": 363,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Votos apurados × forecast",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 22,
+      "textLeft": 16,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.end",
+      "tag": "footer",
+      "top": 7746,
+      "height": 255,
+      "words": 47,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Apuração do 2º turno",
+       "size": 35,
+       "tag": "p"
+      },
+      "left": 16,
+      "right": 26,
+      "textLeft": 16,
+      "textRight": 26,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Apuração do 2º turno",
+      "size": 24,
+      "top": 333,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 33,
+      "n": 11
+     },
+     {
+      "x": 16,
+      "n": 10
+     },
+     {
+      "x": 81,
+      "n": 1
+     },
+     {
+      "x": 260,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 23,
+    "bodySize": 14,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": false,
+    "ground": "#f2f4f7",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 16,
+     "right": 31
+    },
+    "hero": {
+     "text": "Apuração do 2º turno",
+     "words": 4,
+     "chars": 20,
+     "lines": 1,
+     "size": 24,
+     "vw": 6.2,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 333,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 5,
+    "layout": {
+     "panels": 15,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 31,
+     "radii": [
+      [
+       0,
+       23
+      ],
+      [
+       8,
+       8
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 54,
+     "tabularShare": 0.94,
+     "kpiMax": 34
+    },
+    "rows": null,
+    "chartHues": 2,
+    "placeholders": [],
+    "type": {
+     "under13": 0.26,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      14,
+      16,
+      17,
+      18,
+      19,
+      20,
+      24,
+      32,
+      34,
+      35
+     ]
+    },
+    "title": {
+     "text": "Apuração do 2º turno",
+     "size": 24,
+     "top": 333
+    },
+    "colourShare": 0.041
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "below-fold",
+   "width": 1440,
+   "message": "Only 3 of 15 blocks start on the first 1440px screen.",
+   "fix": "Every block the brief names shows its header and first rows on the first desktop screen: size the headline block to its question, cap long lists with \"View all\", and put time-sensitive blocks before long tables."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-home/desktop-fold.jpg",
+   "pages": [
+    "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-home/desktop-page-01.jpg",
+    "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-home/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-home/tablet-fold.jpg",
+   "pages": [
+    "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-home/tablet-page-01.jpg",
+    "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-home/tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-home/mobile-fold.jpg",
+   "pages": [
+    "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-home/mobile-page-01.jpg",
+    "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-home/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

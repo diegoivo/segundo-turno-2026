@@ -1,0 +1,42 @@
+# Coletor do 2o turno 2026. Conta Cloudflare: Hosts@conversion.com.br (escolhida pelo Diego em 24/10).
+# NAO faca deploy sem revisar: production grava no bucket oficial.
+name = "segundo-turno-coletor"
+main = "src/index.mjs"
+account_id = "7da0ed9efd4c11dde93580a34322e913"
+compatibility_date = "2025-10-01"
+workers_dev = false
+
+# ---------- staging ----------
+[env.staging]
+name = "segundo-turno-coletor-staging"
+workers_dev = true   # endpoint HTTP de coleta manual (protegido por token)
+
+[env.staging.vars]
+ENV = "staging"
+
+[env.staging.triggers]
+crons = ["* * * * *"]
+
+[[env.staging.r2_buckets]]
+binding = "DATA"
+bucket_name = "segundo-turno-staging"
+
+# Secret do endpoint manual (nao fica no arquivo):
+#   wrangler secret put STAGING_TOKEN --env staging
+
+# ---------- production ----------
+[env.production]
+name = "segundo-turno-coletor"
+workers_dev = false  # sem rota publica: o Worker responde 404 a qualquer HTTP
+
+[env.production.vars]
+ENV = "production"
+# A cadeia so comeca com dado do TSE gerado nesta data ou depois, com secoes totalizadas > 0.
+START_DATE = "2026-10-25"
+
+[env.production.triggers]
+crons = ["* * * * *"]
+
+[[env.production.r2_buckets]]
+binding = "DATA"
+bucket_name = "segundo-turno-prod"

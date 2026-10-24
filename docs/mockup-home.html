@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Segundo Turno — Mockup</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --ink:#14171c; --muted:#5d6673; --line:#e3e6eb;
+  --a:#2f64d6; --a-soft:#e6eefc; --b:#d4762a; --b-soft:#fbeee2;
+  --ok:#1f8a4c; --warn:#b7791f; --live:#d23c3c;
+  --r:14px; --font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1216; --card:#171b21; --ink:#eef1f5; --muted:#9aa4b1; --line:#2a3038;
+  --a:#6f9bff; --a-soft:#1c2840; --b:#f0a05e; --b-soft:#33261a;}}
+:root[data-theme="dark"]{--bg:#0f1216; --card:#171b21; --ink:#eef1f5; --muted:#9aa4b1; --line:#2a3038;
+  --a:#6f9bff; --a-soft:#1c2840; --b:#f0a05e; --b-soft:#33261a;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 var(--font)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.mock{background:#111;color:#fff;font-size:12px;text-align:center;padding:6px 16px}
+.mock button{font:inherit;margin:2px;padding:3px 10px;border-radius:99px;border:1px solid #555;background:#222;color:#fff;cursor:pointer}
+.mock button[aria-pressed="true"]{background:#fff;color:#111}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;flex-wrap:wrap}
+.brand{font-weight:800;font-size:18px;letter-spacing:-.02em}
+.status{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:99px;font-weight:700;font-size:12px}
+.pill.live{background:color-mix(in srgb,var(--live) 14%,transparent);color:var(--live)}
+.pill.live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--live);animation:p 1.4s infinite}
+@keyframes p{50%{opacity:.25}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.grid{display:grid;gap:14px}
+.hero{grid-template-columns:1fr 1fr}
+.cand{border-radius:var(--r);padding:18px;display:flex;gap:14px;align-items:center}
+.cand.a{background:var(--a-soft)} .cand.b{background:var(--b-soft);flex-direction:row-reverse;text-align:right}
+.av{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;flex:none;font-size:20px}
+.a .av{background:var(--a)} .b .av{background:var(--b)}
+.nm{font-weight:700} .pt{font-size:13px;color:var(--muted)}
+.pct{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.a .pct{color:var(--a)} .b .pct{color:var(--b)}
+.votes{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{position:relative;height:18px;border-radius:99px;overflow:hidden;display:flex;background:var(--line);margin:14px 0 6px}
+.bar .sa{background:var(--a)} .bar .sb{background:var(--b);margin-left:auto}
+.bar::after{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:var(--ink);opacity:.7}
+.barlbl{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.prog{display:flex;align-items:center;gap:12px;font-variant-numeric:tabular-nums}
+.prog .track{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.prog .fill{height:100%;background:var(--ink)}
+h2{font-size:16px;margin:0 0 4px} .sub{color:var(--muted);font-size:13px;margin:0 0 14px}
+.fc{grid-template-columns:1.1fr 1.4fr}
+.prob{display:flex;gap:10px;margin:10px 0}
+.prob div{flex:1;border-radius:10px;padding:10px;text-align:center}
+.prob .pa{background:var(--a-soft);color:var(--a)} .prob .pb{background:var(--b-soft);color:var(--b)}
+.prob b{display:block;font-size:26px}
+.range{font-size:13px;color:var(--muted)}
+.crit{list-style:none;padding:0;margin:8px 0 0;font-size:14px}
+.crit li{padding:6px 0;border-top:1px solid var(--line);display:flex;gap:8px}
+.crit .y{color:var(--ok)} .crit .n{color:var(--warn)}
+svg text{fill:var(--muted);font-size:11px;font-family:var(--font)}
+.tiles{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;max-width:360px}
+.tile{aspect-ratio:1;border-radius:6px;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff}
+.uf{grid-template-columns:auto 1fr}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+td,th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:right} th{color:var(--muted);font-weight:600}
+td:first-child,th:first-child{text-align:left}
+.audit code{font-size:12px;background:var(--bg);padding:2px 6px;border-radius:6px;word-break:break-all}
+.audit li{padding:6px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.audit ul{list-style:none;margin:0;padding:0;font-size:13px}
+.btn{display:inline-block;margin-top:12px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:13px}
+.count{text-align:center;padding:30px 18px}
+.count .t{font-size:46px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+footer{color:var(--muted);font-size:12px;padding:24px 0 40px}
+.hide{display:none!important}
+@media (max-width:760px){.hero,.fc,.uf{grid-template-columns:1fr}.pct{font-size:36px}.cand.b{flex-direction:row;text-align:left}}
+</style>
+</head>
+<body>
+<div class="mock">MOCKUP · DADOS FICTÍCIOS · candidatos A/B são placeholders ·
+  Estado: <button data-s="pre">Antes das 17h</button><button data-s="nofc">Apuração sem forecast</button><button data-s="fc" aria-pressed="true">Apuração com forecast</button>
+</div>
+<div class="wrap">
+<header>
+  <div class="brand">segundoturno<span style="color:var(--muted)">.com.br</span></div>
+  <div class="status"><span class="pill live" data-show="nofc fc">AO VIVO</span>
+    <span data-show="nofc fc">Atualizado 19:42:15 · TSE 19:41:50</span>
+    <span data-show="pre">Domingo, 25 de outubro · apuração a partir das 17h</span></div>
+</header>
+
+<section class="card count" data-show="pre">
+  <div class="sub">A divulgação dos resultados começa quando as urnas fecham</div>
+  <div class="t">18:42:07</div>
+  <p class="sub">Enquanto isso: resultado oficial do 1º turno abaixo · <a href="#" style="color:inherit">como funciona a projeção</a></p>
+</section>
+
+<section class="grid" data-show="nofc fc">
+  <div class="grid hero">
+    <div class="cand a"><div class="av">A</div><div><div class="nm">Candidato A</div><div class="pt">PARTIDO A</div>
+      <div class="pct">51,38%</div><div class="votes">48.211.904 votos</div></div></div>
+    <div class="cand b"><div class="av">B</div><div><div class="nm">Candidato B</div><div class="pt">PARTIDO B</div>
+      <div class="pct">48,62%</div><div class="votes">45.622.310 votos</div></div></div>
+  </div>
+  <div class="card">
+    <div class="bar"><div class="sa" style="width:51.38%"></div><div class="sb" style="width:48.62%"></div></div>
+    <div class="barlbl"><span>% dos votos válidos (parcial)</span><span>50%</span><span>diferença: 2.589.594 votos</span></div>
+    <div class="prog" style="margin-top:14px"><b>78,41%</b><div class="track"><div class="fill" style="width:78.41%"></div></div><span class="sub" style="margin:0">das seções totalizadas</span></div>
+  </div>
+</section>
+
+<section class="grid fc" style="margin-top:14px" data-show="nofc fc">
+  <div class="card">
+    <h2>Projeção do resultado final</h2>
+    <p class="sub">Modelo estatístico com dados oficiais do TSE. Não é resultado oficial.</p>
+    <div data-show="fc">
+      <div class="prob"><div class="pa"><b>50,6%</b>Candidato A</div><div class="pb"><b>49,4%</b>Candidato B</div></div>
+      <div class="range">Intervalo de 90%: A entre 49,9% e 51,3% dos válidos</div>
+      <div class="prob"><div class="pa"><b>87%</b>chance de vitória</div><div class="pb"><b>13%</b>chance de vitória</div></div>
+      <div class="range">Versão #412 do forecast · modelo v1.0.0 · <a href="#" style="color:inherit">auditar</a></div>
+    </div>
+    <div data-show="nofc">
+      <p><b>Projeção indisponível</b>: os critérios mínimos ainda não foram atendidos.</p>
+      <ul class="crit">
+        <li><span class="y">✓</span> ≥ 10% das seções totalizadas no país (14,2%)</li>
+        <li><span class="n">○</span> ≥ 5% em cada região (Norte: 3,1%)</li>
+        <li><span class="n">○</span> ≥ 30 municípios com 50%+ apurado por região (Norte: 12)</li>
+        <li><span class="y">✓</span> Dados do TSE atualizados (há 25 s)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Histórico do forecast</h2>
+    <p class="sub">Cada ponto é uma versão gravada e imutável · faixa = intervalo de 90%</p>
+    <svg id="chart" viewBox="0 0 520 220" width="100%" role="img" aria-label="Série do forecast e da parcial"></svg>
+  </div>
+</section>
+
+<section class="card" style="margin-top:14px" data-show="pre">
+  <h2>Resultado oficial do 1º turno</h2><p class="sub">Fonte: TSE · eleição 6257</p>
+  <div class="bar"><div class="sa" style="width:44%"></div><div style="width:12%;background:var(--muted)"></div><div class="sb" style="width:44%"></div></div>
+  <div class="barlbl"><span>Candidato A</span><span>demais</span><span>Candidato B</span></div>
+</section>
+
+<section class="card grid uf" style="margin-top:14px">
+  <div><h2>Por estado</h2><p class="sub">Cor = quem lidera · opacidade = % apurado</p><div class="tiles" id="tiles"></div></div>
+  <div><table><thead><tr><th>Região</th><th>Apurado</th><th>A</th><th>B</th></tr></thead><tbody id="reg"></tbody></table></div>
+</section>
+
+<section class="card audit" style="margin-top:14px">
+  <h2>Auditoria</h2>
+  <p class="sub">Cada atualização do TSE gera um snapshot imutável, encadeado por SHA-256 ao anterior. O dado bruto do TSE também fica guardado. Qualquer pessoa pode baixar tudo e recalcular.</p>
+  <ul>
+    <li><span>#412 · 19:41:50</span><code>sha256 9f3c…a71e ← prev 4be0…09d2</code><a href="#" style="color:inherit">JSON</a></li>
+    <li><span>#411 · 19:40:35</span><code>sha256 4be0…09d2 ← prev 77a1…c3f0</code><a href="#" style="color:inherit">JSON</a></li>
+    <li><span>#410 · 19:39:20</span><code>sha256 77a1…c3f0 ← prev 1d9e…5b44</code><a href="#" style="color:inherit">JSON</a></li>
+  </ul>
+  <a class="btn" href="#">Baixar histórico completo</a> <a class="btn" href="#">Verificar a cadeia</a> <a class="btn" href="#">Metodologia</a>
+</section>
+
+<footer>Fonte dos dados: Tribunal Superior Eleitoral (resultados.tse.jus.br). Projeção estatística independente, não é resultado oficial. Código e histórico abertos.</footer>
+</div>
+<script>
+const UF=[["RR",2,0],["AP",4,0],["AM",1,1],["PA",3,1],["MA",4,1],["CE",5,1],["RN",6,1],["AC",0,2],["RO",1,2],["MT",2,2],["TO",3,2],["PI",4,2],["PE",5,2],["PB",6,2],["MS",2,3],["GO",3,3],["DF",4,3],["BA",5,3],["AL",6,3],["SP",3,4],["MG",4,4],["ES",5,4],["SE",6,4],["PR",3,5],["RJ",4,5],["SC",3,6],["RS",3,7]];
+let s=7;const rnd=()=>(s=(s*16807)%2147483647)/2147483647;
+const t=document.getElementById("tiles");t.style.gridTemplateRows="repeat(8,1fr)";
+UF.forEach(([n,c,r])=>{const d=document.createElement("div");d.className="tile";d.textContent=n;
+  d.style.gridColumn=c+1;d.style.gridRow=r+1;d.style.background=rnd()>.5?"var(--a)":"var(--b)";d.style.opacity=(.45+rnd()*.55).toFixed(2);t.appendChild(d)});
+document.getElementById("reg").innerHTML=[["Norte","61%","47,1%","52,9%"],["Nordeste","82%","63,4%","36,6%"],["Centro-Oeste","74%","40,2%","59,8%"],["Sudeste","81%","46,9%","53,1%"],["Sul","79%","41,5%","58,5%"]]
+  .map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td style="color:var(--a)">${r[2]}</td><td style="color:var(--b)">${r[3]}</td></tr>`).join("");
+// gráfico: parcial (linha fina) vs forecast (linha + faixa), eixo y 44–56%
+const W=520,H=220,L=36,B=24,y=v=>10+(56-v)/12*(H-B-10),x=i=>L+i/40*(W-L-10);
+let part=[],fc=[],lo=[],hi=[];for(let i=0;i<=40;i++){const k=i/40;part.push(46+9*Math.exp(-4*k)-3.6*k+rnd()*.4);
+  const m=50.4+.25*k+(rnd()-.5)*.3,w=2.6*(1-k)+.7;fc.push(m);lo.push(m-w/2);hi.push(m+w/2)}
+const P=a=>a.map((v,i)=>`${i?"L":"M"}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join("");
+const start=12,band=hi.slice(start).map((v,i)=>[x(i+start),y(v)]).concat(lo.slice(start).map((v,i)=>[x(i+start),y(v)]).reverse());
+let g="";[44,47,50,53,56].forEach(v=>g+=`<line x1="${L}" x2="${W-10}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" ${v==50?'stroke-dasharray="4 3" stroke="var(--muted)"':""}/><text x="0" y="${y(v)+4}">${v}%</text>`);
+["17h","18h","19h","20h"].forEach((h,i)=>g+=`<text x="${L+i*(W-L-30)/3}" y="${H-6}">${h}</text>`);
+g+=`<rect x="${L}" y="10" width="${x(start)-L}" height="${H-B-10}" fill="var(--line)" opacity=".5"/><text x="${L+6}" y="24">sem forecast</text>`;
+g+=`<polygon points="${band.map(p=>p.join(",")).join(" ")}" fill="var(--a)" opacity=".15"/>`;
+g+=`<path d="${P(part)}" fill="none" stroke="var(--muted)" stroke-width="1.5"/>`;
+g+=`<path d="${"M"+P(fc.slice(start)).slice(1).replace(/^[\d.]+/,m=>m)}" fill="none" stroke="var(--a)" stroke-width="2.5"/>`;
+document.getElementById("chart").innerHTML=g;
+document.querySelector("#chart path:last-child").setAttribute("d",fc.slice(start).map((v,i)=>`${i?"L":"M"}${x(i+start).toFixed(1)},${y(v).toFixed(1)}`).join(""));
+document.getElementById("chart").insertAdjacentHTML("beforeend",`<text x="${W-150}" y="${y(part[40])+16}">parcial de A</text><text x="${W-150}" y="${y(fc[40])-10}" style="fill:var(--a)">forecast de A</text>`);
+function setState(st){document.querySelectorAll("[data-s]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===st));
+  document.querySelectorAll("[data-show]").forEach(e=>e.classList.toggle("hide",!e.dataset.show.split(" ").includes(st)))}
+document.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>setState(b.dataset.s));setState("fc");
+</script>
+</body>
+</html>

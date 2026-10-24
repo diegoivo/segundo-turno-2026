@@ -1,0 +1,49 @@
+
+{ "ele" : "6259", "t" : "1", "f" : "o", "sup" : "n", "tpabr" : "uf", "cdabr" : "df", "dg" : "15/10/2026", "hg" : "09:08:09", "idg" : "3520974", "dt" : "04/10/2026", "ht" : "20:22:29", "dv" : "s", "tf" : "s", "and" : "f", "esae" : "n", "mnae" : [  ], "carg" : [ 
+{ "cd" : "3", "nmn" : "Governador", "nmm" : "Governador", "nmf" : "Governadora", "nv" : "1", "fed" : [ 
+{ "n" : "100", "sg" : "PSDB/CIDADANIA", "nm" : "FEDERAÇÃO PSDB CIDADANIA", "com" : "PSDB/CIDADANIA", "npar" : [ "23", "45" ] }, 
+{ "n" : "104", "sg" : "UNIÃO/PP", "nm" : "FEDERAÇÃO UNIÃO PROGRESSISTA", "com" : "UNIÃO/PP", "npar" : [ "11", "44" ] }, 
+{ "n" : "101", "sg" : "PT/PC do B/PV", "nm" : "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL", "com" : "PT/PC do B/PV", "npar" : [ "13", "43", "65" ] } ], "agr" : [ 
+{ "n" : "70001801297", "nm" : "PARTIDO DA CAUSA OPERÁRIA", "tp" : "i", "com" : "PCO", "vag" : "0", "par" : [ 
+{ "n" : "29", "sg" : "PCO", "nm" : "PARTIDO DA CAUSA OPERÁRIA", "nfed" : "", "tvtn" : "595", "tvan" : "595", "cand" : [ 
+{ "n" : "29", "sqcand" : "70002552341", "nm" : "EXPEDITO CARNEIRO DE MENDONÇA", "nmu" : "EXPEDITO MENDONÇA", "dt" : "22/11/1960", "dvt" : "Válido", "seq" : "10", "e" : "n", "st" : "Não eleito", "vap" : "595", "pvap" : "0,04", "pvapn" : "0,035990000", "vs" : [ 
+{ "tp" : "v", "sqcand" : "70002552340", "nm" : "VALMIR BARBOSA DA SILVA", "nmu" : "VALMIR BARBOSA", "sgp" : "PCO" } ] } ] } ] }, 
+{ "n" : "70001801367", "nm" : "PROPÓSITO E AÇÃO", "tp" : "c", "com" : "REPUBLICANOS / MDB / PODE / PL / DC / MOBILIZA / DEMOCRATA / PRD / SOLIDARIEDADE / PP / UNIÃO", "tvtn" : "825530", "tvan" : "825530", "par" : [ 
+{ "n" : "11", "sg" : "PP", "nm" : "PROGRESSISTAS", "nfed" : "104", "tvtn" : "825530", "tvan" : "825530", "cand" : [ 
+{ "n" : "11", "sqcand" : "70002553055", "nm" : "CELINA LEAO HIZIM FERREIRA", "nmu" : "CELINA LEÃO", "dt" : "02/03/1977", "dvt" : "Válido", "seq" : "1", "e" : "s", "st" : "2º turno", "vap" : "825530", "pvap" : "49,93", "pvapn" : "49,934159470", "vs" : [ 
+{ "tp" : "v", "sqcand" : "70002553056", "nm" : "GUSTAVO DO VALE ROCHA", "nmu" : "GUSTAVO ROCHA", "sgp" : "REPUBLICANOS" } ] } ] } ] }, 
+{ "n" : "70001800354", "nm" : "UNIDADE POPULAR", "tp" : "i", "com" : "UP", "vag" : "0", "par" : [ 
+{ "n" : "80", "sg" : "UP", "nm" : "UNIDADE POPULAR", "nfed" : "", "tvtn" : "3958", "tvan" : "3958", "cand" : [ 
+{ "n" : "80", "sqcand" : "70002537111", "nm" : "SAMARA MINEIRO OLIVEIRA", "nmu" : "PROFESSORA SAMARA MINEIRO", "dt" : "26/07/1993", "dvt" : "Válido", "seq" : "6", "e" : "n", "st" : "Não eleito", "vap" : "3958", "pvap" : "0,24", "pvapn" : "0,239409111", "vs" : [ 
+{ "tp" : "v", "sqcand" : "70002537110", "nm" : "THAIS OLIVEIRA SILVA", "nmu" : "THAÍS OLIVEIRA", "sgp" : "UP" } ] } ] } ] }, 
+{ "n" : "70001801387", "nm" : "FEDERAÇÃO PSDB CIDADANIA", "tp" : "f", "com" : "CIDADANIA / PSDB", "tvtn" : "140765", "tvan" : "140765", "vag" : "0", "par" : [ 
+{ "n" : "45", "sg" : "PSDB", "nm" : "PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA", "nfed" : "100", "tvtn" : "140765", "tvan" : "140765", "cand" : [ 
+{ "n" : "45", "sqcand" : "70002552965", "nm" : "PAULA MORENO PARO BELMONTE", "nmu" : "PAULA BELMONTE", "dt" : "23/06/1973", "dvt" : "Válido", "seq" : "3", "e" : "n", "st" : "Não eleito", "vap" : "140765", "pvap" : "8,51", "pvapn" : "8,514508204", "vs" : [ 
+{ "tp" : "v", "sqcand" : "70002552966", "nm" : "EVERARDO ALVES RIBEIRO", "nmu" : "JUIZ EVERARDO RIBEIRO", "sgp" : "PSDB" } ] } ] } ] }, 
+{ "n" : "70001801180", "nm" : "PARTIDO SOCIALISTA BRASILEIRO", "tp" : "i", "com" : "PSB", "vag" : "0", "par" : [ 
+{ "n" : "40", "sg" : "PSB", "nm" : "PARTIDO SOCIALISTA BRASILEIRO", "nfed" : "", "tvtn" : "36828", "tvan" : "36828", "cand" : [ 
+{ "n" : "40", "sqcand" : "70002551557", "nm" : "RICARDO GARCIA CAPPELLI", "nmu" : "CAPPELLI", "dt" : "11/02/1972", "dvt" : "Válido", "seq" : "5", "e" : "n", "st" : "Não eleito", "vap" : "36828", "pvap" : "2,23", "pvapn" : "2,227629795", "vs" : [ 
+{ "tp" : "v", "sqcand" : "70002551558", "nm" : "SOFIA MARTINS CARVALHO", "nmu" : "SOFIA CARVALHO", "sgp" : "PSB" } ] } ] } ] }, 
+{ "n" : "70001800218", "nm" : "PARTIDO SOCIALISTA  DOS TRABALHADORES UNIFICADO", "tp" : "i", "com" : "PSTU", "vag" : "0", "par" : [ 
+{ "n" : "16", "sg" : "PSTU", "nm" : "PARTIDO SOCIALISTA  DOS TRABALHADORES UNIFICADO", "nfed" : "", "tvtn" : "1640", "tvan" : "1640", "cand" : [ 
+{ "n" : "16", "sqcand" : "70002535930", "nm" : "ROBSON RAYMUNDO DA SILVA", "nmu" : "PROFESSOR ROBSON", "dt" : "12/04/1970", "dvt" : "Válido", "seq" : "7", "e" : "n", "st" : "Não eleito", "vap" : "1640", "pvap" : "0,10", "pvapn" : "0,099199328", "vs" : [ 
+{ "tp" : "v", "sqcand" : "70002535931", "nm" : "ANTONIO RICARDO MARTINS GUILLEN", "nmu" : "GUILLEN", "sgp" : "PSTU" } ] } ] } ] }, 
+{ "n" : "70001801311", "nm" : "DF DO POVO", "tp" : "c", "com" : "PDT / PCDOB / PT / PV / PSOL / REDE", "tvtn" : "569930", "tvan" : "569930", "par" : [ 
+{ "n" : "13", "sg" : "PT", "nm" : "PARTIDO DOS TRABALHADORES", "nfed" : "101", "tvtn" : "569930", "tvan" : "569930", "cand" : [ 
+{ "n" : "13", "sqcand" : "70002552496", "nm" : "LEANDRO ANTÔNIO GRASS PEIXOTO", "nmu" : "LEANDRO GRASS", "dt" : "15/06/1985", "dvt" : "Válido", "seq" : "2", "e" : "s", "st" : "2º turno", "vap" : "569930", "pvap" : "34,47", "pvapn" : "34,473581223", "vs" : [ 
+{ "tp" : "v", "sqcand" : "70002552497", "nm" : "MARIA DAS DORES GOMES DA SILVA SANTOS", "nmu" : "DORA GOMES", "sgp" : "PV" } ] } ] } ] }, 
+{ "n" : "70001801507", "nm" : "PARTIDO RENOVADOR TRABALHISTA BRASILEIRO", "tp" : "i", "com" : "PRTB", "vag" : "0", "par" : [ 
+{ "n" : "28", "sg" : "PRTB", "nm" : "PARTIDO RENOVADOR TRABALHISTA BRASILEIRO", "nfed" : "", "tvtn" : "0", "tvan" : "671", "cand" : [ 
+{ "n" : "28", "sqcand" : "70002553982", "nm" : "ALDERICO DA SILVA PINHEIRO FILHO", "nmu" : "RICO PINHEIRO", "dt" : "16/02/1980", "dvt" : "Anulado sub judice", "seq" : "9", "e" : "n", "st" : "Não eleito", "vap" : "671", "pvap" : "0,04", "pvapn" : "0,040587042", "vs" : [ 
+{ "tp" : "v", "sqcand" : "70002554083", "nm" : "CRISTIANE BARROS DA SILVA SANTOS", "nmu" : "CRISTIANE BARROS", "sgp" : "PRTB" } ] } ] } ] }, 
+{ "n" : "70001801188", "nm" : "AGIR", "tp" : "i", "com" : "AGIR", "vag" : "0", "par" : [ 
+{ "n" : "36", "sg" : "AGIR", "nm" : "AGIR", "nfed" : "", "tvtn" : "0", "tvan" : "1172", "cand" : [ 
+{ "n" : "36", "sqcand" : "70002551298", "nm" : "ELISSON FERREIRA FREIRE", "nmu" : "ELISSON", "dt" : "07/03/1987", "dvt" : "Anulado sub judice", "seq" : "8", "e" : "n", "st" : "Não eleito", "vap" : "1172", "pvap" : "0,07", "pvapn" : "0,070891227", "vs" : [ 
+{ "tp" : "v", "sqcand" : "70002551299", "nm" : "SERGIO PRADO TOMAZ", "nmu" : "SUBTENENTE SERGIO PRADO", "sgp" : "AGIR" } ] } ] } ] }, 
+{ "n" : "70001800901", "nm" : "PARTIDO NOVO", "tp" : "i", "com" : "NOVO", "vag" : "0", "par" : [ 
+{ "n" : "30", "sg" : "NOVO", "nm" : "PARTIDO NOVO", "nfed" : "", "tvtn" : "72148", "tvan" : "72148", "cand" : [ 
+{ "n" : "30", "sqcand" : "70002547775", "nm" : "FRANCISCO QUEIROZ CAPUTO NETO", "nmu" : "KIKO CAPUTO", "dt" : "15/08/1969", "dvt" : "Válido", "seq" : "4", "e" : "n", "st" : "Não eleito", "vap" : "72148", "pvap" : "4,36", "pvapn" : "4,364044599", "vs" : [ 
+{ "tp" : "v", "sqcand" : "70002547774", "nm" : "RAFAEL DE SA SAMPAIO", "nmu" : "DELEGADO RAFAEL SAMPAIO", "sgp" : "NOVO" } ] } ] } ] } ] } ], "s" : 
+{ "ts" : "6969", "st" : "6969", "pst" : "100,00", "pstn" : "100", "snt" : "0", "psnt" : "0,00", "psntn" : "0", "si" : "6969", "psi" : "100,00", "psin" : "100", "sni" : "0", "psni" : "0,00", "psnin" : "0", "sa" : "6969", "psa" : "100,00", "psan" : "100", "sna" : "0", "psna" : "0,00", "psnan" : "0" }, "e" : 
+{ "te" : "2243988", "est" : "2243988", "pest" : "100,00", "pestn" : "100", "esnt" : "0", "pesnt" : "0,00", "pesntn" : "0", "esi" : "2243988", "pesi" : "100,00", "pesin" : "100", "esni" : "0", "pesni" : "0,00", "pesnin" : "0", "esa" : "2243988", "pesa" : "100,00", "pesan" : "100", "esna" : "0", "pesna" : "0,00", "pesnan" : "0", "c" : "1817921", "pc" : "81,01", "pcn" : "81,012955506", "a" : "426067", "pa" : "18,99", "pan" : "18,987044494" }, "v" : 
+{ "tv" : "1817921", "vvc" : "1653237", "pvvc" : "90,94", "pvvcn" : "90,941080498", "vv" : "1651394", "pvv" : "99,89", "pvvn" : "99,888521730", "vnom" : "1651394", "pvnom" : "100,00", "pvnomn" : "100", "van" : "0", "pvan" : "0,00", "pvann" : "0", "vansj" : "1843", "pvansj" : "0,11", "pvansjn" : "0,111478270", "vb" : "74774", "pvb" : "4,11", "pvbn" : "4,113160033", "tvn" : "89910", "ptvn" : "4,95", "ptvnn" : "4,945759469", "vn" : "81454", "pvn" : "90,60", "pvnn" : "90,595039484", "vnt" : "8456", "pvnt" : "9,40", "pvntn" : "9,404960516", "vsan" : "0", "vscv" : "0" } }

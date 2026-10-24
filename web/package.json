@@ -1,0 +1,18 @@
+{
+  "name": "segundo-turno-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Front estatico do site da apuracao do 2o turno 2026 (SSG + JS vanilla)",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test --experimental-test-coverage --test-coverage-include='src/lib/**' --test-coverage-lines=80 test/unit/*.test.mjs",
+    "test:e2e": "playwright test",
+    "serve": "node scripts/serve.mjs",
+    "lighthouse": "node scripts/lighthouse.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "esbuild": "^0.25.0"
+  }
+}

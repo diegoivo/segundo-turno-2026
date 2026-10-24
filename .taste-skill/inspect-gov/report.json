@@ -1,0 +1,2359 @@
+{
+ "url": "design/governador-df.html",
+ "at": "2026-10-24T01:53:25.780Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.54,
+    0.65,
+    0.7,
+    0.78
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 3064,
+     "screens": 3.4,
+     "words": 687,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 3,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Governador do Distrito Federal",
+     "words": 4,
+     "chars": 30,
+     "lines": 1,
+     "size": 24,
+     "vw": 1.7,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 192,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Governador do Distrito Federal",
+     "words": 4,
+     "lines": 1,
+     "size": 24,
+     "font": "system-ui"
+    },
+    "headings": [
+     {
+      "text": "44,92%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.36,
+      "top": 503,
+      "tag": "p",
+      "kind": "heading"
+     },
+     {
+      "text": "55,08%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "right",
+      "position": "right",
+      "widthRatio": 0.11,
+      "top": 503,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "44,8%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 917,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "55,2%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 917,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Apuração do 2º turno",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 96,
+      "vw": 6.7,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 2825,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 5,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "system-ui",
+       "share": 0.99,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      10,
+      12,
+      14,
+      16,
+      17,
+      18,
+      22,
+      24,
+      26,
+      32,
+      44,
+      96
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "system-ui",
+      "size": 14,
+      "leading": 1.35,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 18
+     },
+     "measureChars": 101,
+     "max": {
+      "size": 96,
+      "vw": 6.7,
+      "font": "system-ui",
+      "text": "Apuração do 2º turno"
+     },
+     "monoShare": 0.01,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.02,
+     "smallText": 24
+    },
+    "eyebrows": [
+     {
+      "text": "Nº 13 · PTvice Dora Gomes",
+      "above": "44,92%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 459
+     },
+     {
+      "text": "Nº 11 · PPvice Gustavo Rocha",
+      "above": "55,08%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 459
+     },
+     {
+      "text": "Leandro Grass",
+      "above": "44,8%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 896
+     },
+     {
+      "text": "Celina Leão",
+      "above": "55,2%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 896
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f2f4f7",
+     "bodyBgHsl": {
+      "h": 216,
+      "s": 0.24,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 321,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#565d6b",
+       "share": 0.59
+      },
+      {
+       "color": "#111418",
+       "share": 0.31
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      },
+      {
+       "color": "#e8eaee",
+       "share": 0.02
+      },
+      {
+       "color": "#474c55",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#111418"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 6,
+     "radius": 6,
+     "height": 32,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "1 · Antes das 17h",
+      "2 · Sem projeção",
+      "3 · Com projeção",
+      "4 · Resultado definido",
+      "Tema escuro"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 8,
+     "hairlineSamples": [
+      "dl.kpis 1118px",
+      "div 418px",
+      "div 418px",
+      "div 418px",
+      "li 510px"
+     ],
+     "outlinedBoxes": 11,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 6,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 5,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 1809
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 62,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 3064,
+    "margins": {
+     "left": 160,
+     "right": 177
+    },
+    "sections": [
+     {
+      "sel": "div.head",
+      "tag": "div",
+      "top": 149,
+      "height": 140,
+      "words": 32,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Governador do Distrito Federal",
+       "size": 24,
+       "tag": "h1"
+      },
+      "left": 160,
+      "right": 708,
+      "textLeft": 160,
+      "textRight": 708,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#placar",
+      "tag": "section",
+      "top": 321,
+      "height": 465,
+      "words": 103,
+      "media": 0,
+      "middle": 47,
+      "heading": {
+       "text": "44,92%",
+       "size": 44,
+       "tag": "p"
+      },
+      "left": 181,
+      "right": 181,
+      "textLeft": 181,
+      "textRight": 181,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#projecao.grid.g-fc",
+      "tag": "section",
+      "top": 818,
+      "height": 589,
+      "words": 182,
+      "media": 1,
+      "middle": 45,
+      "heading": {
+       "text": "44,8%",
+       "size": 32,
+       "tag": "p"
+      },
+      "left": 168,
+      "right": 181,
+      "textLeft": 168,
+      "textRight": 203,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#comparacao.grid.g-2",
+      "tag": "section",
+      "top": 1439,
+      "height": 303,
+      "words": 120,
+      "media": 0,
+      "middle": 58,
+      "heading": {
+       "text": "1º turno × agora × projeção",
+       "size": 16,
+       "tag": "h3"
+      },
+      "left": 181,
+      "right": 181,
+      "textLeft": 181,
+      "textRight": 181,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#outros",
+      "tag": "section",
+      "top": 1774,
+      "height": 664,
+      "words": 85,
+      "media": 0,
+      "middle": 104,
+      "heading": {
+       "text": "Outras disputas de governador",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 160,
+      "right": 160,
+      "textLeft": 160,
+      "textRight": 160,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#auditoria",
+      "tag": "section",
+      "top": 2471,
+      "height": 267,
+      "words": 38,
+      "media": 0,
+      "middle": 148,
+      "heading": {
+       "text": "Auditoria desta disputa",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 160,
+      "right": 160,
+      "textLeft": 160,
+      "textRight": 160,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.end",
+      "tag": "footer",
+      "top": 2793,
+      "height": 271,
+      "words": 47,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Apuração do 2º turno",
+       "size": 96,
+       "tag": "p"
+      },
+      "left": 160,
+      "right": 433,
+      "textLeft": 160,
+      "textRight": 433,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Governador do Distrito Federal",
+      "size": 24,
+      "top": 192,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 160,
+      "n": 4
+     },
+     {
+      "x": 181,
+      "n": 4
+     },
+     {
+      "x": 657,
+      "n": 2
+     },
+     {
+      "x": 249,
+      "n": 1
+     },
+     {
+      "x": 680,
+      "n": 1
+     },
+     {
+      "x": 749,
+      "n": 1
+     },
+     {
+      "x": 760,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 14,
+    "bodySize": 14,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.11,
+    "voidBox": {
+     "x": 840,
+     "y": 180,
+     "w": 600,
+     "h": 240
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#f2f4f7",
+    "sidebar": null,
+    "topbar": {
+     "h": 48
+    },
+    "canvas": {
+     "left": 160,
+     "right": 177
+    },
+    "hero": {
+     "text": "Governador do Distrito Federal",
+     "words": 4,
+     "chars": 30,
+     "lines": 1,
+     "size": 24,
+     "vw": 1.7,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 192,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 3,
+    "layout": {
+     "panels": 11,
+     "firstScreen": 3,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 14,
+     "radii": [
+      [
+       0,
+       8
+      ],
+      [
+       8,
+       6
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 6,
+     "leftAligned": 0,
+     "figures": 30,
+     "tabularShare": 0.93,
+     "kpiMax": 44
+    },
+    "rows": {
+     "count": 2,
+     "median": 60
+    },
+    "chartHues": 2,
+    "placeholders": [],
+    "type": {
+     "under13": 0.31,
+     "tiny": 1,
+     "tinySamples": [
+      "(TSE, real) 10px"
+     ],
+     "sizes": [
+      10,
+      12,
+      14,
+      16,
+      17,
+      18,
+      22,
+      24,
+      26,
+      32,
+      44,
+      96
+     ]
+    },
+    "title": {
+     "text": "Governador do Distrito Federal",
+     "size": 24,
+     "top": 192
+    },
+    "colourShare": 0.028
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.79,
+    0.92,
+    0.85,
+    0.9
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 4040,
+     "screens": 3.9,
+     "words": 687,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 3,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Governador do Distrito Federal",
+     "words": 4,
+     "chars": 30,
+     "lines": 1,
+     "size": 24,
+     "vw": 3.1,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 241,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Governador do Distrito Federal",
+     "words": 4,
+     "lines": 1,
+     "size": 24,
+     "font": "system-ui"
+    },
+    "headings": [
+     {
+      "text": "13",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.07,
+      "top": 484,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "11",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "right",
+      "position": "right",
+      "widthRatio": 0.07,
+      "top": 484,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "44,92%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 44,
+      "vw": 5.7,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 552,
+      "tag": "p",
+      "kind": "heading"
+     },
+     {
+      "text": "55,08%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 44,
+      "vw": 5.7,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "right",
+      "position": "right",
+      "widthRatio": 0.21,
+      "top": 552,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "44,8%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 1068,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "55,2%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.43,
+      "top": 1068,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Apuração do 2º turno",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 9,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 3827,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "system-ui",
+       "share": 0.99,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      10,
+      12,
+      14,
+      16,
+      17,
+      18,
+      22,
+      24,
+      26,
+      32,
+      44,
+      69
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "system-ui",
+      "size": 14,
+      "leading": 1.35,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 18
+     },
+     "measureChars": 101,
+     "max": {
+      "size": 69.1,
+      "vw": 9,
+      "font": "system-ui",
+      "text": "Apuração do 2º turno"
+     },
+     "monoShare": 0.01,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.02,
+     "smallText": 24
+    },
+    "eyebrows": [
+     {
+      "text": "Nº 13 · PTvice Dora Gomes",
+      "above": "44,92%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 508
+     },
+     {
+      "text": "Nº 11 · PPvice Gustavo Rocha",
+      "above": "55,08%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 508
+     },
+     {
+      "text": "Leandro Grass",
+      "above": "44,8%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 1047
+     },
+     {
+      "text": "Celina Leão",
+      "above": "55,2%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 1047
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f2f4f7",
+     "bodyBgHsl": {
+      "h": 216,
+      "s": 0.24,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 370,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#565d6b",
+       "share": 0.59
+      },
+      {
+       "color": "#111418",
+       "share": 0.31
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      },
+      {
+       "color": "#e8eaee",
+       "share": 0.02
+      },
+      {
+       "color": "#474c55",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#111418"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 6,
+     "radius": 6,
+     "height": 32,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "1 · Antes das 17h",
+      "2 · Sem projeção",
+      "3 · Com projeção",
+      "4 · Resultado definido",
+      "Tema escuro"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 10,
+     "hairlineSamples": [
+      "dl.kpis 718px",
+      "div.kpi 359px",
+      "div.kpi 359px",
+      "div 678px",
+      "div 678px"
+     ],
+     "outlinedBoxes": 11,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 6,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 111,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 4040,
+    "margins": {
+     "left": 24,
+     "right": 45
+    },
+    "sections": [
+     {
+      "sel": "div.head",
+      "tag": "div",
+      "top": 198,
+      "height": 140,
+      "words": 32,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Governador do Distrito Federal",
+       "size": 24,
+       "tag": "h1"
+      },
+      "left": 24,
+      "right": 172,
+      "textLeft": 24,
+      "textRight": 172,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#placar",
+      "tag": "section",
+      "top": 370,
+      "height": 567,
+      "words": 103,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "44,92%",
+       "size": 44,
+       "tag": "p"
+      },
+      "left": 45,
+      "right": 45,
+      "textLeft": 45,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#projecao.grid.g-fc",
+      "tag": "section",
+      "top": 969,
+      "height": 1114,
+      "words": 182,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "44,8%",
+       "size": 32,
+       "tag": "p"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#comparacao.grid.g-2",
+      "tag": "section",
+      "top": 2114,
+      "height": 579,
+      "words": 120,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "1º turno × agora × projeção",
+       "size": 16,
+       "tag": "h3"
+      },
+      "left": 45,
+      "right": 45,
+      "textLeft": 45,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#outros",
+      "tag": "section",
+      "top": 2726,
+      "height": 689,
+      "words": 85,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Outras disputas de governador",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 144,
+      "textLeft": 24,
+      "textRight": 144,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#auditoria",
+      "tag": "section",
+      "top": 3447,
+      "height": 292,
+      "words": 38,
+      "media": 0,
+      "middle": 71,
+      "heading": {
+       "text": "Auditoria desta disputa",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 45,
+      "textLeft": 24,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.end",
+      "tag": "footer",
+      "top": 3795,
+      "height": 246,
+      "words": 47,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Apuração do 2º turno",
+       "size": 69,
+       "tag": "p"
+      },
+      "left": 24,
+      "right": 47,
+      "textLeft": 24,
+      "textRight": 47,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Governador do Distrito Federal",
+      "size": 24,
+      "top": 241,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 45,
+      "n": 7
+     },
+     {
+      "x": 24,
+      "n": 6
+     },
+     {
+      "x": 113,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 14,
+    "bodySize": 14,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#f2f4f7",
+    "sidebar": null,
+    "topbar": {
+     "h": 48
+    },
+    "canvas": {
+     "left": 24,
+     "right": 45
+    },
+    "hero": {
+     "text": "Governador do Distrito Federal",
+     "words": 4,
+     "chars": 30,
+     "lines": 1,
+     "size": 24,
+     "vw": 3.1,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 241,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 3,
+    "layout": {
+     "panels": 11,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 15,
+     "radii": [
+      [
+       0,
+       9
+      ],
+      [
+       8,
+       6
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 6,
+     "leftAligned": 0,
+     "figures": 30,
+     "tabularShare": 0.93,
+     "kpiMax": 44
+    },
+    "rows": {
+     "count": 2,
+     "median": 60
+    },
+    "chartHues": 2,
+    "placeholders": [],
+    "type": {
+     "under13": 0.31,
+     "tiny": 1,
+     "tinySamples": [
+      "(TSE, real) 10px"
+     ],
+     "sizes": [
+      10,
+      12,
+      14,
+      16,
+      17,
+      18,
+      22,
+      24,
+      26,
+      32,
+      44,
+      69
+     ]
+    },
+    "title": {
+     "text": "Governador do Distrito Federal",
+     "size": 24,
+     "top": 241
+    },
+    "colourShare": 0.036
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.72,
+    0.92,
+    0.86,
+    0.8,
+    0.79,
+    0.8
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 4647,
+     "screens": 5.5,
+     "words": 687,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 3,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 1,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Governador do Distrito Federal",
+     "words": 4,
+     "chars": 30,
+     "lines": 1,
+     "size": 24,
+     "vw": 6.2,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 360,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Governador do Distrito Federal",
+     "words": 4,
+     "lines": 1,
+     "size": 24,
+     "font": "system-ui"
+    },
+    "headings": [
+     {
+      "text": "Governador do Distrito Federal",
+      "words": 4,
+      "chars": 30,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.015,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 360,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "55,08%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 34,
+      "vw": 8.7,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 744,
+      "tag": "p",
+      "kind": "heading"
+     },
+     {
+      "text": "44,92%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 34,
+      "vw": 8.7,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 749,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "82,40%",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 600,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 956,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "1,27 mi",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 600,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 977,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "18:39:12",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 600,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 1075,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "0,27 mi",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 600,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 1096,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "44,8%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.4,
+      "top": 1326,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "55,2%",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 1326,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Apuração do 2º turno",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 35.1,
+      "vw": 9,
+      "font": "system-ui",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4424,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 8,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "system-ui",
+       "share": 0.99,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      10,
+      12,
+      14,
+      16,
+      17,
+      18,
+      19,
+      24,
+      32,
+      34,
+      35
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "system-ui",
+      "size": 14,
+      "leading": 1.35,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 18
+     },
+     "measureChars": 51,
+     "max": {
+      "size": 35.1,
+      "vw": 9,
+      "font": "system-ui",
+      "text": "Apuração do 2º turno"
+     },
+     "monoShare": 0.01,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.02,
+     "smallText": 24
+    },
+    "eyebrows": [
+     {
+      "text": "Nº 11 · PPvice Gustavo Rocha",
+      "above": "55,08%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 684
+     },
+     {
+      "text": "Nº 13 · PTvice Dora Gomes",
+      "above": "44,92%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 706
+     },
+     {
+      "text": "Leandro Grass",
+      "above": "44,8%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 1305
+     },
+     {
+      "text": "Celina Leão",
+      "above": "55,2%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 1305
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f2f4f7",
+     "bodyBgHsl": {
+      "h": 216,
+      "s": 0.24,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 512,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#565d6b",
+       "share": 0.59
+      },
+      {
+       "color": "#111418",
+       "share": 0.31
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      },
+      {
+       "color": "#e8eaee",
+       "share": 0.02
+      },
+      {
+       "color": "#474c55",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#111418"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 6,
+     "radius": 6,
+     "height": 32,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "1 · Antes das 17h",
+      "2 · Sem projeção",
+      "3 · Com projeção",
+      "4 · Resultado definido",
+      "Tema escuro"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 8,
+     "hairlineSamples": [
+      "dl.kpis 356px",
+      "div 324px",
+      "div 324px",
+      "div 324px",
+      "li 324px"
+     ],
+     "outlinedBoxes": 11,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 6,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 136,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 4647,
+    "margins": {
+     "left": 16,
+     "right": 30
+    },
+    "sections": [
+     {
+      "sel": "header.top",
+      "tag": "header",
+      "top": 181,
+      "height": 136,
+      "words": 20,
+      "media": 0,
+      "middle": 80,
+      "heading": null,
+      "left": 28,
+      "right": 0,
+      "textLeft": 28,
+      "textRight": -138,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.head",
+      "tag": "div",
+      "top": 317,
+      "height": 164,
+      "words": 32,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Governador do Distrito Federal",
+       "size": 24,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 43,
+      "textLeft": 16,
+      "textRight": 43,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#placar",
+      "tag": "section",
+      "top": 512,
+      "height": 647,
+      "words": 103,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "44,92%",
+       "size": 34,
+       "tag": "p"
+      },
+      "left": 33,
+      "right": 33,
+      "textLeft": 33,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#projecao.grid.g-fc",
+      "tag": "section",
+      "top": 1191,
+      "height": 1242,
+      "words": 182,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "44,8%",
+       "size": 32,
+       "tag": "p"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#comparacao.grid.g-2",
+      "tag": "section",
+      "top": 2466,
+      "height": 639,
+      "words": 120,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "1º turno × agora × projeção",
+       "size": 16,
+       "tag": "h3"
+      },
+      "left": 33,
+      "right": 33,
+      "textLeft": 33,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#outros",
+      "tag": "section",
+      "top": 3137,
+      "height": 814,
+      "words": 85,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Outras disputas de governador",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 30,
+      "textLeft": 16,
+      "textRight": 30,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#auditoria",
+      "tag": "section",
+      "top": 3983,
+      "height": 353,
+      "words": 38,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Auditoria desta disputa",
+       "size": 18,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 33,
+      "textLeft": 16,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.end",
+      "tag": "footer",
+      "top": 4392,
+      "height": 255,
+      "words": 47,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Apuração do 2º turno",
+       "size": 35,
+       "tag": "p"
+      },
+      "left": 16,
+      "right": 26,
+      "textLeft": 16,
+      "textRight": 26,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Governador do Distrito Federal",
+      "size": 24,
+      "top": 360,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 33,
+      "n": 7
+     },
+     {
+      "x": 16,
+      "n": 6
+     },
+     {
+      "x": 81,
+      "n": 1
+     },
+     {
+      "x": 260,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 15,
+    "bodySize": 14,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": false,
+    "ground": "#f2f4f7",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 16,
+     "right": 20
+    },
+    "hero": {
+     "text": "Governador do Distrito Federal",
+     "words": 4,
+     "chars": 30,
+     "lines": 1,
+     "size": 24,
+     "vw": 6.2,
+     "font": "system-ui",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 1.2,
+     "top": 360,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 3,
+    "layout": {
+     "panels": 11,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 16,
+     "radii": [
+      [
+       0,
+       10
+      ],
+      [
+       8,
+       6
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 6,
+     "leftAligned": 0,
+     "figures": 30,
+     "tabularShare": 0.93,
+     "kpiMax": 34
+    },
+    "rows": {
+     "count": 2,
+     "median": 81
+    },
+    "chartHues": 2,
+    "placeholders": [],
+    "type": {
+     "under13": 0.31,
+     "tiny": 1,
+     "tinySamples": [
+      "(TSE, real) 10px"
+     ],
+     "sizes": [
+      10,
+      12,
+      14,
+      16,
+      17,
+      18,
+      19,
+      24,
+      32,
+      34,
+      35
+     ]
+    },
+    "title": {
+     "text": "Governador do Distrito Federal",
+     "size": 24,
+     "top": 360
+    },
+    "colourShare": 0.035
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "below-fold",
+   "width": 1440,
+   "message": "Only 3 of 11 blocks start on the first 1440px screen.",
+   "fix": "Every block the brief names shows its header and first rows on the first desktop screen: size the headline block to its question, cap long lists with \"View all\", and put time-sensitive blocks before long tables."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-gov/desktop-fold.jpg",
+   "pages": [
+    "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-gov/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-gov/tablet-fold.jpg",
+   "pages": [
+    "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-gov/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-gov/mobile-fold.jpg",
+   "pages": [
+    "/Users/diego/Claude/segundo-turno/.taste-skill/inspect-gov/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

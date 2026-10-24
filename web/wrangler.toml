@@ -1,0 +1,27 @@
+# Front estático (Workers Static Assets) + Worker mínimo só para /dados/* (lê o R2).
+# Assets são servidos sem invocar o Worker (grátis); o Worker só roda em /dados/*.
+# Com domínio próprio, o ideal é apontar DATA_BASE_URL para o domínio custom do R2 com Cache Rules
+# e remover o Worker do caminho de leitura (custo zero por requisição).
+# Conta Cloudflare: Hosts@conversion.com.br.
+name = "segundo-turno-web"
+main = "worker/dados.mjs"
+account_id = "7da0ed9efd4c11dde93580a34322e913"
+compatibility_date = "2025-10-01"
+workers_dev = true
+
+[assets]
+directory = "./dist"
+not_found_handling = "404-page"
+run_worker_first = false
+
+[[r2_buckets]]
+binding = "DATA"
+bucket_name = "segundo-turno-prod"
+
+[env.staging]
+name = "segundo-turno-web-staging"
+workers_dev = true
+
+[[env.staging.r2_buckets]]
+binding = "DATA"
+bucket_name = "segundo-turno-staging"

@@ -1,0 +1,16 @@
+{
+  "name": "segundo-turno-coletor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Worker que coleta a apuracao do 2o turno 2026 no TSE e grava no R2",
+  "scripts": {
+    "test": "node --test --experimental-test-coverage --test-coverage-include='src/**' test/*.test.mjs",
+    "dev:staging": "wrangler dev --env staging",
+    "deploy:staging": "wrangler deploy --env staging",
+    "deploy:production": "wrangler deploy --env production"
+  },
+  "devDependencies": {
+    "wrangler": "^4.152.0"
+  }
+}

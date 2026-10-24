@@ -1,0 +1,36 @@
+
+{ "ele" : "6259", "t" : "1", "f" : "o", "sup" : "n", "tpabr" : "uf", "cdabr" : "am", "dg" : "10/10/2026", "hg" : "10:14:53", "idg" : "3385241", "dt" : "05/10/2026", "ht" : "04:59:33", "dv" : "s", "tf" : "s", "and" : "f", "esae" : "n", "mnae" : [  ], "carg" : [ 
+{ "cd" : "3", "nmn" : "Governador", "nmm" : "Governador", "nmf" : "Governadora", "nv" : "1", "fed" : [ 
+{ "n" : "102", "sg" : "PSOL/REDE", "nm" : "FEDERAÇÃO PSOL REDE", "com" : "PSOL/REDE", "npar" : [ "18", "50" ] }, 
+{ "n" : "104", "sg" : "UNIÃO/PP", "nm" : "FEDERAÇÃO UNIÃO PROGRESSISTA", "com" : "UNIÃO/PP", "npar" : [ "11", "44" ] } ], "agr" : [ 
+{ "n" : "40001799964", "nm" : "FORÇA AMAZONAS", "tp" : "c", "com" : "REPUBLICANOS / MDB / PSD / PCDOB / PT / PV", "tvtn" : "841846", "tvan" : "841846", "par" : [ 
+{ "n" : "55", "sg" : "PSD", "nm" : "PARTIDO SOCIAL DEMOCRÁTICO", "nfed" : "", "tvtn" : "841846", "tvan" : "841846", "cand" : [ 
+{ "n" : "55", "sqcand" : "40002532272", "nm" : "OMAR JOSE ABDELAZIZ", "nmu" : "OMAR AZIZ", "dt" : "13/08/1958", "dvt" : "Válido", "seq" : "1", "e" : "s", "st" : "2º turno", "vap" : "841846", "pvap" : "40,63", "pvapn" : "40,629927340", "vs" : [ 
+{ "tp" : "v", "sqcand" : "40002532271", "nm" : "ALESSANDRA CAMPELO DA SILVA", "nmu" : "ALESSANDRA CAMPELO", "sgp" : "PSD" } ] } ] } ] }, 
+{ "n" : "40001800579", "nm" : "UNIÃO PELO AMAZONAS", "tp" : "c", "com" : "PSB / PP / UNIÃO / PODE", "tvtn" : "453896", "tvan" : "453896", "par" : [ 
+{ "n" : "44", "sg" : "UNIÃO", "nm" : "UNIÃO BRASIL", "nfed" : "104", "tvtn" : "453896", "tvan" : "453896", "cand" : [ 
+{ "n" : "44", "sqcand" : "40002541741", "nm" : "ROBERTO MAIA CIDADE FILHO", "nmu" : "ROBERTO CIDADE", "dt" : "02/10/1986", "dvt" : "Válido", "seq" : "3", "e" : "n", "st" : "Não eleito", "vap" : "453896", "pvap" : "21,91", "pvapn" : "21,906336195", "vs" : [ 
+{ "tp" : "v", "sqcand" : "40002541740", "nm" : "SERAFIM FERNANDES CORREA", "nmu" : "SERAFIM", "sgp" : "PSB" } ] } ] } ] }, 
+{ "n" : "40001801115", "nm" : "FEDERAÇÃO PSOL REDE", "tp" : "f", "com" : "PSOL / REDE", "tvtn" : "11459", "tvan" : "11459", "vag" : "0", "par" : [ 
+{ "n" : "18", "sg" : "REDE", "nm" : "REDE SUSTENTABILIDADE", "nfed" : "102", "tvtn" : "11459", "tvan" : "11459", "cand" : [ 
+{ "n" : "18", "sqcand" : "40002550776", "nm" : "ISAEL FRANKLIN GONÇALVES", "nmu" : "ISAEL MUNDURUKU", "dt" : "05/03/1978", "dvt" : "Válido", "seq" : "6", "e" : "n", "st" : "Não eleito", "vap" : "11459", "pvap" : "0,55", "pvapn" : "0,553044544", "vs" : [ 
+{ "tp" : "v", "sqcand" : "40002550775", "nm" : "LEONARDO BALBI DA SILVA", "nmu" : "LEO BALBI", "sgp" : "PSOL" } ] } ] } ] }, 
+{ "n" : "40001800574", "nm" : "MUDAR É URGENTE", "tp" : "c", "com" : "PL / NOVO", "tvtn" : "507335", "tvan" : "507335", "par" : [ 
+{ "n" : "22", "sg" : "PL", "nm" : "PARTIDO LIBERAL", "nfed" : "", "tvtn" : "507335", "tvan" : "507335", "cand" : [ 
+{ "n" : "22", "sqcand" : "40002541626", "nm" : "MARIA DO CARMO SEFFAIR LINS DE ALBUQUERQUE", "nmu" : "PROFESSORA MARIA DO CARMO", "dt" : "26/11/1959", "dvt" : "Válido", "seq" : "2", "e" : "s", "st" : "2º turno", "vap" : "507335", "pvap" : "24,49", "pvapn" : "24,485457182", "vs" : [ 
+{ "tp" : "v", "sqcand" : "40002541627", "nm" : "MARIO ANIBAL GOMES DA COSTA JUNIOR", "nmu" : "CORONEL ANIBAL", "sgp" : "PL" } ] } ] } ] }, 
+{ "n" : "40001800269", "nm" : "PARTIDO SOCIALISTA  DOS TRABALHADORES UNIFICADO", "tp" : "i", "com" : "PSTU", "vag" : "0", "par" : [ 
+{ "n" : "16", "sg" : "PSTU", "nm" : "PARTIDO SOCIALISTA  DOS TRABALHADORES UNIFICADO", "nfed" : "", "tvtn" : "2783", "tvan" : "2783", "cand" : [ 
+{ "n" : "16", "sqcand" : "40002535267", "nm" : "GILBERTO VASCONCELOS DA SILVA", "nmu" : "GILBERTO VASCONCELOS", "dt" : "15/04/1967", "dvt" : "Válido", "seq" : "7", "e" : "n", "st" : "Não eleito", "vap" : "2783", "pvap" : "0,13", "pvapn" : "0,134315644", "vs" : [ 
+{ "tp" : "v", "sqcand" : "40002535266", "nm" : "JULIANA FROTA REBOUÇAS", "nmu" : "JULIANA FROTA", "sgp" : "PSTU" } ] } ] } ] }, 
+{ "n" : "40001800278", "nm" : "PRA CIMA AMAZONAS", "tp" : "c", "com" : "PDT / DC / AGIR / AVANTE / PRD / SOLIDARIEDADE", "tvtn" : "218490", "tvan" : "218490", "par" : [ 
+{ "n" : "70", "sg" : "AVANTE", "nm" : "AVANTE", "nfed" : "", "tvtn" : "218490", "tvan" : "218490", "cand" : [ 
+{ "n" : "70", "sqcand" : "40002536086", "nm" : "DAVID ANTÔNIO ABISAI PEREIRA DE ALMEIDA", "nmu" : "DAVID ALMEIDA", "dt" : "08/02/1969", "dvt" : "Válido", "seq" : "4", "e" : "n", "st" : "Não eleito", "vap" : "218490", "pvap" : "10,54", "pvapn" : "10,544960509", "vs" : [ 
+{ "tp" : "v", "sqcand" : "40002536087", "nm" : "SHADIA HUSSAMI HAUACHE FRAXE", "nmu" : "DRA. SHÁDIA", "sgp" : "AVANTE" } ] } ] } ] }, 
+{ "n" : "40001801272", "nm" : "MOBILIZAÇÃO NACIONAL", "tp" : "i", "com" : "MOBILIZA", "vag" : "0", "par" : [ 
+{ "n" : "33", "sg" : "MOBILIZA", "nm" : "MOBILIZAÇÃO NACIONAL", "nfed" : "", "tvtn" : "36176", "tvan" : "36176", "cand" : [ 
+{ "n" : "33", "sqcand" : "40002551740", "nm" : "BENEVENUTO DACIOLO FONSECA DOS SANTOS", "nmu" : "CABO DACIOLO", "dt" : "30/03/1976", "dvt" : "Válido", "seq" : "5", "e" : "n", "st" : "Não eleito", "vap" : "36176", "pvap" : "1,75", "pvapn" : "1,745958586", "vs" : [ 
+{ "tp" : "v", "sqcand" : "40002551739", "nm" : "IGOR FELIPE OLIVEIRA BEZERRA", "nmu" : "PROFESSOR IGOR OLIVEIRA", "sgp" : "MOBILIZA" } ] } ] } ] } ] } ], "s" : 
+{ "ts" : "8157", "st" : "8157", "pst" : "100,00", "pstn" : "100", "snt" : "0", "psnt" : "0,00", "psntn" : "0", "si" : "8157", "psi" : "100,00", "psin" : "100", "sni" : "0", "psni" : "0,00", "psnin" : "0", "sa" : "8157", "psa" : "100,00", "psan" : "100", "sna" : "0", "psna" : "0,00", "psnan" : "0" }, "e" : 
+{ "te" : "2796053", "est" : "2796053", "pest" : "100,00", "pestn" : "100", "esnt" : "0", "pesnt" : "0,00", "pesntn" : "0", "esi" : "2796053", "pesi" : "100,00", "pesin" : "100", "esni" : "0", "pesni" : "0,00", "pesnin" : "0", "esa" : "2796053", "pesa" : "100,00", "pesan" : "100", "esna" : "0", "pesna" : "0,00", "pesnan" : "0", "c" : "2232271", "pc" : "79,84", "pcn" : "79,836505245", "a" : "563782", "pa" : "20,16", "pan" : "20,163494755" }, "v" : 
+{ "tv" : "2232271", "vvc" : "2071985", "pvvc" : "92,82", "pvvcn" : "92,819599412", "vv" : "2071985", "pvv" : "100,00", "pvvn" : "100", "vnom" : "2071985", "pvnom" : "100,00", "pvnomn" : "100", "van" : "0", "pvan" : "0,00", "pvann" : "0", "vansj" : "0", "pvansj" : "0,00", "pvansjn" : "0", "vb" : "50340", "pvb" : "2,26", "pvbn" : "2,255102539", "tvn" : "109946", "ptvn" : "4,93", "ptvnn" : "4,925298048", "vn" : "109946", "pvn" : "100,00", "pvnn" : "100", "vnt" : "0", "pvnt" : "0,00", "pvntn" : "0", "vsan" : "0", "vscv" : "0" } }

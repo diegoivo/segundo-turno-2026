@@ -1,0 +1,33 @@
+
+{ "ele" : "6259", "t" : "1", "f" : "o", "sup" : "n", "tpabr" : "uf", "cdabr" : "to", "dg" : "04/10/2026", "hg" : "21:18:59", "idg" : "1983357", "dt" : "04/10/2026", "ht" : "20:59:57", "dv" : "s", "tf" : "s", "and" : "f", "esae" : "n", "mnae" : [  ], "carg" : [ 
+{ "cd" : "3", "nmn" : "Governador", "nmm" : "Governador", "nmf" : "Governadora", "nv" : "1", "fed" : [ 
+{ "n" : "100", "sg" : "PSDB/CIDADANIA", "nm" : "FEDERAÇÃO PSDB CIDADANIA", "com" : "PSDB/CIDADANIA", "npar" : [ "23", "45" ] }, 
+{ "n" : "104", "sg" : "UNIÃO/PP", "nm" : "FEDERAÇÃO UNIÃO PROGRESSISTA", "com" : "UNIÃO/PP", "npar" : [ "11", "44" ] }, 
+{ "n" : "102", "sg" : "PSOL/REDE", "nm" : "FEDERAÇÃO PSOL REDE", "com" : "PSOL/REDE", "npar" : [ "18", "50" ] } ], "agr" : [ 
+{ "n" : "270001800725", "nm" : "PRA CIMA TOCANTINS", "tp" : "c", "com" : "MDB / CIDADANIA / PSDB", "tvtn" : "372848", "tvan" : "372848", "par" : [ 
+{ "n" : "45", "sg" : "PSDB", "nm" : "PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA", "nfed" : "100", "tvtn" : "372848", "tvan" : "372848", "cand" : [ 
+{ "n" : "45", "sqcand" : "270002544544", "nm" : "VICENTE ALVES DE OLIVEIRA JÚNIOR", "nmu" : "VICENTINHO JÚNIOR", "dt" : "11/04/1985", "dvt" : "Válido", "seq" : "2", "e" : "s", "st" : "2º turno", "vap" : "372848", "pvap" : "43,94", "pvapn" : "43,935335700", "vs" : [ 
+{ "tp" : "v", "sqcand" : "270002544545", "nm" : "AMELIO CAYRES DE ALMEIDA", "nmu" : "AMÉLIO CAYRES", "sgp" : "MDB" } ] } ] } ] }, 
+{ "n" : "270001801082", "nm" : "DEMOCRACIA CRISTÃ", "tp" : "i", "com" : "DC", "vag" : "0", "par" : [ 
+{ "n" : "27", "sg" : "DC", "nm" : "DEMOCRACIA CRISTÃ", "nfed" : "", "tvtn" : "1272", "tvan" : "1272", "cand" : [ 
+{ "n" : "27", "sqcand" : "270002550458", "nm" : "IVAILDO PEREIRA DA CRUZ", "nmu" : "DU PEREIRA", "dt" : "13/09/1988", "dvt" : "Válido", "seq" : "6", "e" : "n", "st" : "Não eleito", "vap" : "1272", "pvap" : "0,15", "pvapn" : "0,149888821", "vs" : [ 
+{ "tp" : "v", "sqcand" : "270002550459", "nm" : "SILVINO VITOR PERES DE SANTANA", "nmu" : "SILVINO VITOR", "sgp" : "DC" } ] } ] } ] }, 
+{ "n" : "270001800913", "nm" : "PARTIDO NOVO", "tp" : "i", "com" : "NOVO", "vag" : "0", "par" : [ 
+{ "n" : "30", "sg" : "NOVO", "nm" : "PARTIDO NOVO", "nfed" : "", "tvtn" : "13173", "tvan" : "13173", "cand" : [ 
+{ "n" : "30", "sqcand" : "270002548412", "nm" : "ATAIDES DE OLIVEIRA", "nmu" : "ATAIDES DE OLIVEIRA", "dt" : "18/12/1959", "dvt" : "Válido", "seq" : "4", "e" : "n", "st" : "Não eleito", "vap" : "13173", "pvap" : "1,55", "pvapn" : "1,552268424", "vs" : [ 
+{ "tp" : "v", "sqcand" : "270002548413", "nm" : "ROSILEIA DIAS CARNEIRO", "nmu" : "ROSILEIA DIAS CARNEIRO", "sgp" : "NOVO" } ] } ] } ] }, 
+{ "n" : "270001800720", "nm" : "PRA FRENTE TOCANTINS", "tp" : "c", "com" : "PDT / PSB / PSD / PCDOB / PT / PV", "tvtn" : "69967", "tvan" : "69967", "par" : [ 
+{ "n" : "55", "sg" : "PSD", "nm" : "PARTIDO SOCIAL DEMOCRÁTICO", "nfed" : "", "tvtn" : "69967", "tvan" : "69967", "cand" : [ 
+{ "n" : "55", "sqcand" : "270002544494", "nm" : "LAUREZ DA ROCHA MOREIRA", "nmu" : "LAUREZ MOREIRA", "dt" : "03/07/1957", "dvt" : "Válido", "seq" : "3", "e" : "n", "st" : "Não eleito", "vap" : "69967", "pvap" : "8,24", "pvapn" : "8,244709997", "vs" : [ 
+{ "tp" : "v", "sqcand" : "270002544495", "nm" : "JULIO MANOEL DA SILVA NETO", "nmu" : "CORONEL SILVA NETO", "sgp" : "PSD" } ] } ] } ] }, 
+{ "n" : "270001800451", "nm" : "FEDERAÇÃO PSOL REDE", "tp" : "f", "com" : "PSOL / REDE", "tvtn" : "5109", "tvan" : "5109", "vag" : "0", "par" : [ 
+{ "n" : "50", "sg" : "PSOL", "nm" : "PARTIDO SOCIALISMO E LIBERDADE", "nfed" : "102", "tvtn" : "5109", "tvan" : "5109", "cand" : [ 
+{ "n" : "50", "sqcand" : "270002539187", "nm" : "WITER FONSECA NAVES", "nmu" : "PROF WITER NAVES", "dt" : "11/07/1971", "dvt" : "Válido", "seq" : "5", "e" : "n", "st" : "Não eleito", "vap" : "5109", "pvap" : "0,60", "pvapn" : "0,602029862", "vs" : [ 
+{ "tp" : "v", "sqcand" : "270002539188", "nm" : "MARIA LUCIA SOARES VIANA", "nmu" : "LÚCIA VIANA", "sgp" : "PSOL" } ] } ] } ] }, 
+{ "n" : "270001800733", "nm" : "UNIÃO PELO TOCANTINS", "tp" : "c", "com" : "REPUBLICANOS / PODE / AVANTE / PL / PRD / SOLIDARIEDADE / PP / UNIÃO", "tvtn" : "386260", "tvan" : "386260", "par" : [ 
+{ "n" : "44", "sg" : "UNIÃO", "nm" : "UNIÃO BRASIL", "nfed" : "104", "tvtn" : "386260", "tvan" : "386260", "cand" : [ 
+{ "n" : "44", "sqcand" : "270002544599", "nm" : "MARIA AUXILIADORA SEABRA REZENDE", "nmu" : "PROFESSORA DORINHA", "dt" : "01/10/1964", "dvt" : "Válido", "seq" : "1", "e" : "s", "st" : "2º turno", "vap" : "386260", "pvap" : "45,52", "pvapn" : "45,515767196", "vs" : [ 
+{ "tp" : "v", "sqcand" : "270002544600", "nm" : "ATOS GOMES DE ARAÚJO", "nmu" : "ATOS GOMES", "sgp" : "REPUBLICANOS" } ] } ] } ] } ] } ], "s" : 
+{ "ts" : "4384", "st" : "4384", "pst" : "100,00", "pstn" : "100", "snt" : "0", "psnt" : "0,00", "psntn" : "0", "si" : "4384", "psi" : "100,00", "psin" : "100", "sni" : "0", "psni" : "0,00", "psnin" : "0", "sa" : "4384", "psa" : "100,00", "psan" : "100", "sna" : "0", "psna" : "0,00", "psnan" : "0" }, "e" : 
+{ "te" : "1180433", "est" : "1180433", "pest" : "100,00", "pestn" : "100", "esnt" : "0", "pesnt" : "0,00", "pesntn" : "0", "esi" : "1180433", "pesi" : "100,00", "pesin" : "100", "esni" : "0", "pesni" : "0,00", "pesnin" : "0", "esa" : "1180433", "pesa" : "100,00", "pesan" : "100", "esna" : "0", "pesna" : "0,00", "pesnan" : "0", "c" : "963810", "pc" : "81,65", "pcn" : "81,648852582", "a" : "216623", "pa" : "18,35", "pan" : "18,351147418" }, "v" : 
+{ "tv" : "963810", "vvc" : "848629", "pvvc" : "88,05", "pvvcn" : "88,049408078", "vv" : "848629", "pvv" : "100,00", "pvvn" : "100", "vnom" : "848629", "pvnom" : "100,00", "pvnomn" : "100", "van" : "0", "pvan" : "0,00", "pvann" : "0", "vansj" : "0", "pvansj" : "0,00", "pvansjn" : "0", "vb" : "27085", "pvb" : "2,81", "pvbn" : "2,810201181", "tvn" : "88096", "ptvn" : "9,14", "ptvnn" : "9,140390741", "vn" : "87069", "pvn" : "98,83", "pvnn" : "98,834226299", "vnt" : "1027", "pvnt" : "1,17", "pvntn" : "1,165773701", "vsan" : "0", "vscv" : "0" } }
