@@ -1,0 +1,23 @@
+docs/QA-FINAL-PRODUCAO.md
+  s_85bb19447b4c97::t_729ae1fc54e1ba 1-26
+docs/EXECUCAO-segundo-turno.md
+  s_85bb19447b4c97::t_548a64b37ac3ff 74-81
+docs/PRD-segundo-turno.md
+  s_85bb19447b4c97::t_923119cfc29e9f 191-194
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8be542bd7d785a86b4669ee60711517eab1536c5",
+  "prompts": {},
+  "sessions": {
+    "s_85bb19447b4c97": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "491e5ea6-5823-4efe-b024-50c84ba8465d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Diego Ivo <diego@conversion.com.br>"
+    }
+  }
+}
