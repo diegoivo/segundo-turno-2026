@@ -1,0 +1,457 @@
+.gitignore
+  s_85bb19447b4c97::t_7e1495c2e37c2f 1-11
+.taste-skill/direction.json
+  s_85bb19447b4c97::t_06b89750c01108 1-182
+.taste-skill/inspect-gov/report.json
+  s_85bb19447b4c97::t_9e26fada732c07 1-2359
+.taste-skill/inspect-governador-df/report.json
+  s_85bb19447b4c97::t_b5df7e233416e8 1-2352
+.taste-skill/inspect-home/report.json
+  s_85bb19447b4c97::t_76b5556a18ad7b 1-2404
+.taste-skill/inspect-index/report.json
+  s_85bb19447b4c97::t_3ac41d8896dccd 1-2401
+backfill/1t2026/scripts/agg_uf.py
+  s_85bb19447b4c97::t_a77030fa74bd43 1-44
+backfill/1t2026/scripts/build_csv.py
+  s_85bb19447b4c97::t_1965446e2a92bf 1-22
+backfill/1t2026/scripts/build_replay.py
+  s_85bb19447b4c97::t_0f2d4b4b001635 1-182
+backfill/1t2026/scripts/run_all.sh
+  s_85bb19447b4c97::t_4428707262db1b 1-10
+backfill/1t2026/scripts/validate_a.py
+  s_85bb19447b4c97::t_285468eb1cd338 1-36
+backfill/1t2026/scripts/validate_b.py
+  s_85bb19447b4c97::t_d5aa949d273529 1-72
+collector/README.md
+  s_85bb19447b4c97::t_8bb3b537a90ac6 1-46
+collector/package-lock.json
+  s_85bb19447b4c97::t_43e3c34da70003 1-1544
+collector/package.json
+  s_85bb19447b4c97::t_68dac81e6a509f 1-16
+collector/src/armazenamento.mjs
+  s_85bb19447b4c97::t_7c5eb1964f57dc 1-40
+collector/src/canonical.mjs
+  s_85bb19447b4c97::t_7beb74db69308b 1-47
+collector/src/collect.mjs
+  s_85bb19447b4c97::t_a64b3e27d8a5b3 1-480
+collector/src/config.mjs
+  s_85bb19447b4c97::t_ca83c89c163945 1-83
+collector/src/forecast-adapter.mjs
+  s_85bb19447b4c97::t_405cfc8c3f9dae 1-54
+collector/src/index.mjs
+  s_85bb19447b4c97::t_13efade4c81771 1-41
+collector/src/live.mjs
+  s_85bb19447b4c97::t_5eec5bb65dd0d0 1-131
+collector/src/lock.mjs
+  s_85bb19447b4c97::t_be1ef7b83c118b 1-53
+collector/src/tse-fetch.mjs
+  s_85bb19447b4c97::t_7ba04b31043ba6 1-65
+collector/src/validate.mjs
+  s_85bb19447b4c97::t_ecd788ec70c2b6 1-91
+collector/test/coletor.test.mjs
+  s_85bb19447b4c97::t_3d87b0afdcebfc 1-416
+collector/test/estratos.test.mjs
+  s_85bb19447b4c97::t_c6e5b883270df9 1-255
+collector/test/helpers/comum.mjs
+  s_85bb19447b4c97::t_f3cdbf3514cb88 1-34
+collector/test/helpers/mock-r2.mjs
+  s_85bb19447b4c97::t_a9ada0d1d635d4 1-92
+collector/test/helpers/tse-mock.mjs
+  s_85bb19447b4c97::t_80b8d83b015caf 1-101
+collector/test/producao-stubs.test.mjs
+  s_85bb19447b4c97::t_03721ee0baf3bb 1-86
+collector/test/unidades.test.mjs
+  s_85bb19447b4c97::t_423d24ec98e6bd 1-223
+collector/wrangler.toml
+  s_85bb19447b4c97::t_ec8ce9168fe0ca 1-42
+design/DESIGN.md
+  s_85bb19447b4c97::t_8dcabcae46271e 1-142
+design/css/app.css
+  s_85bb19447b4c97::t_1fe827bd766f45 1-398
+design/favicon.svg
+  s_85bb19447b4c97::t_68f2360c42f2e5 1-6
+design/governador-df.html
+  s_85bb19447b4c97::t_f0c1e5f7f978e6 1-121
+design/index.html
+  s_85bb19447b4c97::t_ae174b3b14ba43 1-181
+design/js/app.js
+  s_85bb19447b4c97::t_9204f7ab0a5a75 1-383
+design/js/audit.js
+  s_85bb19447b4c97::t_f142d1b17be90f 1-99
+design/js/chart.js
+  s_85bb19447b4c97::t_138c1d9a5d187d 1-152
+design/js/gov.js
+  s_85bb19447b4c97::t_e805167137a69e 1-93
+design/js/home.js
+  s_85bb19447b4c97::t_e3f93552eb4b0f 1-185
+design/js/mapa-br.js
+  s_85bb19447b4c97::t_c4b894ae5f10c8 1-2
+design/js/mapa-br.json
+  s_85bb19447b4c97::t_745a7899ed0073 1
+design/js/mock-data.js
+  s_85bb19447b4c97::t_33d7962cb8d40d 1-2
+design/manifest.webmanifest
+  s_85bb19447b4c97::t_6b5443d481bac4 1-15
+docs/BACKTEST.md
+  s_85bb19447b4c97::t_09d0bff6c68818 1-165
+docs/EXECUCAO-segundo-turno.md
+  s_85bb19447b4c97::t_890a9e90418bba 1-57
+docs/GOVERNADORES-ALINHAMENTO.md
+  s_85bb19447b4c97::t_55df78a94dc64c 1-34
+docs/METODOLOGIA.md
+  s_85bb19447b4c97::t_110625f709920f 1-72
+docs/PRD-segundo-turno.md
+  s_85bb19447b4c97::t_a25f2494f893ac 1-190
+docs/TSE-API-2026.md
+  s_85bb19447b4c97::t_5333730cf31db7 1-105
+docs/VALIDACAO-1T2026.md
+  s_85bb19447b4c97::t_090411f0509252 1-263
+fixtures/tse/oficial/comum/config/ele-c.json
+  s_85bb19447b4c97::t_60549b5b3026ad 1-393
+fixtures/tse/oficial/ele2026/6257/dados/ac/ac-c0001-e006257-u.json
+  s_85bb19447b4c97::t_e447a3e3656a5f 1-55
+fixtures/tse/oficial/ele2026/6257/dados/ac/ac01392-c0001-e006257-u.json
+  s_85bb19447b4c97::t_641edacfc08721 1-55
+fixtures/tse/oficial/ele2026/6257/dados/al/al-c0001-e006257-u.json
+  s_85bb19447b4c97::t_4cf2cfe8e6ea7b 1-55
+fixtures/tse/oficial/ele2026/6257/dados/am/am-c0001-e006257-u.json
+  s_85bb19447b4c97::t_5dfb7edc4f8644 1-55
+fixtures/tse/oficial/ele2026/6257/dados/ap/ap-c0001-e006257-u.json
+  s_85bb19447b4c97::t_882f455f33d7c0 1-55
+fixtures/tse/oficial/ele2026/6257/dados/ba/ba-c0001-e006257-u.json
+  s_85bb19447b4c97::t_c26c4f2eeccf71 1-55
+fixtures/tse/oficial/ele2026/6257/dados/br/br-c0001-e006257-u.json
+  s_85bb19447b4c97::t_ec5979f7cb90dc 1-55
+fixtures/tse/oficial/ele2026/6257/dados/ce/ce-c0001-e006257-u.json
+  s_85bb19447b4c97::t_5e1869a8448cd6 1-55
+fixtures/tse/oficial/ele2026/6257/dados/df/df-c0001-e006257-u.json
+  s_85bb19447b4c97::t_9ab51354580e07 1-55
+fixtures/tse/oficial/ele2026/6257/dados/es/es-c0001-e006257-u.json
+  s_85bb19447b4c97::t_8204f0993978ab 1-55
+fixtures/tse/oficial/ele2026/6257/dados/go/go-c0001-e006257-u.json
+  s_85bb19447b4c97::t_d22e819a2c3976 1-55
+fixtures/tse/oficial/ele2026/6257/dados/ma/ma-c0001-e006257-u.json
+  s_85bb19447b4c97::t_38f6d59743e373 1-55
+fixtures/tse/oficial/ele2026/6257/dados/mg/mg-c0001-e006257-u.json
+  s_85bb19447b4c97::t_cf3040eee24787 1-55
+fixtures/tse/oficial/ele2026/6257/dados/ms/ms-c0001-e006257-u.json
+  s_85bb19447b4c97::t_5fa3849275c9e2 1-55
+fixtures/tse/oficial/ele2026/6257/dados/mt/mt-c0001-e006257-u.json
+  s_85bb19447b4c97::t_ebdc88da16fea7 1-55
+fixtures/tse/oficial/ele2026/6257/dados/pa/pa-c0001-e006257-u.json
+  s_85bb19447b4c97::t_48bddb151a366e 1-55
+fixtures/tse/oficial/ele2026/6257/dados/pb/pb-c0001-e006257-u.json
+  s_85bb19447b4c97::t_ef52bfd80c34d3 1-55
+fixtures/tse/oficial/ele2026/6257/dados/pe/pe-c0001-e006257-u.json
+  s_85bb19447b4c97::t_f26061fa3b1d73 1-55
+fixtures/tse/oficial/ele2026/6257/dados/pi/pi-c0001-e006257-u.json
+  s_85bb19447b4c97::t_1bf9251a02857b 1-55
+fixtures/tse/oficial/ele2026/6257/dados/pr/pr-c0001-e006257-u.json
+  s_85bb19447b4c97::t_317e12ebbb86d6 1-55
+fixtures/tse/oficial/ele2026/6257/dados/rj/rj-c0001-e006257-u.json
+  s_85bb19447b4c97::t_1ac5bbe90c9bc3 1-55
+fixtures/tse/oficial/ele2026/6257/dados/rn/rn-c0001-e006257-u.json
+  s_85bb19447b4c97::t_1e7007a5eeea24 1-55
+fixtures/tse/oficial/ele2026/6257/dados/ro/ro-c0001-e006257-u.json
+  s_85bb19447b4c97::t_441633bcbcae06 1-55
+fixtures/tse/oficial/ele2026/6257/dados/rr/rr-c0001-e006257-u.json
+  s_85bb19447b4c97::t_ecbbcc08275eb4 1-55
+fixtures/tse/oficial/ele2026/6257/dados/rs/rs-c0001-e006257-u.json
+  s_85bb19447b4c97::t_c7e52b356789c7 1-55
+fixtures/tse/oficial/ele2026/6257/dados/sc/sc-c0001-e006257-u.json
+  s_85bb19447b4c97::t_398250ceb65bca 1-55
+fixtures/tse/oficial/ele2026/6257/dados/se/se-c0001-e006257-u.json
+  s_85bb19447b4c97::t_f2f7851ba66c51 1-55
+fixtures/tse/oficial/ele2026/6257/dados/sp/sp-c0001-e006257-u.json
+  s_85bb19447b4c97::t_374342bbc29c8c 1-55
+fixtures/tse/oficial/ele2026/6257/dados/sp/sp71072-c0001-e006257-u.json
+  s_85bb19447b4c97::t_4ceecbabc68c49 1-55
+fixtures/tse/oficial/ele2026/6257/dados/to/to-c0001-e006257-u.json
+  s_85bb19447b4c97::t_7389af9ac33b09 1-55
+fixtures/tse/oficial/ele2026/6258/config/mun-e006258-cm.json
+  s_85bb19447b4c97::t_c91cf70be9b586 1-5787
+fixtures/tse/oficial/ele2026/6258/dados/ac/ac-c0001-e006258-u.json
+  s_85bb19447b4c97::t_c57c20962a52c1 1-15
+fixtures/tse/oficial/ele2026/6258/dados/ac/ac01392-c0001-e006258-u.json
+  s_85bb19447b4c97::t_8922dc2ba27b23 1-15
+fixtures/tse/oficial/ele2026/6258/dados/br/br-c0001-e006258-u.json
+  s_85bb19447b4c97::t_1ec422bd090463 1-15
+fixtures/tse/oficial/ele2026/6259/dados/ac/ac-c0003-e006259-u.json
+  s_85bb19447b4c97::t_ca76f1dff92ab2 1-32
+fixtures/tse/oficial/ele2026/6259/dados/ac/ac01392-c0003-e006259-u.json
+  s_85bb19447b4c97::t_52080a0df62eda 1-32
+fixtures/tse/oficial/ele2026/6259/dados/am/am-c0003-e006259-u.json
+  s_85bb19447b4c97::t_19e2a8216080ca 1-36
+fixtures/tse/oficial/ele2026/6259/dados/df/df-c0003-e006259-u.json
+  s_85bb19447b4c97::t_ac5ecb6fd8e77c 1-49
+fixtures/tse/oficial/ele2026/6259/dados/es/es-c0003-e006259-u.json
+  s_85bb19447b4c97::t_44de4fd869a98d 1-27
+fixtures/tse/oficial/ele2026/6259/dados/rn/rn-c0003-e006259-u.json
+  s_85bb19447b4c97::t_fd60ce5a1a7ef4 1-40
+fixtures/tse/oficial/ele2026/6259/dados/to/to-c0003-e006259-u.json
+  s_85bb19447b4c97::t_8163ba147a55e3 1-33
+fixtures/tse/oficial/ele2026/6260/config/mun-e006260-cm.json
+  s_85bb19447b4c97::t_6911c1eb6f5e91 1-477
+fixtures/tse/oficial/ele2026/6260/dados/ac/ac-c0003-e006260-u.json
+  s_85bb19447b4c97::t_b6a0b2831f4dbc 1-15
+fixtures/tse/oficial/ele2026/6260/dados/ac/ac01392-c0003-e006260-u.json
+  s_85bb19447b4c97::t_5c14376d442956 1-15
+fixtures/tse/oficial/ele2026/6260/dados/am/am-c0003-e006260-u.json
+  s_85bb19447b4c97::t_a4d0dee136ee40 1-14
+fixtures/tse/oficial/ele2026/6260/dados/df/df-c0003-e006260-u.json
+  s_85bb19447b4c97::t_14b92250d0c1d4 1-16
+fixtures/tse/oficial/ele2026/6260/dados/es/es-c0003-e006260-u.json
+  s_85bb19447b4c97::t_0ea51328686aa6 1-14
+fixtures/tse/oficial/ele2026/6260/dados/rn/rn-c0003-e006260-u.json
+  s_85bb19447b4c97::t_6b18430f16fa96 1-16
+fixtures/tse/oficial/ele2026/6260/dados/to/to-c0003-e006260-u.json
+  s_85bb19447b4c97::t_51634c36aef776 1-16
+model/backtest/README.md
+  s_85bb19447b4c97::t_9cf61602294dd0 1-23
+model/backtest/analise.mjs
+  s_85bb19447b4c97::t_1ae98433e3b1c7 1-79
+model/backtest/calibrar.mjs
+  s_85bb19447b4c97::t_33dbafabc41509 1-142
+model/backtest/relatorio.json
+  s_85bb19447b4c97::t_fdea086098e524 1-6479
+model/backtest/replay.mjs
+  s_85bb19447b4c97::t_eec705794df4aa 1-190
+model/backtest/tools/bweb2events.py
+  s_85bb19447b4c97::t_7b575840ca3576 1-54
+model/backtest/tools/csv2026_to_events.py
+  s_85bb19447b4c97::t_124864365afa83 1-31
+model/baselines/governador-ac.json
+  s_85bb19447b4c97::t_cadf13da2ef900 1
+model/baselines/governador-am.json
+  s_85bb19447b4c97::t_a1ac187437b697 1
+model/baselines/governador-df.json
+  s_85bb19447b4c97::t_39b7c07766b229 1
+model/baselines/governador-es.json
+  s_85bb19447b4c97::t_1e7f542907bf8c 1
+model/baselines/governador-rn.json
+  s_85bb19447b4c97::t_1c650a9ab4fa72 1
+model/baselines/governador-to.json
+  s_85bb19447b4c97::t_9ab4f2b45a6499 1
+model/baselines/index.mjs
+  s_85bb19447b4c97::t_abc94f3c1fd981 1-14
+model/baselines/presidente-municipios.json
+  s_85bb19447b4c97::t_5e50dfb57c8239 1
+model/baselines/presidente.json
+  s_85bb19447b4c97::t_fcd5a7c6108993 1
+model/calibracao.mjs
+  s_85bb19447b4c97::t_c6ee4c8e8f58f3 1-28
+model/criterios.mjs
+  s_85bb19447b4c97::t_859ddbd1856aae 1-100
+model/faixa.mjs
+  s_85bb19447b4c97::t_210236d3048a7f 1-25
+model/index.mjs
+  s_85bb19447b4c97::t_d5378e6d51295f 1-237
+model/test/fixtures/6258/ac-c0001-e006258-u.json
+  s_85bb19447b4c97::t_c31f5ecf794421 1-15
+model/test/fixtures/6258/al-c0001-e006258-u.json
+  s_85bb19447b4c97::t_f4f329ddaca33a 1-15
+model/test/fixtures/6258/am-c0001-e006258-u.json
+  s_85bb19447b4c97::t_7759e27eeefa3e 1-15
+model/test/fixtures/6258/ap-c0001-e006258-u.json
+  s_85bb19447b4c97::t_3d16baf8ac5c7d 1-15
+model/test/fixtures/6258/ba-c0001-e006258-u.json
+  s_85bb19447b4c97::t_02d3dec5d66ee8 1-15
+model/test/fixtures/6258/br-c0001-e006258-u.json
+  s_85bb19447b4c97::t_d651cd56ea95ca 1-15
+model/test/fixtures/6258/ce-c0001-e006258-u.json
+  s_85bb19447b4c97::t_d9c2cde63a5434 1-15
+model/test/fixtures/6258/df-c0001-e006258-u.json
+  s_85bb19447b4c97::t_3a57bd53a2a1ab 1-15
+model/test/fixtures/6258/es-c0001-e006258-u.json
+  s_85bb19447b4c97::t_570cb1de28b967 1-15
+model/test/fixtures/6258/go-c0001-e006258-u.json
+  s_85bb19447b4c97::t_86f7de3b847e74 1-15
+model/test/fixtures/6258/ma-c0001-e006258-u.json
+  s_85bb19447b4c97::t_16f42e460bfa4f 1-15
+model/test/fixtures/6258/mg-c0001-e006258-u.json
+  s_85bb19447b4c97::t_437be5d643ba2e 1-15
+model/test/fixtures/6258/ms-c0001-e006258-u.json
+  s_85bb19447b4c97::t_43b1c560d436f7 1-15
+model/test/fixtures/6258/mt-c0001-e006258-u.json
+  s_85bb19447b4c97::t_f65f9fa5911993 1-15
+model/test/fixtures/6258/pa-c0001-e006258-u.json
+  s_85bb19447b4c97::t_a841ad617a5ce2 1-15
+model/test/fixtures/6258/pb-c0001-e006258-u.json
+  s_85bb19447b4c97::t_089bbde5a843eb 1-15
+model/test/fixtures/6258/pe-c0001-e006258-u.json
+  s_85bb19447b4c97::t_e9ba58b7303c3c 1-15
+model/test/fixtures/6258/pi-c0001-e006258-u.json
+  s_85bb19447b4c97::t_1ac038c023dd05 1-15
+model/test/fixtures/6258/pr-c0001-e006258-u.json
+  s_85bb19447b4c97::t_f3a690455213f0 1-15
+model/test/fixtures/6258/rj-c0001-e006258-u.json
+  s_85bb19447b4c97::t_71bcd83abd7ddb 1-15
+model/test/fixtures/6258/rn-c0001-e006258-u.json
+  s_85bb19447b4c97::t_80a4c68de6237f 1-15
+model/test/fixtures/6258/ro-c0001-e006258-u.json
+  s_85bb19447b4c97::t_b8cea0675c3557 1-15
+model/test/fixtures/6258/rr-c0001-e006258-u.json
+  s_85bb19447b4c97::t_dd8591f73cf93d 1-15
+model/test/fixtures/6258/rs-c0001-e006258-u.json
+  s_85bb19447b4c97::t_01dd2205a13359 1-15
+model/test/fixtures/6258/sc-c0001-e006258-u.json
+  s_85bb19447b4c97::t_40cbbbef261c49 1-15
+model/test/fixtures/6258/se-c0001-e006258-u.json
+  s_85bb19447b4c97::t_bbc44daff850f0 1-15
+model/test/fixtures/6258/sp-c0001-e006258-u.json
+  s_85bb19447b4c97::t_0e8f50d3732ad3 1-15
+model/test/fixtures/6258/to-c0001-e006258-u.json
+  s_85bb19447b4c97::t_07795eba3e2905 1-15
+model/test/fixtures/6258/zz-c0001-e006258-u.json
+  s_85bb19447b4c97::t_6c2e4d7a29af6d 1-15
+model/test/forecast.test.mjs
+  s_85bb19447b4c97::t_25bfb1c86c6a63 1-297
+model/test/helpers.mjs
+  s_85bb19447b4c97::t_ea7b1874b9403f 1-46
+model/tools/gerar-baseline-municipios.mjs
+  s_85bb19447b4c97::t_026c4a4acc41ca 1-40
+model/tools/gerar-baselines.mjs
+  s_85bb19447b4c97::t_c97a9a3336121f 1-96
+qa/validacao-1t2026/amostra.json
+  s_85bb19447b4c97::t_ca3e7fed5e9224 1-266
+qa/validacao-1t2026/amostra.mjs
+  s_85bb19447b4c97::t_c811dde7e2ef55 1-30
+qa/validacao-1t2026/lib/df-zonas.mjs
+  s_85bb19447b4c97::t_022f8401855504 1-61
+qa/validacao-1t2026/lib/io.mjs
+  s_85bb19447b4c97::t_1fa477a35294f5 1-28
+qa/validacao-1t2026/lib/metricas.mjs
+  s_85bb19447b4c97::t_7af497862a102a 1-100
+qa/validacao-1t2026/lib/svg.mjs
+  s_85bb19447b4c97::t_5090cda00b1512 1-51
+qa/validacao-1t2026/presidente-A.svg
+  s_85bb19447b4c97::t_804c18f22e0f87 1-27
+qa/validacao-1t2026/presidente-B.svg
+  s_85bb19447b4c97::t_c09920d3c9f3a5 1-27
+qa/validacao-1t2026/relatar.mjs
+  s_85bb19447b4c97::t_2839919b3d7021 1-247
+qa/validacao-1t2026/resultados.json
+  s_85bb19447b4c97::t_dfd7f283e6e30e 1
+qa/validacao-1t2026/validar.mjs
+  s_85bb19447b4c97::t_2cc95d1e82a519 1-99
+tools/verificar-cadeia.mjs
+  s_85bb19447b4c97::t_1be92211923d7c 1-154
+web/README.md
+  s_85bb19447b4c97::t_0c3cca1e7bfa8f 1-42
+web/package.json
+  s_85bb19447b4c97::t_b995704c2bafca 1-18
+web/playwright.config.mjs
+  s_85bb19447b4c97::t_bf731c1455e9fb 1-12
+web/scripts/build.mjs
+  s_85bb19447b4c97::t_82c7c17764609e 1-78
+web/scripts/extrair-dados-1t.mjs
+  s_85bb19447b4c97::t_46bba5898daaf7 1-42
+web/scripts/lighthouse.mjs
+  s_85bb19447b4c97::t_8d91420267289a 1-25
+web/scripts/serve.mjs
+  s_85bb19447b4c97::t_2669e58c91b8cc 1-9
+web/src/assets/favicon.svg
+  s_85bb19447b4c97::t_56cfbab2cbfae9 1-6
+web/src/assets/manifest.webmanifest
+  s_85bb19447b4c97::t_756aa96896a636 1-15
+web/src/assets/mapa-br.json
+  s_85bb19447b4c97::t_28f33f913092ad 1
+web/src/assets/sprite.svg.html
+  s_85bb19447b4c97::t_914ffd4823a11e 1
+web/src/build/headers.mjs
+  s_85bb19447b4c97::t_9cec4b0a272c6b 1-23
+web/src/build/og.mjs
+  s_85bb19447b4c97::t_572c40b4997af5 1-104
+web/src/build/pages.mjs
+  s_85bb19447b4c97::t_e70c34bb155b26 1-277
+web/src/client/audit-ui.mjs
+  s_85bb19447b4c97::t_daf6f3d1102a9b 1-83
+web/src/client/chart-ui.mjs
+  s_85bb19447b4c97::t_f68e83fe92705e 1-35
+web/src/client/dados.mjs
+  s_85bb19447b4c97::t_eb845a40e1f5a1 1-26
+web/src/client/dom.mjs
+  s_85bb19447b4c97::t_26f00f764c64fa 1-34
+web/src/client/gov.mjs
+  s_85bb19447b4c97::t_8e7c280d3f1276 1-69
+web/src/client/home.mjs
+  s_85bb19447b4c97::t_57642be779a5ab 1-80
+web/src/client/main.mjs
+  s_85bb19447b4c97::t_f51cd1535b771b 1-11
+web/src/client/mapa-ui.mjs
+  s_85bb19447b4c97::t_b0705b184246a8 1-85
+web/src/client/theme.mjs
+  s_85bb19447b4c97::t_1cecdf04ce061b 1-23
+web/src/css/app.css
+  s_85bb19447b4c97::t_075278bc387f18 1-426
+web/src/data/primeiro-turno.json
+  s_85bb19447b4c97::t_12062380e42cb7 1
+web/src/lib/audit.mjs
+  s_85bb19447b4c97::t_1490541bf65697 1-105
+web/src/lib/chart.mjs
+  s_85bb19447b4c97::t_7c4287415a8da1 1-199
+web/src/lib/components.mjs
+  s_85bb19447b4c97::t_474e1eb2a8f66c 1-301
+web/src/lib/config.mjs
+  s_85bb19447b4c97::t_c1fe2aa27ba6dc 1-34
+web/src/lib/format.mjs
+  s_85bb19447b4c97::t_9f495d411982da 1-42
+web/src/lib/md.mjs
+  s_85bb19447b4c97::t_e68c8600702d30 1-59
+web/src/lib/panorama.mjs
+  s_85bb19447b4c97::t_de367ada81994b 1-95
+web/src/lib/poll.mjs
+  s_85bb19447b4c97::t_0511d5f377ffc1 1-87
+web/src/lib/viewmodel.mjs
+  s_85bb19447b4c97::t_50da7f93318a1d 1-186
+web/src/lib/views.mjs
+  s_85bb19447b4c97::t_64955f2ac6521b 1-154
+web/test/e2e/servidor.mjs
+  s_85bb19447b4c97::t_c6b947e0a6d21c 1-42
+web/test/e2e/site.spec.mjs
+  s_85bb19447b4c97::t_28b4b3a33bb383 1-194
+web/test/fixtures/gerar.mjs
+  s_85bb19447b4c97::t_34e7fe6f058b7b 1-130
+web/test/unit/lib.test.mjs
+  s_85bb19447b4c97::t_40a9169543b387 1-266
+web/test/unit/poll-audit.test.mjs
+  s_85bb19447b4c97::t_6c81dcbaf4ce99 1-113
+docs/BACKFILL-1T2026.md
+  s_85bb19447b4c97::t_01a146f1365339 1-129
+docs/MODELO-1T-ENGENHARIA-REVERSA.md
+  s_85bb19447b4c97::t_c659a3f3f9021b 1-329
+docs/mockup-home.html
+  s_85bb19447b4c97::t_ed21e406c02bf2 1-188
+model/correcao.mjs
+  s_85bb19447b4c97::t_adcc379a72484a 1-28
+model/estratos.mjs
+  s_85bb19447b4c97::t_173d69a12cae3b 1-164
+model/parse.mjs
+  s_85bb19447b4c97::t_4b0f15ba2f6ac7 1-86
+model/test/unidades.test.mjs
+  s_85bb19447b4c97::t_322a0caf507264 1-160
+web/package-lock.json
+  s_85bb19447b4c97::t_62876ac7c08ae6 1-545
+web/test/dados-worker.test.mjs
+  s_85bb19447b4c97::t_a9244dcf8b1e86 1-58
+web/worker/dados.mjs
+  s_85bb19447b4c97::t_57b356d34a3b6b 1-60
+web/wrangler.toml
+  s_85bb19447b4c97::t_443cb4e62fd8c7 1-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f8238dedd952945e8e83d6859cc43deb8355e963",
+  "prompts": {},
+  "sessions": {
+    "s_85bb19447b4c97": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "491e5ea6-5823-4efe-b024-50c84ba8465d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Diego Ivo <diego@conversion.com.br>"
+    }
+  }
+}
