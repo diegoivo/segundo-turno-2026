@@ -188,3 +188,7 @@ Opcional: o plano Workers Free (US$ 0) só serve se o parse couber em 10 ms de C
   - Design: refazer com o **taste-skill v2.1.4** (Leonxlnx/taste-skill, instalado em `~/.claude/skills/design-taste-frontend`), usando **nomes reais** dos candidatos (fonte: TSE).
   - Cores: **vermelho = Lula**, **azul = Flávio Bolsonaro** (igual ao site do 1º turno). Os nomes ainda serão confirmados pelo TSE. Governadores: vermelho = candidato do PT ou da base do Lula; azul = candidato do PL ou da base do Flávio; sem nenhum dos dois lados na disputa → duas cores neutras (aprovado pelo Diego em 23/10). Caso misto (um lado claro, outro neutro: ES, RN, TO) → o lado claro leva a sua cor e o outro fica neutro (opção "a", aprovada em 23/10). Mapa de cores: `docs/GOVERNADORES-ALINHAMENTO.md`. O alinhamento de cada candidato é julgamento de sub-agent, com a fonte citada.
   - Escopo de custo: governadores somam ~10 UFs × 1 arquivo a cada 15 s ao coletor, sem impacto relevante (R2 Class A continua < 1 M/mês).
+
+
+## 15. Status (24/10/2026)
+Todas as fases foram concluídas e o site está no ar em https://segundo-turno-web.hosts5924.workers.dev. Ensaio 2 aprovado; QA final 9/9 PASS (`docs/QA-FINAL-PRODUCAO.md`). Pendências: domínio, confirmação do Workers Paid e o gatilho operacional `sem_correcao`. Detalhes em `EXECUCAO-segundo-turno.md`.
