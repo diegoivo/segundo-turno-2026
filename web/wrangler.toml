@@ -8,6 +8,11 @@ main = "worker/dados.mjs"
 account_id = "7da0ed9efd4c11dde93580a34322e913"
 compatibility_date = "2025-10-01"
 workers_dev = true
+# Domínio próprio (zona Free na conta Hosts; registrado na Namecheap com NS da Cloudflare).
+routes = [
+  { pattern = "segundoturno2026.com", custom_domain = true },
+  { pattern = "www.segundoturno2026.com", custom_domain = true },
+]
 
 [assets]
 directory = "./dist"

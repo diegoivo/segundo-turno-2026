@@ -9,8 +9,9 @@ export function initTema() {
   const escuro = () => raiz.dataset.theme === 'dark' || (!raiz.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
   const rotulo = () => {
     const d = escuro();
-    btn.setAttribute('aria-pressed', String(d));
-    $('#tema-t').textContent = d ? 'Tema claro' : 'Tema escuro';
+    const nome = d ? 'Mudar para o tema claro' : 'Mudar para o tema escuro';
+    btn.setAttribute('aria-label', nome);
+    btn.title = nome;
     $('#tema-ic').setAttribute('href', d ? '#i-light-mode' : '#i-dark-mode');
   };
   rotulo();

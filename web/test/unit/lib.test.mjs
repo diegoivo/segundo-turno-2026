@@ -228,10 +228,10 @@ test('views: slots pré-renderizados com 1º turno real e estados', () => {
   assert.equal(v3.estado, 3);
   assert.match(v3.slots.fc, /Projeção do resultado final/);
   assert.match(W.homeView({ latest: latestDe(4) }).slots.fc, /Projeção final/);
-  assert.match(W.updHTML(v3.vm, { atrasado: true }), /Dados do TSE atrasados/);
+  assert.match(W.updHTML(v3.vm, { atrasado: true }), /Dados do TSE <\/span>atrasados/);
   assert.match(W.updHTML(v3.vm, { offline: true }), /Sem conexão/);
   assert.match(W.updHTML(v3.vm), /Ao vivo/);
-  assert.match(W.updHTML(null), /25\/10\/2026/);
+  assert.match(W.updHTML(null), /25\/10<span class="lv-h">\/2026/);
   for (const uf of GOV_UFS) {
     const g = W.govView(uf, {});
     assert.match(g.slots.score, /1º turno/);

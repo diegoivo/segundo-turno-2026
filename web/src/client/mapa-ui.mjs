@@ -1,7 +1,7 @@
 // Panorama (mapa IBGE + quadros por região/UF): carrega sob demanda; usa o snapshot mais recente para a parcial por UF.
 import { linhas1T, linhasVivo, legendaMapa, mapaSVG, regioesHTML, ufsHTML } from '../lib/panorama.mjs';
 import { $, $$, quandoVisivel } from './dom.mjs';
-import { MAPA_URL, carregarManifest, carregarSnapshot } from './dados.mjs';
+import { DEMO, MAPA_URL, carregarManifest, carregarSnapshot } from './dados.mjs';
 import { buscarJson, proximoAtrasoMs } from '../lib/poll.mjs';
 import { esc } from '../lib/format.mjs';
 
@@ -69,7 +69,7 @@ export function initPanorama({ onPanorama }) {
     $$('.regsel button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
     desenhar();
   }));
-  document.addEventListener('visibilitychange', () => { if (!document.hidden && mapa) { atualizarDados(); agendar(); } });
+  if (!DEMO) document.addEventListener('visibilitychange', () => { if (!document.hidden && mapa) { atualizarDados(); agendar(); } });
 
   quandoVisivel($('#estados'), async () => {
     try {
@@ -80,6 +80,6 @@ export function initPanorama({ onPanorama }) {
     }
     desenhar();
     await atualizarDados();
-    agendar();
+    if (!DEMO) agendar();
   });
 }

@@ -9,10 +9,14 @@ test.afterAll(async () => { await srv.fechar(); });
 const HORA = { 1: '2026-10-25T19:30:00Z', 2: '2026-10-25T20:51:30Z', 3: '2026-10-25T21:39:30Z', 4: '2026-10-25T22:50:30Z' };
 const VIEWS = [{ nome: '360', width: 360, height: 800 }, { nome: '1440', width: 1440, height: 900 }];
 
+// A API do GitHub nunca é chamada de verdade nos testes.
+export const bloquearGithub = (page, corpo = { stargazers_count: 42 }, status = 200) => page.context().route('https://api.github.com/**', (r) => r.fulfill({ status, contentType: 'application/json', headers: { 'access-control-allow-origin': '*' }, body: JSON.stringify(corpo) }));
+
 async function abrir(page, estado, caminho = '/', hora = HORA[estado]) {
   const erros = [];
   page.on('console', (m) => { if (m.type() === 'error') erros.push(m.text()); });
   page.on('pageerror', (e) => erros.push(`pageerror: ${e.message}`));
+  await bloquearGithub(page);
   await fetch(`${srv.url}/__estado/${estado}`);
   srv.estado.requisicoes.length = 0;
   await page.clock.install({ time: new Date(hora) });

@@ -1,13 +1,17 @@
 // Casca HTML das páginas (pré-renderizadas no build). Os slots recebem o HTML das visões em lib/views.mjs.
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { GOV_UFS } from '../lib/config.mjs';
+import { GITHUB_URL, GOV_UFS } from '../lib/config.mjs';
 import { esc } from '../lib/format.mjs';
 import { govView, homeView, tituloGov } from '../lib/views.mjs';
 
 const SPRITE = readFileSync(fileURLToPath(new URL('../assets/sprite.svg.html', import.meta.url)), 'utf8');
 const NOME_SITE = 'Apuração do 2º turno 2026';
-const BOOT_TEMA = "try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}";
+// Octicons "mark-github" (MIT), 16 px, inline para não depender de rede nem de fonte de ícones.
+export const GITHUB_MARK = 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z';
+// Também marca ?demo antes da 1ª pintura: o CSS reserva o espaço da faixa (position: fixed) e nada se desloca (CLS 0). Sem ?demo, não faz nada.
+const BOOT_TEMA = "try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}"
+  + "try{if(/[?&]demo(=(?!(0|false|off|aguardando|no)(&|$))[^&]*)?(&|$)/i.test(location.search)&&/^\\/(governador\\/[a-z]{2}\\/?)?$/.test(location.pathname))document.documentElement.classList.add('is-demo')}catch(e){}";
 
 const HEAD = ({ titulo, descricao, caminho, assets, site, dadosOrigem, noindex = false }) => `<!doctype html>
 <html lang="pt-BR">
@@ -44,8 +48,9 @@ ${dadosOrigem ? `<link rel="preconnect" href="${esc(dadosOrigem)}" crossorigin>`
 
 const HEADER = (nav, live = true) => `<header class="top">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Apuração 2º turno 2026, início"><svg class="mark" width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-marca"/></svg><span>Apuração 2º turno <small>2026</small></span></a>
-    <button class="btn" id="tema" type="button" aria-pressed="false"><svg class="ic" aria-hidden="true" focusable="false"><use id="tema-ic" href="#i-dark-mode"/></svg><span id="tema-t">Tema escuro</span></button>
+    <a class="brand" href="/" aria-label="Apuração 2º turno 2026, início"><svg class="mark" width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-marca"/></svg><span><span class="brand-a">Apuração </span>2º turno <small>2026</small></span></a>
+    <a class="btn gh" id="gh" href="${GITHUB_URL}" rel="noopener" aria-label="Dar uma estrela no GitHub" title="Dar uma estrela no GitHub"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="${GITHUB_MARK}"/></svg><span class="gh-t">Star</span><span class="gh-n" id="gh-n" hidden></span></a>
+    <button class="btn ico" id="tema" type="button" aria-label="Mudar para o tema escuro" title="Mudar para o tema escuro"><svg class="ic" aria-hidden="true" focusable="false"><use id="tema-ic" href="#i-dark-mode"/></svg></button>
     ${live ? '<div class="livebox"><p class="live" id="upd" aria-live="polite">@@upd@@</p><button class="btn ico" id="atualizar" type="button" aria-label="Atualizar agora" title="Atualizar agora"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-refresh"/></svg></button></div>' : ''}
     <nav class="nav" aria-label="Seções da página"><ul>${nav}</ul></nav>
   </div>
@@ -156,14 +161,14 @@ ${HEADER(NAV_HOME)}
         </div>
         <div class="mapbox" id="mapbox"><p class="sub" style="padding:24px 0">O mapa carrega quando esta seção chega perto da tela. Sem JavaScript, use o quadro por região ao lado.</p></div>
         <div class="mobonly"><div id="maplegend"></div>
-        <p class="note">Malha: IBGE. Toque ou passe o mouse sobre uma UF; com o teclado, use Tab. As UFs com contorno grosso têm governador no 2º turno e abrem a página da disputa.</p></div>
+        <p class="note">Malha: IBGE. Toque ou passe o mouse sobre uma UF; com o teclado, use Tab. As UFs com contorno mais grosso têm governador no 2º turno e abrem a página da disputa.</p></div>
       </div>
       <div class="card">
         <h3>Por região</h3>
-        <p class="sub">Vermelho: Lula. Azul: Flávio. A barra parte do 50%.</p>
+        <p class="sub">Vermelho: Lula. Azul: Flávio. Cada barra mostra a divisão entre os dois; a linha marca os 50%.</p>
         <div id="regs" style="margin-top:12px">@@regs@@</div>
         <div class="deskonly"><div id="maplegend2"></div>
-        <p class="note">Malha: IBGE. Toque ou passe o mouse sobre uma UF; com o teclado, use Tab. As UFs com contorno grosso têm governador no 2º turno e abrem a página da disputa.</p></div>
+        <p class="note">Malha: IBGE. Toque ou passe o mouse sobre uma UF; com o teclado, use Tab. As UFs com contorno mais grosso têm governador no 2º turno e abrem a página da disputa.</p></div>
         <details class="more"><summary><span>Ver as 27 UFs</span><svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-expand-more"/></svg></summary><div id="ufs">@@ufs@@</div></details>
       </div>
     </div>

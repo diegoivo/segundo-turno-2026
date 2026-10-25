@@ -11,6 +11,12 @@ export const REGIOES = ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'];
 export const POLL = { intervaloMs: 20000, jitterMs: 3000, backoffMaxMs: 120000 };
 /** Dado do TSE mais velho que isto (ou stale=true) = "dados do TSE atrasados". */
 export const ATRASO_MS = 3 * 60 * 1000;
+/** Botão de estrela do GitHub: repositório, API pública (sem token) e cache no navegador. */
+export const GITHUB_REPO = 'diegoivo/segundo-turno-2026';
+export const GITHUB_URL = `https://github.com/${GITHUB_REPO}`;
+export const GITHUB_API = `https://api.github.com/repos/${GITHUB_REPO}`;
+export const GITHUB_CACHE_MS = 60 * 60 * 1000;
+export const GITHUB_CACHE_KEY = 'gh_stars';
 /** Quantos snapshots a auditoria baixa e verifica. */
 export const AUDITORIA_N = 6;
 /** Limiar de eleitorado totalizado exigido pelo modelo (model/criterios.mjs). */

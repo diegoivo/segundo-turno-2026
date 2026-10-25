@@ -64,7 +64,7 @@ function textoUF(r, gov, modo) {
 const lg = (k, c, t) => `<span class="c-${c}"><i style="--k:${k}"></i>${t}</span>`;
 
 export function legendaMapa(modo) {
-  return `<div class="maplegend">${lg(1, 'red', 'Lula na frente')}${lg(1, 'blue', 'Flávio na frente')}<span><i class="none"></i>sem votos apurados</span><span><i class="gv"></i>governador no 2º turno</span></div>`
+  return `<div class="maplegend">${lg(1, 'red', 'Lula na frente')}${lg(1, 'blue', 'Flávio na frente')}<span><i class="none"></i>sem votos apurados</span><span><i class="gv"></i>contorno mais grosso: governador no 2º turno</span></div>`
     + (modo === '1t'
       ? '<div class="maplegend"><span>Resultado do 1º turno por UF (dado real).</span></div>'
       : `<div class="maplegend"><b style="color:var(--text);font-weight:600">Intensidade da cor = % das seções apuradas:</b>${lg('.38', 'red', 'menos de 50%')}${lg('.68', 'red', '50% a 90%')}${lg(1, 'red', 'mais de 90%')}</div><p class="note" style="margin-top:6px"><b>É a parcial da apuração, não a projeção.</b> O resultado de uma UF ainda pode mudar.</p>`);

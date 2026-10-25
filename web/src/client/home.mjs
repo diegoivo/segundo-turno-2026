@@ -6,7 +6,7 @@ import { homeView, updHTML } from '../lib/views.mjs';
 import { pad2 } from '../lib/format.mjs';
 import { $, aplicarSlots, observarTamanho } from './dom.mjs';
 import { desenharCmp, desenharHist } from './chart-ui.mjs';
-import { carregarSerie, url, validarLatest } from './dados.mjs';
+import { DEMO, carregarSerie, url, validarLatest } from './dados.mjs';
 import { initPanorama } from './mapa-ui.mjs';
 
 export function relogio(agoraMs = Date.now()) {
@@ -21,7 +21,8 @@ export function initHome() {
   let ultimaChave = '';
   let relogioTimer = null;
 
-  const status = () => ({ atrasado: dadosAtrasados(est.latest, Date.now()), offline: est.offline });
+  // na demo o dado é estático e antigo de propósito: nunca é "atrasado" nem "offline"
+  const status = () => (DEMO ? { demo: true } : { atrasado: dadosAtrasados(est.latest, Date.now()), offline: est.offline });
   const serie = () => mesclarSerie(est.serieBase, est.serieLatest);
 
   function desenharGraficos(view, forcar = false) {
@@ -59,6 +60,7 @@ export function initHome() {
       if (s?.presidente) est.serieBase = s.presidente;
     }
     render();
+    if (DEMO) poller.parar(); // estático: uma leitura basta
   }
 
   const poller = criarPoller({
@@ -73,7 +75,7 @@ export function initHome() {
   observarTamanho($('#cmpchart'), () => desenharCmp($('#cmpchart'), homeView({ latest: est.latest, serie: serie() }).cmpCfg));
   $('#atualizar')?.addEventListener('click', () => poller.atualizarAgora());
   // Reavalia "dados atrasados" sem esperar o próximo polling.
-  setInterval(() => { if (est.latest) $('#upd').innerHTML = updHTML(homeView({ latest: est.latest, serie: serie(), status: status() }).vm, status()); }, POLL.intervaloMs / 2);
+  if (!DEMO) setInterval(() => { if (est.latest) $('#upd').innerHTML = updHTML(homeView({ latest: est.latest, serie: serie(), status: status() }).vm, status()); }, POLL.intervaloMs / 2);
 
   initPanorama({ onPanorama: (p) => { est.panorama = p; render(); } });
   poller.iniciar();

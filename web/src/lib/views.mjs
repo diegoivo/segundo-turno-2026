@@ -14,10 +14,13 @@ const ICON_SENSORS_OFF = '<svg class="ic" aria-hidden="true"><use href="#i-senso
 
 /** Selo do cabeçalho. status: { atrasado, offline } */
 export function updHTML(vm, status = {}) {
-  if (!vm || vm.vazio) return `${ICON_SENSORS_OFF}<span>Domingo, 25/10/2026</span>`;
-  if (status.atrasado) return `${ICON_SENSORS_OFF}<span class="late"><b>Dados do TSE atrasados</b> · último arquivo ${esc(vm.hg ?? '—')}</span>`;
-  if (status.offline) return `${ICON_SENSORS_OFF}<span class="late"><b>Sem conexão com os dados</b> · mostrando a última leitura (${esc(vm.hg ?? '—')})</span>`;
-  return `${ICON_SENSORS}<span>Ao vivo · <b>${esc(vm.hg ?? '—')}</b></span>`;
+  if (!vm || vm.vazio) return `${ICON_SENSORS_OFF}<span><span class="lv-h">Domingo, </span>25/10<span class="lv-h">/2026</span></span>`;
+  const h = (t) => `<span class="lv-h"> · ${t}</span>`;
+  const hora = esc(vm.hg ?? '—');
+  if (status.demo) return `${ICON_SENSORS_OFF}<span class="lv-h">Simulação · <b>${hora}</b></span>`;
+  if (status.atrasado) return `${ICON_SENSORS_OFF}<span class="late"><b><span class="lv-h">Dados do TSE </span>atrasados</b>${h(hora)}</span>`;
+  if (status.offline) return `${ICON_SENSORS_OFF}<span class="late"><b>Sem conexão</b>${h(`última leitura ${hora}`)}</span>`;
+  return `${ICON_SENSORS}<span>Ao vivo${h(`<b>${hora}</b>`)}</span>`;
 }
 
 const SIDES = (vm) => ({ left: { nome: vm.left.nome, curto: vm.left.curto, cor: vm.left.cor }, right: { nome: vm.right.nome, curto: vm.right.curto, cor: vm.right.cor } });

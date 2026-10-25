@@ -70,6 +70,8 @@ escrever('404.html', pagina404(base));
 
 // 4. estáticos, OG, robots, sitemap, cabeçalhos
 for (const f of ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'manifest.webmanifest']) cpSync(`${RAIZ}src/assets/${f}`, `${DIST}/${f}`);
+// modo demonstração (?demo): dados estáticos de simulação, só em /demo/; nenhuma página os referencia sem ?demo
+cpSync(`${RAIZ}src/demo`, `${DIST}/demo`, { recursive: true });
 escrever('og.png', renderOg());
 escrever('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 const urls = ['/', ...GOV_UFS.map((u) => `/governador/${u}/`), '/metodologia/', '/auditoria/'];

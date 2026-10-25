@@ -3,6 +3,8 @@
 export const CACHE_HTML = 'public, max-age=60, s-maxage=60, stale-while-revalidate=300';
 export const CACHE_IMUTAVEL = 'public, max-age=31536000, immutable';
 export const CACHE_ESTATICO = 'public, max-age=86400';
+// Simulação (?demo): arquivos estáticos que podem ser regerados; cache curto e fora dos buscadores.
+export const CACHE_DEMO = 'public, max-age=300';
 
 const SEGURANCA = {
   'X-Content-Type-Options': 'nosniff',
@@ -18,6 +20,7 @@ export function gerarHeaders() {
   return [
     ...html.map((c) => bloco(c, CACHE_HTML)),
     bloco('/assets/*', CACHE_IMUTAVEL),
+    bloco('/demo/*', CACHE_DEMO, { 'X-Robots-Tag': 'noindex' }),
     ...estaticos.map((c) => bloco(c, CACHE_ESTATICO)),
   ].join('\n');
 }

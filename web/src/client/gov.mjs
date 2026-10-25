@@ -5,7 +5,7 @@ import { dadosAtrasados, estenderSerie, mesclarSerie } from '../lib/viewmodel.mj
 import { govView, updHTML } from '../lib/views.mjs';
 import { $, aplicarSlots, observarTamanho } from './dom.mjs';
 import { desenharHist } from './chart-ui.mjs';
-import { carregarGov, carregarSerie, url, validarLatest } from './dados.mjs';
+import { DEMO, carregarGov, carregarSerie, url, validarLatest } from './dados.mjs';
 import { relogio } from './home.mjs';
 import { ALVO_MS } from '../lib/config.mjs';
 
@@ -15,7 +15,7 @@ export function initGov(uf) {
   let relogioTimer = null;
   let ultimaChave = '';
 
-  const status = () => ({ atrasado: dadosAtrasados(est.latest, Date.now()), offline: est.offline });
+  const status = () => (DEMO ? { demo: true } : { atrasado: dadosAtrasados(est.latest, Date.now()), offline: est.offline });
   const view = () => govView(uf, { latest: est.latest, gov: est.gov, serie: mesclarSerie(est.serieBase, est.serieLatest), status: status() });
 
   function render(forcar = false) {
@@ -53,6 +53,7 @@ export function initGov(uf) {
       }
     }
     render();
+    if (DEMO) poller.parar();
   }
 
   const poller = criarPoller({
@@ -64,6 +65,6 @@ export function initGov(uf) {
   render(true);
   observarTamanho($('#histchart'), () => render(true));
   $('#atualizar')?.addEventListener('click', () => poller.atualizarAgora());
-  setInterval(() => { if (est.latest) $('#upd').innerHTML = updHTML(view().vm, status()); }, POLL.intervaloMs / 2);
+  if (!DEMO) setInterval(() => { if (est.latest) $('#upd').innerHTML = updHTML(view().vm, status()); }, POLL.intervaloMs / 2);
   poller.iniciar();
 }

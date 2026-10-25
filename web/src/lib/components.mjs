@@ -259,15 +259,16 @@ export function histSummary(vm) {
 }
 
 /** Linha divergente a partir do 50%. Sem votos, mostra "—". */
+/** Linha "dois lados": nome, % de Lula (vermelho) e de Flávio (azul) sempre visíveis, e barra bicolor com a marca dos 50%. */
 export function divRow(name, right, l, r) {
   const tot = l + r;
-  if (!(tot > 0)) return `<li><div class="rowh"><b>${esc(name)}</b><span>${esc(right || '')}</span></div><p class="sub">${NA} sem votos apurados</p></li>`;
+  const cab = `<div class="rowh"><b>${esc(name)}</b><span>${esc(right || '')}</span></div>`;
+  if (!(tot > 0)) {
+    return `<li>${cab}<div class="dv vazio"><span>${NA}</span><div class="dvbar vazia" role="img" aria-label="Lula ${NA}, Flávio ${NA}: sem votos apurados"></div><span>${NA}</span></div><p class="sub">sem votos apurados</p></li>`;
+  }
   const sl = (l / tot) * 100;
-  const m = sl - 50;
-  const w = Math.min(50, ((Math.abs(m) * 2) / 20) * 50);
-  const bar = m >= 0 ? `<i class="c-red" style="right:50%;width:${w}%"></i>` : `<i class="c-blue" style="left:50%;width:${w}%"></i>`;
-  return `<li><div class="rowh"><b>${esc(name)}</b><span>${esc(right || '')}</span></div><div class="dv"><span>${p(sl, 1)}</span>`
-    + `<div class="dvbar" role="img" aria-label="Lula ${p(sl, 1)}, Flávio ${p(100 - sl, 1)}">${bar}</div><span>${p(100 - sl, 1)}</span></div></li>`;
+  return `<li>${cab}<div class="dv"><span>${p(sl, 1)}</span>`
+    + `<div class="dvbar" role="img" aria-label="Lula ${p(sl, 1)}, Flávio ${p(100 - sl, 1)}"><i class="c-red" style="flex:${sl.toFixed(3)} 1 0"></i><i class="c-blue" style="flex:${(100 - sl).toFixed(3)} 1 0"></i></div><span>${p(100 - sl, 1)}</span></div></li>`;
 }
 
 export const shortHash = (h) => (h ? `${h.slice(0, 8)}…${h.slice(-6)}` : NA);

@@ -38,5 +38,14 @@ export function parseDgHg(dg, hg) {
   return Number.isFinite(ms) ? ms : null;
 }
 
+/** Contagem curta pt-BR: 987 -> "987"; 1234 -> "1,2 mil"; 12000 -> "12 mil"; 1500000 -> "1,5 mi". */
+export function compacto(v) {
+  if (!finito(v)) return '—';
+  const f = (x) => (Math.round(x * 10) / 10).toLocaleString('pt-BR');
+  if (v < 1000) return String(Math.round(v));
+  if (v < 1e6) return `${f(v / 1e3)} mil`;
+  return `${f(v / 1e6)} mi`;
+}
+
 export const cap = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
 export { finito };
