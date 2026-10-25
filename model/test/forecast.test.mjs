@@ -25,7 +25,6 @@ test('0% apurado (arquivos reais pre-eleicao 6258): forecast null, apuracao_mini
   const r = forecast({ cargo: 'presidente', br, ufs });
   assert.equal(r.forecast, null);
   assert.ok(r.criterios_nao_atendidos.includes('apuracao_minima'));
-  assert.ok(r.criterios_nao_atendidos.includes('estratos_apurados'));
   assert.equal(r.apurado.eleitorado_pct, 0);
   assert.equal(r.parcial.validos, 0);
   assert.equal(r.corrida.finalistas.length, 2);
@@ -143,12 +142,12 @@ test('leitura preservada (stale) bloqueia presidente', () => {
 });
 
 test('dispersao de horarios e frescor', () => {
-  const ufs = parcialDeBaseline(baselinePresidente, { frac: 0.6, hgPorEstrato: { rj: '19:41:00' } });
+  const ufs = parcialDeBaseline(baselinePresidente, { frac: 0.6, hgPorEstrato: { rj: '21:00:00' } });
   const r = forecast({ cargo: 'presidente', ufs });
   assert.ok(r.criterios_nao_atendidos.includes('dispersao_horarios'));
   const ok = forecast({ cargo: 'presidente', ufs: parcial60(), agora: Date.parse('2026-10-25T19:32:00-03:00') });
   assert.ok(ok.forecast);
-  const velho = forecast({ cargo: 'presidente', ufs: parcial60(), agora: '2026-10-25T20:30:00-03:00' });
+  const velho = forecast({ cargo: 'presidente', ufs: parcial60(), agora: '2026-10-25T21:00:00-03:00' });
   assert.ok(velho.criterios_nao_atendidos.includes('frescor'));
   const semHora = parcial60();
   const r4 = forecast({ cargo: 'presidente', ufs: { ...semHora, pr: { ...semHora.pr, hg: '' } } });
@@ -180,8 +179,9 @@ test('governador sem estratos municipais: so o arquivo da UF -> estrato unico, f
   assert.equal(r.cobertura.total, 1);
   assert.ok(Math.abs(r.forecast.projecao[c1.n] - (300000 / 580000) * 100) < 0.01);
   const baixo = forecast({ cargo: 'governador', uf: 'rn', ufs: { rn: { ...ufJson, e: { ...ufJson.e, est: '1000' }, s: { ...ufJson.s, st: '10' } } } });
-  assert.equal(baixo.forecast, null);
-  assert.ok(baixo.criterios_nao_atendidos.includes('apuracao_minima'));
+  // qualquer dado projeta (decisao de 25/10), com a faixa larga do inicio
+  assert.ok(baixo.forecast, JSON.stringify(baixo.criterios_nao_atendidos));
+  assert.ok(baixo.forecast.meia_largura_pp > r.forecast.meia_largura_pp);
 });
 
 test('governador: municipio faltando dentro do limite de 2% mantem a projecao; acima bloqueia', () => {
@@ -250,15 +250,13 @@ test('governador: frescor e dispersao medidos contra o arquivo da UF quando ele 
     cands: [{ n: c1.n, vap: 100000 }, { n: c2.n, vap: 90000 }] });
   // municipios com horarios 10 min apart entre si: sem referencia derruba; com arquivo da UF a 1 min de todos... nao da
   const estratos = parcialDeBaseline(b, { frac: 0.5, ele: '6260', tpabr: 'mu', hgPorEstrato: { ac01392: '19:38:00' } }); // Rio Branco 8 min a frente
-  const semRef = forecast({ cargo: 'governador', uf: 'ac', estratos });
-  assert.ok(semRef.criterios_nao_atendidos.includes('dispersao_horarios'));
   // com a UF em 19:34: desvio maximo = 4 min -> ok; relogio medido no arquivo da UF
   const comRef = forecast({ cargo: 'governador', uf: 'ac', estratos, ufs: { ac: ufJson('19:34:00') }, agora: '2026-10-25T19:36:00-03:00' });
   assert.deepEqual(comRef.criterios_nao_atendidos, []);
   assert.equal(comRef.criterios.find((c) => c.id === 'dispersao_horarios').valor, 240);
   assert.equal(comRef.criterios.find((c) => c.id === 'frescor').valor, 120);
   // UF 10 min a frente dos municipios -> dispersao estoura
-  const refLonge = forecast({ cargo: 'governador', uf: 'ac', estratos: parcialDeBaseline(b, { frac: 0.5, ele: '6260', tpabr: 'mu' }), ufs: { ac: ufJson('19:40:00') } });
+  const refLonge = forecast({ cargo: 'governador', uf: 'ac', estratos: parcialDeBaseline(b, { frac: 0.5, ele: '6260', tpabr: 'mu' }), ufs: { ac: ufJson('21:00:00') } });
   assert.ok(refLonge.criterios_nao_atendidos.includes('dispersao_horarios'));
   // municipios antigos e finais nao importam, mas o arquivo da UF velho no relogio derruba
   const finais = parcialDeBaseline(b, { frac: 1, ele: '6260', tpabr: 'mu', hgPorEstrato: { ac01392: '17:30:00' } });

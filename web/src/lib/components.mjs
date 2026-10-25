@@ -120,7 +120,7 @@ export function fcHTML(vm) {
 
 // Critérios do modelo (model/criterios.mjs) agrupados em frases simples. Falta = algum id do grupo em criterios_nao_atendidos.
 const GRUPOS = [
-  { ids: ['apuracao_minima'], t: (k) => `Pelo menos ${LIMIAR_APURACAO[k]}% do eleitorado em seções totalizadas`, d: (vm) => (vm.pctEleitorado != null ? `Agora: <b>${p(vm.pctEleitorado, 1)}</b>` : '') },
+  { ids: ['apuracao_minima'], t: (k) => (LIMIAR_APURACAO[k] > 0 ? `Pelo menos ${LIMIAR_APURACAO[k]}% do eleitorado em seções totalizadas` : 'Alguma seção totalizada'), d: (vm) => (vm.pctEleitorado != null ? `Agora: <b>${p(vm.pctEleitorado, 1)}</b>` : '') },
   { ids: ['estratos_apurados'], t: (k) => (k === 'governador' ? 'Pelo menos metade dos municípios (ou zonas, no DF) com algum voto totalizado' : 'Pelo menos metade das 28 partes (27 UFs e exterior) com algum voto totalizado') },
   { ids: ['arquivos_validos', 'estratos_esperados', 'finalistas_identificados', 'cobertura_dados'], t: () => 'Arquivos do TSE válidos, completos e consistentes (os candidatos somam o total de válidos)' },
   { ids: ['fallback_nacional', 'estratos_sem_prior'], t: () => 'Base do 1º turno disponível em todas as partes' },
@@ -207,7 +207,7 @@ export function headlineHTML(vm, tipo) {
   if (!vm || vm.vazio || !vm.fc.avail) {
     const apoio = vm && !vm.vazio ? `<p class="apoio">Apuração oficial: <b>${p(vm.pct, 1)} das seções</b> totalizadas. Na parcial${vm.L === vm.R ? ', empate.' : `, ${esc((vm.L > vm.R ? vm.left : vm.right).nome)} tem ${p(Math.max(vm.shareL, vm.shareR), 1)} dos válidos.`}</p>`
       : '<p class="apoio">A apuração começa às 17h de Brasília. Até lá, o resultado oficial do 1º turno.</p>';
-    return `<p class="proj-h"><b>Projeção disponível a partir de ${min}% do eleitorado apurado</b></p>${apoio}`;
+    return `<p class="proj-h"><b>${min > 0 ? `Projeção disponível a partir de ${min}% do eleitorado apurado` : 'Projeção disponível assim que houver seções apuradas'}</b></p>${apoio}`;
   }
   const f = vm.fc;
   const lados = [[vm.left, f.L, f.lo, f.hi], [vm.right, f.R, f.hi == null ? null : 100 - f.hi, f.lo == null ? null : 100 - f.lo]].sort((x, y) => y[1] - x[1]);

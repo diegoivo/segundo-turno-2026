@@ -154,7 +154,15 @@ test('correcao de deriva: interpolacao linear com extremos e aplicacao simetrica
 test('criterios: sem projecao devolve so os criterios de dados', () => {
   const c = avaliarCriterios({ tipo: 'presidente', erros: [{ id: 'x', erros: ['e'] }], estratosEsperados: 0, proj: null, geracao: {}, agora: null });
   assert.deepEqual(naoAtendidos(c), ['arquivos_validos', 'estratos_esperados', 'finalistas_identificados']);
-  assert.ok(LIMIARES.presidente.apuracaoMinPct < LIMIARES.governador.apuracaoMinPct);
+  assert.ok(LIMIARES.presidente.apuracaoMinPct <= LIMIARES.governador.apuracaoMinPct);
   const d = avaliarCriterios({ tipo: 'outro', erros: [], estratosEsperados: 1, proj: null, geracao: {}, agora: null });
   assert.ok(d.find((x) => x.id === 'finalistas_identificados').ok === false);
+});
+
+test('faixa abaixo de 10% (presidente): usa a mais larga entre com e sem correcao', async () => {
+  const { meiaLargura } = await import('../faixa.mjs');
+  assert.equal(meiaLargura('presidente', 2), 26.884);
+  assert.equal(meiaLargura('presidente', 7), 2.29);
+  assert.equal(meiaLargura('presidente', 15), 0.752);
+  assert.equal(meiaLargura('governador', 2), 8.251);
 });

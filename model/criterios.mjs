@@ -3,35 +3,35 @@
 
 export const LIMIARES = Object.freeze({
   presidente: Object.freeze({
-    apuracaoMinPct: 10, // % do eleitorado em secoes totalizadas (soma dos estratos)
+    apuracaoMinPct: 0, // projeta com qualquer dado (> 0); a faixa larga do inicio expressa a incerteza (decisao do Diego, 25/10)
     semDadoMaxPct: 0, // % do eleitorado em estratos sem arquivo valido
     fallbackNacionalMaxPct: 5, // % do eleitorado projetado pela taxa nacional (sem baseline)
     semPriorMaxPct: 0,
     staleMaxPct: 0,
-    frescorMaxS: 300, // idade maxima do arquivo mais antigo (quando `agora` e informado)
-    dispersaoMaxS: 300, // diferenca entre o arquivo mais antigo e o mais novo
-    estratosApuradosMinPct: 50, // % dos estratos com algum voto totalizado
+    frescorMaxS: 3600, // idade maxima do arquivo mais antigo (quando `agora` e informado)
+    dispersaoMaxS: 3600, // diferenca entre o arquivo mais antigo e o mais novo
+    estratosApuradosMinPct: 0, // % dos estratos com algum voto totalizado
   }),
   // presidente com estratos MUNICIPAIS (modelo B): ~5.700 arquivos, tolera faltas pequenas como o governador
   presidente_mun: Object.freeze({
-    apuracaoMinPct: 10,
+    apuracaoMinPct: 0,
     semDadoMaxPct: 2,
     fallbackNacionalMaxPct: 5,
     semPriorMaxPct: 0,
     staleMaxPct: 2,
-    frescorMaxS: 300,
-    dispersaoMaxS: 600,
-    estratosApuradosMinPct: 50,
+    frescorMaxS: 3600,
+    dispersaoMaxS: 3600,
+    estratosApuradosMinPct: 0,
   }),
   governador: Object.freeze({
-    apuracaoMinPct: 20,
+    apuracaoMinPct: 0,
     semDadoMaxPct: 2,
     fallbackNacionalMaxPct: 5,
     semPriorMaxPct: 0,
     staleMaxPct: 2,
-    frescorMaxS: 300,
-    dispersaoMaxS: 300,
-    estratosApuradosMinPct: 50,
+    frescorMaxS: 3600,
+    dispersaoMaxS: 3600,
+    estratosApuradosMinPct: 0,
   }),
 });
 
@@ -53,7 +53,7 @@ function criteriosDeCobertura(proj, lim) {
   const e = proj.eleitoradoPct;
   const pctEstratos = proj.contagem.total ? (proj.contagem.apurados / proj.contagem.total) * 100 : 0;
   return [
-    crit('apuracao_minima', e.apurado >= lim.apuracaoMinPct, r2(e.apurado), lim.apuracaoMinPct,
+    crit('apuracao_minima', e.apurado > 0 && e.apurado >= lim.apuracaoMinPct, r2(e.apurado), lim.apuracaoMinPct,
       `${r2(e.apurado)}% do eleitorado em secoes totalizadas (minimo ${lim.apuracaoMinPct}%)`),
     crit('estratos_apurados', pctEstratos >= lim.estratosApuradosMinPct, r2(pctEstratos), lim.estratosApuradosMinPct,
       `${proj.contagem.apurados} de ${proj.contagem.total} estratos com votos totalizados`),

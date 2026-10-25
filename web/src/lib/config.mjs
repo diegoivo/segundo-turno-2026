@@ -20,7 +20,7 @@ export const GITHUB_CACHE_KEY = 'gh_stars';
 /** Quantos snapshots a auditoria baixa e verifica. */
 export const AUDITORIA_N = 6;
 /** Limiar de eleitorado totalizado exigido pelo modelo (model/criterios.mjs). */
-export const LIMIAR_APURACAO = { presidente: 10, governador: 20 };
+export const LIMIAR_APURACAO = { presidente: 0, governador: 0 }; // projeta com qualquer dado (25/10)
 
 export const LULA = { n: '13', nome: 'Lula', curto: 'Lula', completo: 'Luiz Inácio Lula da Silva', sg: 'PT', vice: 'Geraldo Alckmin', cor: 'red' };
 export const FLAVIO = { n: '22', nome: 'Flávio Bolsonaro', curto: 'Flávio', completo: 'Flávio Nantes Bolsonaro', sg: 'PL', vice: 'Alfredo Gaspar', cor: 'blue' };

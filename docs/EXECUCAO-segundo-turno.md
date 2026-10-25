@@ -80,3 +80,9 @@
 - Custo: Workers Paid (US$ 5/mês) + R2 (centavos). As requisições a /dados/ acima de 10 M/mês custam US$ 0,30/M. Com 200 M de visitas e polling, o custo pode chegar a dezenas de dólares; com domínio próprio + R2 custom domain + Cache Rules, cai para ~0.
 - Pendências para o Diego: (1) domínio; (2) confirmar no painel que o Workers Paid está ativo na conta Hosts; (3) gatilho manual: se até ~40% apurado a parcial de Lula não subir como previsto, trocar MODELO_METODO_PRESIDENTE para `sem_correcao` e refazer o deploy do coletor.
 - 25/10 (tarde): ajustes de front 1-6 implementados pelo worker de front (header em linha, botão GitHub, tema só ícone, modo ?demo com dados do ensaio 2, mapa com contorno fino, por região bicolor). Unit 30/30, e2e 40/40, build de produção ok, screenshots em docs/qa-ajustes/. Sem deploy; QA independente pendente. Ver docs/PRD-ajustes-front-25-10.md.
+
+## 2026-10-25 — dia da eleição
+- Domínio segundoturno2026.com: zona Free na conta Hosts, NS da Namecheap → clark/sharon.ns.cloudflare.com, registros de estacionamento removidos (MX/TXT de e-mail mantidos), custom domains do Worker para a raiz e o www. Certificado emitido às 17:05.
+- Ajustes de front (PRD-ajustes-front-25-10.md) com QA independente (QA-AJUSTES-25-10.md): D1 a D4 corrigidos; unit 30/30 e e2e 45/45.
+- O coletor de produção fez o 1º commit às 17:07 (seq 0), logo após a 1ª parcial do TSE (17:06, 0,25%).
+- **Decisão do Diego: projetar com qualquer dado.** Limiares de apuração e de estratos zerados (exige > 0); frescor e dispersão a 3600 s; estratos sem nenhuma seção totalizada isentos dos critérios de tempo. Abaixo de 10%, a faixa do presidente usa a mais larga entre com e sem correção (±26,9 p.p. < 5%; ±2,29 de 5 a 10%), porque a correção não foi validada abaixo de 10%. A calibração congelada não mudou (mesmo sha). Modelo 33/33, coletor 47/47, front 30/30. Deploy do coletor (c21a951a) e do front (56b0bf5a).

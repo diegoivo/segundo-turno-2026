@@ -3,11 +3,18 @@
 // A faixa da MARGEM (A - B) e o dobro, porque com dois candidatos B = 100 - A.
 import { CALIBRACAO } from './calibracao.mjs';
 
+const binDe = (tabela, pct) => tabela.find((b) => pct < b.ate) ?? tabela[tabela.length - 1];
+
+// Abaixo de 10% (presidente) a correcao nao foi validada no backtest: usa a faixa mais larga entre com e sem correcao.
+const LIMIAR_VALIDADO = 10;
+
 export function meiaLargura(tipo, pctApurado, calib = CALIBRACAO) {
   const tabela = calib.faixas[tipo] ?? calib.faixas.governador_uf;
   const pct = Math.min(100, Math.max(0, Number(pctApurado) || 0));
-  const bin = tabela.find((b) => pct < b.ate) ?? tabela[tabela.length - 1];
-  return bin.meia;
+  const meia = binDe(tabela, pct).meia;
+  const conservadora = calib.faixas[`${tipo}_sem_correcao`];
+  if (pct < LIMIAR_VALIDADO && conservadora) return Math.max(meia, binDe(conservadora, pct).meia);
+  return meia;
 }
 
 export function confianca(pctApurado) {

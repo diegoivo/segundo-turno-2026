@@ -125,10 +125,12 @@ function agregarBaseline(baseline) {
 }
 
 // Horarios de geracao dos estratos NAO finais (estrato com 100% das secoes totalizadas tem dado final e fica isento:
-// o TSE pode nao regerar um arquivo que nao mudou). `referencia` = geradoEm do arquivo da UF (governador), quando dado.
+// o TSE pode nao regerar um arquivo que nao mudou). Estrato sem nenhuma secao totalizada tambem fica isento: so entra
+// pela base e o TSE nao regera o arquivo enquanto ele nao muda. `referencia` = geradoEm do arquivo da UF (governador).
 const estratoFinal = (obs) => obs != null && obs.ts > 0 && obs.st >= obs.ts;
+const estratoVazio = (obs) => obs != null && !(obs.st > 0);
 function horarios(estratos, referencia = null) {
-  const abertos = estratos.filter((e) => e.obs && !estratoFinal(e.obs));
+  const abertos = estratos.filter((e) => e.obs && !estratoFinal(e.obs) && !estratoVazio(e.obs));
   const ts = abertos.map((e) => e.obs.geradoEm).filter((t) => t != null);
   const desvioRef = referencia != null && ts.length ? Math.max(...ts.map((t) => Math.abs(t - referencia))) : null;
   return {

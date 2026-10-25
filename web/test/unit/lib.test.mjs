@@ -145,10 +145,10 @@ test('componentes: sem número inventado quando falta campo', () => {
 });
 
 test('manchete: projeção como proposta, critérios faltando e precisão só se o modelo exportar', () => {
-  assert.match(C.headlineHTML(null, 'presidente'), /a partir de 10% do eleitorado apurado/);
-  assert.match(C.headlineHTML(null, 'governador'), /a partir de 20%/);
+  assert.match(C.headlineHTML(null, 'presidente'), /assim que houver seções apuradas/);
+  assert.match(C.headlineHTML(null, 'governador'), /assim que houver seções apuradas/);
   const h2 = C.headlineHTML(V.presidenteVM(latestDe(2)), 'presidente');
-  assert.match(h2, /a partir de 10%/);
+  assert.match(h2, /assim que houver seções apuradas/);
   assert.match(h2, /Apuração oficial: <b>12,2% das seções/);
   const h3 = C.headlineHTML(V.presidenteVM(latestDe(3)), 'presidente');
   assert.match(h3, /Projeção:/);
@@ -221,7 +221,7 @@ test('views: slots pré-renderizados com 1º turno real e estados', () => {
   const v = W.homeView({});
   assert.equal(v.estado, 1);
   assert.match(v.slots.score, /53\.879\.538/);
-  assert.match(v.slots.finding, /Projeção disponível a partir de 10%/);
+  assert.match(v.slots.finding, /Projeção disponível assim que houver seções apuradas/);
   assert.match(v.slots.score, /45,16%/);
   assert.match(v.slots.score, /47,03%/);
   const v3 = W.homeView({ latest: latestDe(3), serie: serieDe(3).presidente });
