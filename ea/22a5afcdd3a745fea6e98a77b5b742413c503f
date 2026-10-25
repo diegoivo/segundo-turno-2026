@@ -1,0 +1,116 @@
+web/scripts/build.mjs
+  s_85bb19447b4c97::t_4324ea3a116b0e 73-74
+web/src/demo/live/manifest.json
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1
+web/src/css/app.css
+  s_85bb19447b4c97::t_4f24fcf534f94d 271-272,274-277,284,292,294-297,457,463,466
+  s_85bb19447b4c97::t_513904d665c096 458-462,464-465,467-470
+  s_85bb19447b4c97::t_f8eb2ecb9d11d5 109
+  s_85bb19447b4c97::t_ad9a26f7d3516f 83-84,86-92,95,97,100-107
+  s_85bb19447b4c97::t_895821c80e57b4 85,93-94,96,98-99,108,111,127
+web/src/demo/live/gov-am.json
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1
+web/src/client/main.mjs
+  s_85bb19447b4c97::t_a2d72ef75ba5fd 5-8,12-14
+web/src/client/home.mjs
+  s_85bb19447b4c97::t_8933fe1d0266b1 9,24-25,63,78
+web/src/lib/format.mjs
+  s_85bb19447b4c97::t_8933fe1d0266b1 41-49
+web/src/client/nav-fade.mjs
+  s_85bb19447b4c97::t_513904d665c096 1-16
+web/test/unit/lib.test.mjs
+  s_85bb19447b4c97::t_a9998b8f3a7f3a 231
+  s_85bb19447b4c97::t_0d9576c4b96cb7 234
+web/src/lib/components.mjs
+  s_85bb19447b4c97::t_4f24fcf534f94d 262,265-268,270-271
+web/src/client/mapa-ui.mjs
+  s_85bb19447b4c97::t_8933fe1d0266b1 4,72,83
+web/src/demo/live/gov-rn.json
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1
+web/src/demo/live/gov-to.json
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1
+web/test/e2e/ajustes.spec.mjs
+  s_85bb19447b4c97::t_49143db416adcf 321
+  s_85bb19447b4c97::t_bea3e89266fc7f 1-42,45-57,60-62,68-74,76-187,191-297,300,304,306-308,312,322-323,337,341,343-344
+  s_85bb19447b4c97::t_c45bf7210c27c2 59
+  s_85bb19447b4c97::t_11e27176659c8f 44
+  s_85bb19447b4c97::t_f8eb2ecb9d11d5 43,58,63-67,75
+  s_85bb19447b4c97::t_09ae568d2acf41 188-190,298-299,301-303,305,309-311,313-320,324-336,338-340,342
+docs/EXECUCAO-segundo-turno.md
+  s_85bb19447b4c97::t_32136aeed270b0 82
+web/src/demo/live/gov-ac.json
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1
+web/test/unit/demo-gh-regioes.test.mjs
+  s_85bb19447b4c97::t_5dfbe23bd109e8 1-117
+web/src/demo/live/gov-df.json
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1
+web/src/lib/demo.mjs
+  s_85bb19447b4c97::t_513904d665c096 20
+  s_85bb19447b4c97::t_c542f81a534dd2 1-19
+web/src/demo/live/series.json
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1
+web/src/demo/live/gov-es.json
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1
+docs/QA-AJUSTES-25-10.md
+  s_85bb19447b4c97::t_9971b75b08a3ef 1-37
+web/src/build/headers.mjs
+  s_85bb19447b4c97::t_4324ea3a116b0e 6-7,23
+web/src/lib/panorama.mjs
+  s_85bb19447b4c97::t_4f24fcf534f94d 67
+web/src/client/gov.mjs
+  s_85bb19447b4c97::t_8933fe1d0266b1 8,18,56,68
+web/scripts/gerar-demo.mjs
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1-43
+docs/PRD-ajustes-front-25-10.md
+  s_85bb19447b4c97::t_ec601a7578ad7a 1-22
+  s_85bb19447b4c97::t_d11eabc82fe9cc 37-38
+  s_85bb19447b4c97::t_32136aeed270b0 23-36
+  s_85bb19447b4c97::t_aecec4db140447 39-40
+web/src/client/dados.mjs
+  s_85bb19447b4c97::t_c542f81a534dd2 3,6,9
+  s_85bb19447b4c97::t_8ffb43ba199bd2 7-8
+web/src/client/github.mjs
+  s_85bb19447b4c97::t_8ffb43ba199bd2 1-39
+web/src/client/theme.mjs
+  s_85bb19447b4c97::t_474f52c386d603 12-14
+web/src/demo/live/latest.json
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1
+web/src/lib/views.mjs
+  s_85bb19447b4c97::t_ea01cdea2275a4 18-19,21-23
+  s_85bb19447b4c97::t_c45bf7210c27c2 20
+  s_85bb19447b4c97::t_ad9a26f7d3516f 17
+web/src/client/demo-ui.mjs
+  s_85bb19447b4c97::t_c37d45dba17b27 5,15
+  s_85bb19447b4c97::t_8ffb43ba199bd2 1-4,6-14,16-19
+web/src/build/pages.mjs
+  s_85bb19447b4c97::t_c37d45dba17b27 12
+  s_85bb19447b4c97::t_513904d665c096 13-14
+  s_85bb19447b4c97::t_4f24fcf534f94d 164,168,171
+  s_85bb19447b4c97::t_474f52c386d603 4,10-11,52
+  s_85bb19447b4c97::t_895821c80e57b4 53
+  s_85bb19447b4c97::t_ad9a26f7d3516f 51
+web/wrangler.toml
+  s_85bb19447b4c97::t_73f15770efe03c 11-15
+web/src/lib/config.mjs
+  s_85bb19447b4c97::t_8ffb43ba199bd2 14-19
+web/src/demo/snapshot-6258.json
+  s_85bb19447b4c97::t_c9c7cb780ad20d 1
+web/test/e2e/site.spec.mjs
+  s_85bb19447b4c97::t_bea3e89266fc7f 12-14,19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ea22a5afcdd3a745fea6e98a77b5b742413c503f",
+  "prompts": {},
+  "sessions": {
+    "s_85bb19447b4c97": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "491e5ea6-5823-4efe-b024-50c84ba8465d",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Diego Ivo <diego@conversion.com.br>"
+    }
+  }
+}
